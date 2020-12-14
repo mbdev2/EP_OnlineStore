@@ -4,15 +4,14 @@
 
 <html>
 	<head>
-		<title>eSHOP MMA - prijava osebja</title>
+		<title>eSHOP MMA</title>
 	</head>
 
 	<body>
 		<a href="../gosti/domaca.php">
 			Domača
 		</a>
-
-		<h3>Prijava za osebje (administrator in prodajalci)</h3>
+		<h3>Welcome back to work! (administrator in prodajalci)</h3>
 
 		<form action="../skupno/prijavaOsebja.php" method="post">
 			<div>

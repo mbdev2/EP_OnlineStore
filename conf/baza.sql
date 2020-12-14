@@ -1,39 +1,34 @@
--- USTVARJANJE PODATKOVNE BAZE
 CREATE SCHEMA `eSHOPmma` ;
 USE `eSHOPmma` ;
 
--- USTVARJANJE TABELE ADMINISTRATOR
 DROP TABLE IF EXISTS `administrator`;
 CREATE TABLE `administrator` (
-	`idAdministrator` int NOT NULL AUTO_INCREMENT,
-	`ime` varchar(45) DEFAULT NULL,
-	`priimek` varchar(45) DEFAULT NULL,
-	`elektronskiNaslov` varchar(45) NOT NULL UNIQUE,
+	`idAdmin` int NOT NULL AUTO_INCREMENT,
+	`ime` varchar(50) DEFAULT NULL,
+	`priimek` varchar(50) DEFAULT NULL,
+	`eNaslov` varchar(50) NOT NULL UNIQUE,
 	`geslo` char(128) NOT NULL,
-	PRIMARY KEY (`idAdministrator`),
-	UNIQUE KEY `idAdministrator_UNIQUE` (`idAdministrator`)
+	PRIMARY KEY (`idAdmin`),
+	UNIQUE KEY `idAdmin_UNIQUE` (`idAdmin`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- POLNJENJE TABELE ADMINISTRATOR
 LOCK TABLES `administrator` WRITE;
 INSERT INTO `administrator` VALUES (1,'Mark','Breznik','mbdev@spletna-prodajalna.si','b5981b732dfdacd417e103ab82c931d8');
 UNLOCK TABLES;
 
 
--- USTVARJANJE TABELE PRODAJALCI
 DROP TABLE IF EXISTS `prodajalci`;
 CREATE TABLE `prodajalci` (
 	`idProdajalca` int NOT NULL AUTO_INCREMENT,
-	`ime` varchar(45) DEFAULT NULL,
-	`priimek` varchar(45) DEFAULT NULL,
-	`elektronskiNaslov` varchar(45) NOT NULL UNIQUE,
+	`ime` varchar(50) DEFAULT NULL,
+	`priimek` varchar(50) DEFAULT NULL,
+	`eNaslov` varchar(50) NOT NULL UNIQUE,
 	`geslo` char(128) NOT NULL,
 	`activeOrNot` tinyint NOT NULL,
 	PRIMARY KEY (`idProdajalca`),
 	UNIQUE KEY `idProdajalca_UNIQUE` (`idProdajalca`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
--- POLNJENJE TABELE PRODAJALCI
 LOCK TABLES `prodajalci` WRITE;
 INSERT INTO `prodajalci` VALUES		(1,'Klemen','Pecnik','klemen.pecnik@spletna-prodajalna.si','5184d8f33546787ac0b60468a032ea9b',1),
 									(2,'Zana','Juvan','zana.juvan@spletna-prodajalna.si','c443c5d04afdbed0f925c57a13033db1',1),
@@ -41,13 +36,12 @@ INSERT INTO `prodajalci` VALUES		(1,'Klemen','Pecnik','klemen.pecnik@spletna-pro
 UNLOCK TABLES;
 
 
--- USTVARJANJE TABELE STRANKE
 DROP TABLE IF EXISTS `stranke`;
 CREATE TABLE `stranke` (
 	`idStranke` int NOT NULL AUTO_INCREMENT,
-	`ime` varchar(45) DEFAULT NULL,
-	`priimek` varchar(45) DEFAULT NULL,
-	`elektronskiNaslov` varchar(45) NOT NULL UNIQUE,
+	`ime` varchar(50) DEFAULT NULL,
+	`priimek` varchar(50) DEFAULT NULL,
+	`eNaslov` varchar(50) NOT NULL UNIQUE,
 	`naslov` varchar(90) DEFAULT NULL,
 	`telefonskaStevilka` int NOT NULL,
 	`geslo` char(128) NOT NULL,
@@ -56,7 +50,6 @@ CREATE TABLE `stranke` (
   UNIQUE KEY `idStranke_UNIQUE` (`idStranke`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
--- POLNJENJE TABELE STRANKE
 LOCK TABLES `stranke` WRITE;
 INSERT INTO `stranke` VALUES 		(1,'Matjaz','Bevc','matjaz.bevc@gmail.com','Plac 19, 5000 Novo Mesto','040444222','51d7310052a9a62fedae78483be55e18',0),
 									(2,'Blaz','Pridgar','blaz.pridgar@gmail.com','Gornji Trg 7, 2000 Maribor','040340203','6f60cb7657da242fed3dc48b24646d11',0),
@@ -65,11 +58,10 @@ INSERT INTO `stranke` VALUES 		(1,'Matjaz','Bevc','matjaz.bevc@gmail.com','Plac 
 UNLOCK TABLES;
 
 
--- USTVARJANJE TABELE ARTIKLI
 DROP TABLE IF EXISTS `artikli`;
 CREATE TABLE `artikli` (
 	`idArtikla` int NOT NULL AUTO_INCREMENT,
-	`ime` varchar(120) NOT NULL,
+	`ime` varchar(128) NOT NULL,
 	`opis` mediumtext,
 	`cena` double NOT NULL,
 	`activeOrNot` tinyint DEFAULT NULL,
@@ -77,12 +69,11 @@ CREATE TABLE `artikli` (
 	UNIQUE KEY `idArtikla_UNIQUE` (`idArtikla`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
--- POLNJENJE TABELE ARTIKLI
 LOCK TABLES `artikli` WRITE;
 INSERT INTO `artikli` VALUES 	(1,'Polar senzor srčnega utripa H10 BLK','Najnatančnejši senzor srčnega utripa znamke Polar, sedaj z izboljšanimi elektrodami H10. Združljiv je z vodilnimi aplikacijami za telesno pripravljenost in napravami Bluetooth. Frekvenca prenosa je 5 kHz, zaradi česar se srčni utrip lahko spremlja tudi pod vodo. Vgrajen ima pomnilnik za shranjevanje podatkov o srčnem utripu. Zelo je udoben, saj je narejen iz mehkega blaga, drsenje pa preprečujejo silikonski čepki in zaponke.',79.99,1),
 (2,'CD PROJEKT Cyberpunk 2077 igra (PC)','Izpod rok razvijalca ene najuspešnejših iger kdajkoli The Witcher 3: Wild Hunt tokrat prihaja nova RPG mojstrovina Cyberpunk 2077. Vstopite v metropolo Night City in se pridružite vrhunskim avanturam v izjemnem odprtem svetu polnem blišča, ki je hkrati obsedeno z močjo. V vlogi izobčenega plačanca odkrijte ključ do nesmrtnosti.',59.99,1),
 (3,'Sony brezžične slušalke WH-1000XM3B, črne','Kakovostne brezžične slušalke proizvajalca Sony so primerna izbira za vse, ki si želite odlične glasbe, kjerkoli se nahajate. S funkcijo digitalnega odpravljanja šumov popolnoma zadušijo vse zvoke iz okolice in obenem zaznajo, kaj počnete ter temu prilagodijo prepuščanje okoljskega zvoka.',239.0,0),
-(4,'Xiaomi Redmi Note 8 Pro mobilni telefon, 6 GB/64 GB, moder','Mobilni telefon XIAOMI Redmi Note 8 PRO se ponaša s 16,6 cm (6,53") IPS zaslonom, kapljično zarezo, steklenim ohišjem in z zaščito Corning Gorilla Glass 5. Z izjemno zmogljivo baterijo 4500 mAh poskrbi za odlično uporabniško izkušnjo in dvodnevno uporabo z enim samim polnjenjem',259.90,1),
+(4,'Xiaomi Redmi Note 8 Pro mobilni telefon, 6 GB/64 GB, moder','Mobilni telefon XIAOMI Redmi Note 8 PRO se ponaša s 16,6 cm (6,53") IPS zaslonom, kapljično zarezo, steklenim ohišjem in z zaščito Corning Gorilla Glass 5. Z izjemno zmogljivo baterijo 5000 mAh poskrbi za odlično uporabniško izkušnjo in dvodnevno uporabo z enim samim polnjenjem',259.90,1),
 (5,'Nintendo Animal Crossing: New Horizons igra (Switch)','Pobegnite na zapuščeni otok in ustvarite svoj raj, medtem ko raziskujete in ustvarjate v igri Animal Crossing: New Horizons. Zgradite svojo skupnost iz nič na zapuščenem otoku. Možno je ustvarjanje in urejenje lastnega lika, doma, okraskov in pokrajine. Zberite materiale, s katerimi lahko sestavite vse od pohištva pa do orodja! Nato uporabite to, kar ustvarite, da dodate otoku še dodaten lastni pridih.',34.99,0),
 (6,'LEGO 75318 Star Wars™ Mladi Yoda','Postavite si lasten luksuzen model mladega Yode iz serije Star Wars: The Mandalorian! Ustvarite avtentične detajle tega popularnega lika znanega kot Baby Yoda. Gibljiva glava, ušesa in usta omogočajo, da na obrazu dosežete veliko različnih izrazov. In otroku podarite njegovo najljubšo igračo – mladega Yodo.',69.42,1),
 (7,'Mattel Enchantimals Lutka s hišnim ljubljenčkom Hedda Hippo','Dajte svoji domišljiji prosto pot in se podajte v čarobni svet s to lutko in živalskimi Enchantimals™! Punčke Enchantimals so ljubki liki, ki jih s prijatelji hišnimi ljubljenčki deli izjemen odnos. Izbirajte med več punčkami Enchantimals in njihovimi živalskimi prijatelji, na primer Heddu Hippo in Lake',9.69,1),
@@ -97,7 +88,6 @@ INSERT INTO `artikli` VALUES 	(1,'Polar senzor srčnega utripa H10 BLK','Najnata
 UNLOCK TABLES;
 
 
--- USTVARJANJE TABELE NAROCILA
 DROP TABLE IF EXISTS `narocila`;
 CREATE TABLE `narocila` (
 	`idNarocila` int NOT NULL AUTO_INCREMENT,
@@ -112,7 +102,6 @@ CREATE TABLE `narocila` (
 	CONSTRAINT `fk_narocila_stranke1` FOREIGN KEY (`idStranke`) REFERENCES `stranke` (`idStranke`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
 
--- POLNJENJE TABELE NAROCILA
 LOCK TABLES `narocila` WRITE;
 INSERT INTO `narocila` VALUES 	(1,4,'2020-11-27 12:32:42',1,269.59,'2020-12-01 07:35:40'),
 								(2,1,'2020-11-29 10:14:46',1,19.38,'2020-12-01 07:35:51'),
@@ -124,7 +113,7 @@ INSERT INTO `narocila` VALUES 	(1,4,'2020-11-27 12:32:42',1,269.59,'2020-12-01 0
 								(8,4,'2020-12-04 01:23:07',1,519.8,'2020-12-04 12:11:38'),
 								(9,3,'2020-12-05 07:27:07',1,299.99,'2020-12-10 08:14:49'),
 								(10,4,'2020-12-06 12:33:07',1,349.84,'2020-12-10 08:15:12'),
-								(11,2,'2020-12-06 16:45:20',1,138.84,'2020-12-10 08:15:47'),
+								(11,2,'2020-12-06 16:50:20',1,138.84,'2020-12-10 08:15:47'),
 								(12,4,'2020-12-07 14:23:31',0,139.1,NULL),
 								(13,3,'2020-12-09 19:03:07',1,29.07,'2020-12-10 08:16:22'),
 								(14,2,'2020-12-10 15:12:08',1,26.6,'2020-12-11 15:47:31'),
@@ -136,7 +125,6 @@ INSERT INTO `narocila` VALUES 	(1,4,'2020-11-27 12:32:42',1,269.59,'2020-12-01 0
 UNLOCK TABLES;
 
 
--- USTVARJANJE TABELE NAROCENIIZDELKI
 DROP TABLE IF EXISTS `naroceniIzdelki`;
 CREATE TABLE `naroceniIzdelki` (
 	`idNaroceniIzdelki` int NOT NULL AUTO_INCREMENT,
@@ -151,7 +139,6 @@ CREATE TABLE `naroceniIzdelki` (
 	CONSTRAINT `fk_naroceniIzdelki_narocila` FOREIGN KEY (`idNarocila`) REFERENCES `narocila` (`idNarocila`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
 
--- POLNJENJE TABELE NAROCENIIZDELKI
 LOCK TABLES `naroceniIzdelki` WRITE;
 INSERT INTO `naroceniIzdelki` VALUES 	(1,1,7,1),
 										(2,1,4,1),

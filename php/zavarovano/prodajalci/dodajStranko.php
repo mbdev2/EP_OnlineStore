@@ -1,37 +1,33 @@
 <?php
 	include('../admin/navigacija.php');
-
 	include('../admin/preverjanjeVloge.php');
-	if(!isset($_SESSION['idProdajalec'])){
+	if(!isset($_SESSION['idProd'])){
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 
 <html>
 	<head>
-		<title>eSHOP MMA - prodajalec - dodaj stranko</title>
+		<title>eSHOP MMA</title>
 	</head>
-
 	<body>
 		<?php
 			echo $navBarProd;
 		?>
-
 		<div class="container">
-			<h3>Dodajanje stranke</h3>
-			
+			<h3>Nova stranke</h3>
 			<form action="dodajStrankoIzvedba.php" method="post">
 				<div>
 					<label for="ime">
 						Ime:
 					</label>
-					<input type="text" id="ime" name="ime" required>
+					<input type="text" id="ime" name="ime" pattern="[A-Za-zČčŠšŽžĆć]+" required>
 				</div>
 				<div>
 					<label for="priimek">
 						Priimek:
 					</label>
-					<input type="text" id="priimek" name="priimek" required>
+					<input type="text" id="priimek" name="priimek" pattern="[A-Za-zČčŠšŽžĆć]+" required>
 				</div>
 				<div>
 					<label for="naslov">
@@ -55,13 +51,13 @@
 					<label for="password">
 						Geslo:
 					</label>
-					<input type="password" id="password" name="password" required>
+					<input type="password" id="password" name="password" placeholder="Geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mora biti dolgo vsaj 8 znakov, vsebovati vsaj eno malo in eno veliko črko ter vsaj eno številko" required>
 				</div>
 				<div>
 					<label for="passwordCheck">
 						Ponovi geslo:
 					</label>
-					<input type="password" id="passwordCheck" name="passwordCheck" required>
+					<input type="password" id="passwordCheck" name="passwordCheck" placeholder="Geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mora biti dolgo vsaj 8 znakov, vsebovati vsaj eno malo in eno veliko črko ter vsaj eno številko" required>
 				</div>
 				<br>
 				<input type="submit" name="dodajStranko" value="Dodaj stranko">

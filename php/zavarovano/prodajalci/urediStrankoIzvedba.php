@@ -1,8 +1,7 @@
 <?php
 	include('../admin/navigacija.php');
-	
 	include('../admin/preverjanjeVloge.php');
-	if(!isset($_SESSION['idProdajalec'])){
+	if(!isset($_SESSION['idProd'])){
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
@@ -21,16 +20,18 @@
 	}
 
 	if ($password != "" && $password == $passwordCheck) {
-		$query = mysqli_prepare($povezavaDoBaze, "UPDATE stranke SET ime = ?, priimek = ?, elektronskiNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot = ? WHERE idStranke = ?");
+		$query = mysqli_prepare($dbConnection, "UPDATE stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot = ? WHERE idStranke = ?");
 		mysqli_stmt_bind_param($query, 'ssssssii', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password, $activeOrNot, $id);
-	} else if ($password != "" && $password != $passwordCheck) {
-		echo "Gesli se ne ujemata!";
-	} else if ($password == "" && $passwordCheck == "") {
-		$query = mysqli_prepare($povezavaDoBaze, "UPDATE stranke SET ime = ?, priimek = ?, elektronskiNaslov = ?, naslov = ?, telefonskaStevilka = ?, activeOrNot = ? WHERE idStranke = ?");
+	}
+	else if ($password == "" && $passwordCheck == "") {
+		$query = mysqli_prepare($dbConnection, "UPDATE stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, activeOrNot = ? WHERE idStranke = ?");
 		mysqli_stmt_bind_param($query, 'sssssii', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $activeOrNot, $id);
 	}
+	else if ($password != "" && $password != $passwordCheck) {
+		echo "Gesli se ne ujemata!";
+	}
+
 	mysqli_stmt_execute($query);
 	$query = $query->get_result();
-
 	header("Location: seznamStrank.php");
 ?>

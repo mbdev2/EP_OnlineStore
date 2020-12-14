@@ -1,8 +1,7 @@
 <?php
 	include('navigacija.php');
 	$idStranke = $_SESSION['idStranka'];
-	$vsaNarocilaStranke = mysqli_query($povezavaDoBaze, "SELECT * FROM narocila WHERE idStranke = '$idStranke' ORDER BY idNarocila DESC");
-
+	$allOrders = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE idStranke = '$idStranke' ORDER BY idNarocila DESC");
 	include('preverjanjePrijave.php');
 	if(!isset($_SESSION['idStranka'])){
 		header("Location: ../skupno/prijava.php");
@@ -11,16 +10,15 @@
 
 <html>
 	<head>
-		<title>eSHOP MMA - stranka - naročila</title>
+		<title>eSHOP MMA</title>
 	</head>
-
 	<body>
 		<?php
 			echo $navBarStranke;
 		?>
 		<div>
-			<?php 
-				if (mysqli_num_rows($vsaNarocilaStranke) == 0) {
+			<?php
+				if (mysqli_num_rows($allOrders) == 0) {
 					echo "Seznam naročil je prazen!";
 				};
 			?>
@@ -28,20 +26,20 @@
 		<div>
 		<div>
 			<?php
-				while($trenutnoNarociloStranke = mysqli_fetch_array($vsaNarocilaStranke, MYSQLI_ASSOC)){
+				while($curOrder = mysqli_fetch_array($allOrders, MYSQLI_ASSOC)){
 			?>
 			<div>
 				<div>
 					<h3>
 						<?php
-							echo $trenutnoNarociloStranke['datumNarocila'];
+							echo $curOrder['datumNarocila'];
 						?>
 					</h3>
 				</div>
 				<div>
 					Skupen znesek:
 					<?php
-						echo $trenutnoNarociloStranke['znesek']."€";
+						echo $curOrder['znesek']."€";
 					?>
 				</div>
 				<div>
@@ -49,18 +47,18 @@
 						Stanje naročila:
 						<span style="font-weight: bold;">
 							<?php
-								if ($trenutnoNarociloStranke['orderStatus'] == 0) {
+								if ($curOrder['orderStatus'] == 0) {
 									echo "Oddano";
-								} elseif ($trenutnoNarociloStranke['orderStatus'] == 1) {
-									echo "Potrjeno - " . $trenutnoNarociloStranke['datumPotrditve'];
-								} elseif ($trenutnoNarociloStranke['orderStatus'] == 2) {
+								} elseif ($curOrder['orderStatus'] == 1) {
+									echo "Potrjeno - " . $curOrder['datumPotrditve'];
+								} elseif ($curOrder['orderStatus'] == 2) {
 									echo "Stornirano";
 								}
 							?>
 						</span>
 					</p>
 					<form method="post" action="podrobnostiNarocila.php">
-		    			<input type="hidden" name="idNarocila" value="<?php echo $trenutnoNarociloStranke['idNarocila']; ?>">
+		    			<input type="hidden" name="idNarocila" value="<?php echo $curOrder['idNarocila']; ?>">
 						<input type='submit' id='podrobnostiNarocila' value='Podrobnosti naročila'>
 					</form>
 					<br>

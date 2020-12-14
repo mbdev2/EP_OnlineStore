@@ -1,23 +1,20 @@
 <?php
 	include('../admin/navigacija.php');
-	$vseStranke = mysqli_query($povezavaDoBaze, "SELECT * FROM stranke");
-
+	$vseStranke = mysqli_query($dbConnection, "SELECT * FROM stranke");
 	include('../admin/preverjanjeVloge.php');
-	if(!isset($_SESSION['idProdajalec'])){
+	if(!isset($_SESSION['idProd'])){
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 
 <html>
 	<head>
-		<title>eSHOP MMA - prodajalec - seznam strank</title>
+		<title>eSHOP MMA</title>
 	</head>
-
 	<body>
 		<?php
 			echo $navBarProd;
 		?>
-
 		<div>
 			<?php
 				while($trenutnaStranka = mysqli_fetch_array($vseStranke, MYSQLI_ASSOC)){
@@ -39,8 +36,7 @@
 			</div>
 			<?php
 				}
-			?> 
-
+			?>
 			<div style="text-align: center">
 				<a href="dodajStranko.php">
 					Dodaj stranko

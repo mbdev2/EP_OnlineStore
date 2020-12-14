@@ -1,35 +1,32 @@
 <?php
 	include('navigacija.php');
-
 	include('preverjanjePrijave.php');
 	if(!isset($_SESSION['idStranka'])){
 		header("Location: ../skupno/prijava.php");
 	}
-
 	$skupniZnesek = 0;
 ?>
 
 <html>
 	<head>
-		<title>eSHOP MMA - stranka - košarica</title>
+		<title>eSHOP MMA</title>
 	</head>
 
 	<body>
 		<?php
 			echo $navBarStranke;
 		?>
-
 		<div>
 			<?php
 				if (isset($_SESSION['kosarica']) && !empty($_SESSION['kosarica'])) {
-					foreach($_SESSION['kosarica'] as $trenutniIzdelekVKosarici) {
+					foreach($_SESSION['kosarica'] as $currenItemVKosarici) {
 			?>
 			<div>
 				<div>
 					<h3>
 						<?php
-							$idIzdelkaVKosarici = $trenutniIzdelekVKosarici['idIzdelka'];
-							$izdelekVKosariciQuery = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli WHERE idArtikla = '$idIzdelkaVKosarici' LIMIT 1");
+							$idIzdelkaVKosarici = $currenItemVKosarici['idIzdelka'];
+							$izdelekVKosariciQuery = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE idArtikla = '$idIzdelkaVKosarici' LIMIT 1");
 							$izdelekVKosarici = mysqli_fetch_array($izdelekVKosariciQuery, MYSQLI_ASSOC);
 							echo $izdelekVKosarici['ime'];
 						?>
@@ -37,11 +34,11 @@
 				</div>
 				<div>
 					<form method="post" action="spremembaVKosarici.php">
-		    			<input type="hidden" name="idIzdelka" value="<?php echo $trenutniIzdelekVKosarici['idIzdelka']; ?>">
+		    			<input type="hidden" name="idIzdelka" value="<?php echo $currenItemVKosarici['idIzdelka']; ?>">
 		    			Količina:
 		    			<input type="number" id="kolicina" name="kolicina" min="0" max="100" value=
 		    				<?php
-		    					$kolicinaTrenutnegaIzdelka = $trenutniIzdelekVKosarici['kolicina'];
+		    					$kolicinaTrenutnegaIzdelka = $currenItemVKosarici['kolicina'];
 		    					echo "$kolicinaTrenutnegaIzdelka";
 		    				?>
 		    			>

@@ -7,16 +7,17 @@
 		$geslo = strip_tags(($_POST['geslo']));
 		$emailUp = stripslashes(($_POST['emailUp']));
 		$geslo = stripslashes(($_POST['geslo']));
-		$emailUp = mysqli_real_escape_string($povezavaDoBaze, ($_POST['emailUp']));
-		$geslo = mysqli_real_escape_string($povezavaDoBaze, ($_POST['geslo']));
+		$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
+		$geslo = mysqli_real_escape_string($dbConnection, ($_POST['geslo']));
 		$emailUp = htmlspecialchars($emailUp);
 		$geslo = htmlspecialchars($geslo);
 
-		$queryAction = mysqli_prepare($povezavaDoBaze, "SELECT * FROM stranke WHERE elektronskiNaslov = ? LIMIT 1");
+		$queryAction = mysqli_prepare($dbConnection, "SELECT * FROM stranke WHERE eNaslov = ? LIMIT 1");
 		mysqli_stmt_bind_param($queryAction, 's', $emailUp);
 		mysqli_stmt_execute($queryAction);
 		$queryAction = $queryAction->get_result();
 		$trenutnaStranka = mysqli_fetch_array($queryAction);
+		
 		if(isset($trenutnaStranka)){
 			$idStranke = $trenutnaStranka['idStranke'];
 			$gesloBaza = $trenutnaStranka['geslo'];

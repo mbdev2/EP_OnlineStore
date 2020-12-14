@@ -18,23 +18,23 @@
 		$link = $_GET['link'];
 	    if ($link == 'domaca') {
 	        $uri = "/gosti/domaca.php";
-			$redirectDomaca = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
-	    	header('Location: ' . $redirectDomaca);
+			$redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
+	    	header('Location: ' . $redirectURL);
 	    }
 	    if ($link == 'registracija'){
 	        $uri = "/gosti/registracija.php";
-			$redirectDomaca = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
-	    	header('Location: ' . $redirectDomaca);
+			$redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
+	    	header('Location: ' . $redirectURL);
 	    }
 	    if ($link == 'prijava'){
 	        $uri = "/skupno/prijava.php";
-			$redirectDomaca = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
-	    	header('Location: ' . $redirectDomaca);
+			$redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
+	    	header('Location: ' . $redirectURL);
 	    }
 	    if ($link == 'prijavaOsebja'){
 	        $uri = "/skupno/prijavaOsebja.php";
-			$redirectDomaca = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
-	    	header('Location: ' . $redirectDomaca);
+			$redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
+	    	header('Location: ' . $redirectURL);
 	    }
 	}
 

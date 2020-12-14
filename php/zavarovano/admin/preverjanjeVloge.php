@@ -4,15 +4,15 @@
 		session_start();
 
 		$emailUp = strip_tags(($_POST['emailUp']));
-		$geslo = strip_tags(($_POST['geslo']));
 		$emailUp = stripslashes(($_POST['emailUp']));
-		$geslo = stripslashes(($_POST['geslo']));
-		$emailUp = mysqli_real_escape_string($povezavaDoBaze, ($_POST['emailUp']));
-		$geslo = mysqli_real_escape_string($povezavaDoBaze, ($_POST['geslo']));
+		$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
 		$emailUp = htmlspecialchars($emailUp);
+		$geslo = strip_tags(($_POST['geslo']));
+		$geslo = stripslashes(($_POST['geslo']));
+		$geslo = mysqli_real_escape_string($dbConnection, ($_POST['geslo']));
 		$geslo = htmlspecialchars($geslo);
 
-		$queryAction = mysqli_prepare($povezavaDoBaze, "SELECT * FROM prodajalci WHERE elektronskiNaslov = ? LIMIT 1");
+		$queryAction = mysqli_prepare($dbConnection, "SELECT * FROM prodajalci WHERE eNaslov = ? LIMIT 1");
 		mysqli_stmt_bind_param($queryAction, 's', $emailUp);
 		mysqli_stmt_execute($queryAction);
 		$queryAction = $queryAction->get_result();
@@ -22,28 +22,28 @@
 			$idUporabnika = $curUser['idProdajalca'];
 			$gesloUporabnika = $curUser['geslo'];
 			if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
-				$_SESSION['idProdajalec'] = $idUporabnika;
+				$_SESSION['idProd'] = $idUporabnika;
 				header("Location: ../prodajalci/seznamNarocil.php");
 			}
 		}
-		else {
-			$queryAction = mysqli_prepare($povezavaDoBaze, "SELECT * FROM administrator WHERE elektronskiNaslov = ? LIMIT 1");
+		else{
+			$queryAction = mysqli_prepare($dbConnection, "SELECT * FROM administrator WHERE eNaslov = ? LIMIT 1");
 			mysqli_stmt_bind_param($queryAction, 's', $emailUp);
 			mysqli_stmt_execute($queryAction);
 
 			$queryAction = $queryAction->get_result();
 			$curUser = mysqli_fetch_array($queryAction);
-			if(isset($curUser)){
-				$idUporabnika = $curUser['idAdministrator'];
-				$gesloUporabnika = $curUser['geslo'];
 
-				if(md5($geslo) == $gesloUporabnika) {
-					$_SESSION['idAdministrator'] = $idUporabnika;
-					header("Location: ../admin/seznamProdajalcev.php");
-				}
+			if(!isset($curUser)){
+				echo '<script>alert("Uporabnisko ime ali geslo ni pravilno")</script>';
 			}
 			else{
-				echo '<script>alert("Uporabnisko ime ali geslo ni pravilno")</script>';
+				$idUporabnika = $curUser['idAdmin'];
+				$gesloUporabnika = $curUser['geslo'];
+				if(md5($geslo) == $gesloUporabnika) {
+					$_SESSION['idAdmin'] = $idUporabnika;
+					header("Location: ../admin/seznamProdajalcev.php");
+				}
 			}
 		}
 	}

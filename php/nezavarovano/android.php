@@ -1,9 +1,9 @@
 <?php
 	include('navigacija.php');
 
-	$vsiIzdelki = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli WHERE activeOrNot = '1'");
+	$allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 
-	while($trenutniIzdelek = mysqli_fetch_array($vsiIzdelki, MYSQLI_ASSOC)){
-		echo $trenutniIzdelek['ime']."NOV-ATRIBUT".$trenutniIzdelek['opis']."NOV-ATRIBUT".$trenutniIzdelek['cena']."NOV-IZDELEK";
+	while($currenItem = mysqli_fetch_array($allItems, MYSQLI_ASSOC)){
+		echo $currenItem['ime']."NOV-ATRIBUT".$currenItem['opis']."NOV-ATRIBUT".$currenItem['cena']."NOV-IZDELEK";
 	};
 ?>

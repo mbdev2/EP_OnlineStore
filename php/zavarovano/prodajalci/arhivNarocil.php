@@ -1,32 +1,29 @@
 <?php
 	include('../admin/navigacija.php');
-	$vsaObdelanaNarocila = mysqli_query($povezavaDoBaze, "SELECT * FROM narocila WHERE orderStatus != 0 ORDER BY idNarocila DESC");
-
+	$vsaObdelanaNarocila = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE orderStatus != 0 ORDER BY idNarocila DESC");
 	include('../admin/preverjanjeVloge.php');
-	if(!isset($_SESSION['idProdajalec'])){
+	if(!isset($_SESSION['idProd'])){
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 
 <html>
 	<head>
-		<title>eSHOP MMA - prodajalec - arhiv naročil</title>
+		<title>eSHOP MMA</title>
 	</head>
-
 	<body>
 		<?php
 			echo $navBarProd;
 		?>
-
 		<div>
 			<?php
-				while($trenutnoObdelanoNarocilo = mysqli_fetch_array($vsaObdelanaNarocila, MYSQLI_ASSOC)){
+				while($curOrder = mysqli_fetch_array($vsaObdelanaNarocila, MYSQLI_ASSOC)){
 			?>
 			<div>
 				<div>
 					<h3>
 						<?php
-							echo $trenutnoObdelanoNarocilo['datumNarocila'];
+							echo $curOrder['datumNarocila'];
 						?>
 					</h3>
 				</div>
@@ -34,18 +31,18 @@
 					<p>
 						Skupen znesek:
 						<?php
-							echo $trenutnoObdelanoNarocilo['znesek']."€";
+							echo $curOrder['znesek']."€";
 						?>
 					</p>
 					<p>
 						Stanje naročila:
 						<span style="font-weight: bold;">
 							<?php
-								if ($trenutnoObdelanoNarocilo['orderStatus'] == 0) {
+								if ($curOrder['orderStatus'] == 0) {
 									echo "Oddano";
-								} elseif ($trenutnoObdelanoNarocilo['orderStatus'] == 1) {
-									echo "Potrjeno - " . $trenutnoObdelanoNarocilo['datumPotrditve'];
-								} elseif ($trenutnoObdelanoNarocilo['orderStatus'] == 2) {
+								} elseif ($curOrder['orderStatus'] == 1) {
+									echo "Potrjeno - " . $curOrder['datumPotrditve'];
+								} elseif ($curOrder['orderStatus'] == 2) {
 									echo "Stornirano";
 								}
 							?>
@@ -54,7 +51,7 @@
 				</div>
 				<div>
 					<form method="post" action="obdelavaNarocila.php">
-		    			<input type="hidden" name="idNarocila" value="<?php echo $trenutnoObdelanoNarocilo['idNarocila']; ?>">
+		    			<input type="hidden" name="idNarocila" value="<?php echo $curOrder['idNarocila']; ?>">
 						<input type='submit' id='obdelavaNarocila' value='Obdelava naročila'>
 					</form>
 					<br>

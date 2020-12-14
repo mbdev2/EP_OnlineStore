@@ -1,49 +1,46 @@
 <?php
 	include('../admin/navigacija.php');
-	$vsiIzdelki = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli");
-
+	$vsiIzdelki = mysqli_query($dbConnection, "SELECT * FROM artikli");
 	include('../admin/preverjanjeVloge.php');
-	if(!isset($_SESSION['idProdajalec'])){
+	if(!isset($_SESSION['idProd'])){
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 
 <html>
 	<head>
-		<title>eSHOP MMA - prodajalec - seznam izdelkov</title>
+		<title>eSHOP MMA</title>
 	</head>
-
 	<body>
 		<?php
 			echo $navBarProd;
 		?>
-
 		<div>
 			<?php
-				while($trenutniIzdelek = mysqli_fetch_array($vsiIzdelki, MYSQLI_ASSOC)){
+				while($curItem = mysqli_fetch_array($vsiIzdelki, MYSQLI_ASSOC)){
 			?>
 			<div>
 				<div>
 					<h3>
 						<?php
-							echo $trenutniIzdelek['ime']
+							echo $curItem['ime']
 						?>
 					</h3>
 					<form method="post" action="urediIzdelek.php">
-		    			<input type="hidden" name="idIzdelka" value="<?php echo $trenutniIzdelek['idArtikla'] ?>">
+		    			<input type="hidden" name="idIzdelka" value="<?php echo $curItem['idArtikla'] ?>">
 		    			<input type="submit" value="Uredi">
 					</form>
 				</div>
 				<div>
 					<?php
-						echo $trenutniIzdelek['opis']
+						echo $curItem['opis']
 					?>
 				</div>
 				<div>
 					<p style="font-weight: bold;">
 						Cena za kos:
 						<?php
-							echo $trenutniIzdelek['cena']."€"
+							echo $curItem['cena']."€"
 						?>
 					</p>
 					<br>
@@ -52,7 +49,6 @@
 			<?php
 				}
 			?>
-
 			<div style="text-align: center">
 				<a href="dodajIzdelek.php">
 					Dodaj izdelek

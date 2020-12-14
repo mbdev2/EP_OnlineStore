@@ -1,37 +1,33 @@
 <?php
 	include('../admin/navigacija.php');
-
 	include('../admin/preverjanjeVloge.php');
-	if(!isset($_SESSION['idProdajalec'])){
+	if(!isset($_SESSION['idProd'])){
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 
 <html>
 	<head>
-		<title>eSHOP MMA - prodajalec - dodaj izdelek</title>
+		<title>eSHOP MMA</title>
 	</head>
-
 	<body>
 		<?php
 			echo $navBarProd;
 		?>
-
 		<div class="container">
-			<h3>Dodajanje izdelka</h3>
-
+			<h3>Vnos novega izdelka</h3>
 			<form action="dodajIzdelekIzvedba.php" method="post">
 				<div>
 					<label for="ime">
 						Ime:
 					</label>
-					<input type="text" id="ime" name="ime" size="60" required>
+					<input type="text" id="ime" name="ime" size="50" required>
 				</div>
 				<div>
 					<label for="opis">
 						Opis:
 					</label>
-					<textarea name="opis" id="opis" cols="60" rows="10" required></textarea>
+					<textarea name="opis" id="opis" cols="70" rows="12" required></textarea>
 				</div>
 				<div>
 					<label for="cena">

@@ -3,6 +3,6 @@
 	define('UPORABNISKO_IME', 'root');
 	define('GESLO', 'ep');
 	define('DB', 'eSHOPmma');
-	$povezavaDoBaze = mysqli_connect(STREZNIK, UPORABNISKO_IME, GESLO, DB);
-	mysqli_set_charset($povezavaDoBaze,"utf8");
+	$dbConnection = mysqli_connect(STREZNIK, UPORABNISKO_IME, GESLO, DB);
+	mysqli_set_charset($dbConnection,"utf8mb4");
 ?>

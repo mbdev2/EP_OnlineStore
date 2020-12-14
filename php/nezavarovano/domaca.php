@@ -1,40 +1,38 @@
 <?php
 	include('navigacija.php');
-	$vsiIzdelki = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli WHERE activeOrNot = '1'");
+	$allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 ?>
 
 <html>
 	<head>
-		<title>eSHOP MMA - gost - domača</title>
+		<title>eSHOP MMA</title>
 	</head>
-
 	<body>
 		<?php
 			echo $navBarGost;
 		?>
-
 		<div>
 			<?php
-				while($trenutniIzdelek = mysqli_fetch_array($vsiIzdelki, MYSQLI_ASSOC)){
+				while($currenItem = mysqli_fetch_array($allItems, MYSQLI_ASSOC)){
 			?>
 			<div>
 				<div>
 					<h3>
 						<?php
-							echo $trenutniIzdelek['ime'];
+							echo $currenItem['ime'];
 						?>
 					</h3>
 				</div>
 				<div>
 					<?php
-						echo $trenutniIzdelek['opis'];
+						echo $currenItem['opis'];
 					?>
 				</div>
 				<div>
 					<p style="font-weight: bold;">
 						Cena za kos:
 						<?php
-							echo $trenutniIzdelek['cena']."€";
+							echo $currenItem['cena']."€";
 						?>
 					</p>
 					<br>

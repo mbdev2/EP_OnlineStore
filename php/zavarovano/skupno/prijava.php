@@ -4,22 +4,20 @@
 
 <html>
 	<head>
-		<title>eSHOP MMA - prijava</title>
+		<title>eSHOP MMA</title>
 	</head>
 
 	<body>
 		<a href="../gosti/domaca.php">
 			Domača
 		</a>
-
 		<h3>Prijava za stranke</h3>
-
 		<form action="../skupno/prijava.php" method="post">
 			<div>
 				<label for="emailUp">
 					eMail naslov:
 				</label>
-				<input type="text" id="emailUp" name="emailUp" size=30 required>
+				<input type="text" id="emailUp" name="emailUp" size=40 required>
 			</div>
 			<div>
 				<label for="geslo">
@@ -35,9 +33,6 @@
 				Nov uporabnik?
 			</a>
 			<br>
-			<a href="../gosti/domaca.php">
-				Vstopi kot gost
-			</a>
 		</form>
 	</body>
 

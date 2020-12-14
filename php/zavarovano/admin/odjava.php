@@ -1,7 +1,6 @@
 <?php
 	session_start();
-
-	if (isset($_SESSION['idAdministrator']) || isset($_SESSION['idProdajalec'])){
+	if (isset($_SESSION['idAdmin']) || isset($_SESSION['idProd'])){
 		session_destroy();
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
@@ -9,6 +8,5 @@
 		session_destroy();
 		header("Location: ../skupno/prijava.php");
 	}
-
 	exit();
 ?>
