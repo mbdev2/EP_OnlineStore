@@ -3,17 +3,17 @@
 		include("../admin/konfiguracija.php");
 		session_start();
 
-		$uporabniskoIme = strip_tags(($_POST['uporabniskoIme']));
+		$emailUp = strip_tags(($_POST['emailUp']));
 		$geslo = strip_tags(($_POST['geslo']));
-		$uporabniskoIme = stripslashes(($_POST['uporabniskoIme']));
+		$emailUp = stripslashes(($_POST['emailUp']));
 		$geslo = stripslashes(($_POST['geslo']));
-		$uporabniskoIme = mysqli_real_escape_string($povezavaDoBaze, ($_POST['uporabniskoIme']));
+		$emailUp = mysqli_real_escape_string($povezavaDoBaze, ($_POST['emailUp']));
 		$geslo = mysqli_real_escape_string($povezavaDoBaze, ($_POST['geslo']));
-		$uporabniskoIme = htmlspecialchars($uporabniskoIme);
+		$emailUp = htmlspecialchars($emailUp);
 		$geslo = htmlspecialchars($geslo);
 
 		$queryAction = mysqli_prepare($povezavaDoBaze, "SELECT * FROM prodajalci WHERE elektronskiNaslov = ? LIMIT 1");
-		mysqli_stmt_bind_param($queryAction, 's', $uporabniskoIme);
+		mysqli_stmt_bind_param($queryAction, 's', $emailUp);
 		mysqli_stmt_execute($queryAction);
 		$queryAction = $queryAction->get_result();
 
@@ -28,7 +28,7 @@
 		}
 		else {
 			$queryAction = mysqli_prepare($povezavaDoBaze, "SELECT * FROM administrator WHERE elektronskiNaslov = ? LIMIT 1");
-			mysqli_stmt_bind_param($queryAction, 's', $uporabniskoIme);
+			mysqli_stmt_bind_param($queryAction, 's', $emailUp);
 			mysqli_stmt_execute($queryAction);
 
 			$queryAction = $queryAction->get_result();

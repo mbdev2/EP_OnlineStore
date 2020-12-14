@@ -1,6 +1,6 @@
 <?php
 	include('../admin/navigacija.php');
-	$vsaObdelanaNarocila = mysqli_query($povezavaDoBaze, "SELECT * FROM narocila WHERE potrjenost != 0 ORDER BY idNarocila DESC");
+	$vsaObdelanaNarocila = mysqli_query($povezavaDoBaze, "SELECT * FROM narocila WHERE orderStatus != 0 ORDER BY idNarocila DESC");
 
 	include('../admin/preverjanjeVloge.php');
 	if(!isset($_SESSION['idProdajalec'])){
@@ -10,12 +10,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prodajalec - arhiv naročil</title>
+		<title>eSHOP MMA - prodajalec - arhiv naročil</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div>
@@ -41,11 +41,11 @@
 						Stanje naročila:
 						<span style="font-weight: bold;">
 							<?php
-								if ($trenutnoObdelanoNarocilo['potrjenost'] == 0) {
+								if ($trenutnoObdelanoNarocilo['orderStatus'] == 0) {
 									echo "Oddano";
-								} elseif ($trenutnoObdelanoNarocilo['potrjenost'] == 1) {
+								} elseif ($trenutnoObdelanoNarocilo['orderStatus'] == 1) {
 									echo "Potrjeno - " . $trenutnoObdelanoNarocilo['datumPotrditve'];
-								} elseif ($trenutnoObdelanoNarocilo['potrjenost'] == 2) {
+								} elseif ($trenutnoObdelanoNarocilo['orderStatus'] == 2) {
 									echo "Stornirano";
 								}
 							?>

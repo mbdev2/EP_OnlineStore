@@ -1,6 +1,6 @@
 -- USTVARJANJE PODATKOVNE BAZE
-CREATE SCHEMA `spletnaProdajalna` ;
-USE `spletnaProdajalna` ;
+CREATE SCHEMA `eSHOPmma` ;
+USE `eSHOPmma` ;
 
 -- USTVARJANJE TABELE ADMINISTRATOR
 DROP TABLE IF EXISTS `administrator`;
@@ -28,7 +28,7 @@ CREATE TABLE `prodajalci` (
 	`priimek` varchar(45) DEFAULT NULL,
 	`elektronskiNaslov` varchar(45) NOT NULL UNIQUE,
 	`geslo` char(128) NOT NULL,
-	`aktivnost` tinyint NOT NULL,
+	`activeOrNot` tinyint NOT NULL,
 	PRIMARY KEY (`idProdajalca`),
 	UNIQUE KEY `idProdajalca_UNIQUE` (`idProdajalca`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
@@ -51,7 +51,7 @@ CREATE TABLE `stranke` (
 	`naslov` varchar(90) DEFAULT NULL,
 	`telefonskaStevilka` int NOT NULL,
 	`geslo` char(128) NOT NULL,
-	`aktivnost` tinyint NOT NULL,
+	`activeOrNot` tinyint NOT NULL,
   PRIMARY KEY (`idStranke`),
   UNIQUE KEY `idStranke_UNIQUE` (`idStranke`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
@@ -72,7 +72,7 @@ CREATE TABLE `artikli` (
 	`ime` varchar(120) NOT NULL,
 	`opis` mediumtext,
 	`cena` double NOT NULL,
-	`aktivnost` tinyint DEFAULT NULL,
+	`activeOrNot` tinyint DEFAULT NULL,
 	PRIMARY KEY (`idArtikla`),
 	UNIQUE KEY `idArtikla_UNIQUE` (`idArtikla`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
@@ -103,7 +103,7 @@ CREATE TABLE `narocila` (
 	`idNarocila` int NOT NULL AUTO_INCREMENT,
 	`idStranke` int NOT NULL,
 	`datumNarocila` datetime NOT NULL,
-	`potrjenost` tinyint DEFAULT NULL,
+	`orderStatus` tinyint DEFAULT NULL,
 	`znesek` double DEFAULT NULL,
 	`datumPotrditve` datetime DEFAULT NULL COMMENT 'Date when seller has confirmed the order',
 	PRIMARY KEY (`idNarocila`),

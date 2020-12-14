@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prijava</title>
+		<title>eSHOP MMA - prijava</title>
 	</head>
 
 	<body>
@@ -16,10 +16,10 @@
 
 		<form action="../skupno/prijava.php" method="post">
 			<div>
-				<label for="uporabniskoIme">
-					Uporabniško ime:
+				<label for="emailUp">
+					eMail naslov:
 				</label>
-				<input type="text" id="uporabniskoIme" name="uporabniskoIme" size=30 required>
+				<input type="text" id="emailUp" name="emailUp" size=30 required>
 			</div>
 			<div>
 				<label for="geslo">

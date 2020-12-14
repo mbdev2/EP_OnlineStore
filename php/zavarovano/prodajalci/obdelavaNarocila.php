@@ -19,12 +19,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - stranka - podrobnosti naročila</title>
+		<title>eSHOP MMA - stranka - podrobnosti naročila</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div>
@@ -93,7 +93,7 @@
 					<p>
 						Spremeni stanje naročila:
 						<form action="obdelavaNarocilaIzvedba.php" method="post">
-							<select name="potrjenost">
+							<select name="orderStatus">
 								<option value="1">Potrjeno</option>
 								<option value="2">Stornirano</option>
 								<option value="0">Oddano</option>

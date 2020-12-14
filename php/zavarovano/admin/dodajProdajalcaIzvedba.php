@@ -8,13 +8,13 @@
 
 	$ime = $_POST['ime'];
 	$priimek = $_POST['priimek'];
-	$uporabniskoIme = $_POST['uporabniskoIme'];
+	$emailUp = $_POST['emailUp'];
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
 
 	if ($password == $passwordCheck) {
-		$query = mysqli_prepare($povezavaDoBaze, "INSERT prodajalci SET ime = ?, priimek = ?, elektronskiNaslov = ?, geslo = ?, aktivnost=0");
-		mysqli_stmt_bind_param($query, 'ssss', $ime, $priimek, $uporabniskoIme, $password);
+		$query = mysqli_prepare($povezavaDoBaze, "INSERT prodajalci SET ime = ?, priimek = ?, elektronskiNaslov = ?, geslo = ?, activeOrNot=0");
+		mysqli_stmt_bind_param($query, 'ssss', $ime, $priimek, $emailUp, $password);
 	} else if ($pass1 != $pass2) {
 		echo "Gesli se ne ujemata!";
 	}

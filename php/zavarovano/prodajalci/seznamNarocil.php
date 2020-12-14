@@ -1,6 +1,6 @@
 <?php
 	include('../admin/navigacija.php');
-	$vsaNeobdelanaNarocila = mysqli_query($povezavaDoBaze, "SELECT * FROM narocila WHERE potrjenost = 0 ORDER BY idNarocila DESC");
+	$vsaNeobdelanaNarocila = mysqli_query($povezavaDoBaze, "SELECT * FROM narocila WHERE orderStatus = 0 ORDER BY idNarocila DESC");
 
 	include('../admin/preverjanjeVloge.php');
 	if(!isset($_SESSION['idProdajalec'])){
@@ -10,12 +10,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prodajalec - seznam naročil</title>
+		<title>eSHOP MMA - prodajalec - seznam naročil</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div>

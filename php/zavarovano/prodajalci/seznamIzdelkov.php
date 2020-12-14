@@ -10,12 +10,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prodajalec - seznam izdelkov</title>
+		<title>eSHOP MMA - prodajalec - seznam izdelkov</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div>

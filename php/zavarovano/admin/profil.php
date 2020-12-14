@@ -10,12 +10,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - administrator - moj profil</title>
+		<title>eSHOP MMA - administrator - moj profil</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaAdmin;
+			echo $navBarAdmin;
 		?>
 
 		<div>
@@ -37,10 +37,10 @@
 					<input type="text" id="priimek" name="priimek" value="<?php echo $ediniAdministrator['priimek'] ?>" required>
 				</div>
 				<div>
-					<label for="uporabniskoIme">
-						Uporabniško ime:
+					<label for="emailUp">
+						eMail naslov:
 					</label>
-					<input type="email" id="uporabniskoIme" name="uporabniskoIme" value="<?php echo $ediniAdministrator['elektronskiNaslov'] ?>" size=30 required>
+					<input type="email" id="emailUp" name="emailUp" value="<?php echo $ediniAdministrator['elektronskiNaslov'] ?>" size=30 required>
 				</div>
 				<div>
 					<label for="password">

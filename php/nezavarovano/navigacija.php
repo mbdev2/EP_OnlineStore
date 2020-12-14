@@ -2,7 +2,7 @@
 	include('konfiguracija.php');
 	session_start();
 
-	$navigacijaGost =
+	$navBarGost =
 		'<div>
 			<a href="?link=domaca" name="linkDomaca">Domača</a>
 			<a> | </a>

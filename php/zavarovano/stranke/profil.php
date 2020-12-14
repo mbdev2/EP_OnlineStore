@@ -11,12 +11,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - stranka - moj profil</title>
+		<title>eSHOP MMA - stranka - moj profil</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaStranka;
+			echo $navBarStranke;
 		?>
 
 		<div>
@@ -50,10 +50,10 @@
 					<input type="text" id="telefonskaStevilka" name="telefonskaStevilka" value="<?php echo $trenutnaStranka['telefonskaStevilka'] ?>" required>
 				</div>
 				<div>
-					<label for="uporabniskoIme">
-						Uporabniško ime:
+					<label for="emailUp">
+						eMail naslov:
 					</label>
-					<input type="email" id="uporabniskoIme" name="uporabniskoIme" value="<?php echo $trenutnaStranka['elektronskiNaslov'] ?>" size=30 required>
+					<input type="email" id="emailUp" name="emailUp" value="<?php echo $trenutnaStranka['elektronskiNaslov'] ?>" size=30 required>
 				</div>
 				<div>
 					<label for="password">

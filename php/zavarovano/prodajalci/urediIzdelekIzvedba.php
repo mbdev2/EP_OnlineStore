@@ -10,14 +10,14 @@
 	$ime = $_POST['ime'];
 	$opis = $_POST['opis'];
 	$cena = $_POST['cena'];
-	if(isset($_POST['aktivnost'])) {
-		$aktivnost = 1;
+	if(isset($_POST['activeOrNot'])) {
+		$activeOrNot = 1;
 	} else {
-		$aktivnost = 0;
+		$activeOrNot = 0;
 	}
 
-	$query = mysqli_prepare($povezavaDoBaze, "UPDATE artikli SET ime = ?, opis = ?, cena = ?, aktivnost = ? WHERE idArtikla = ?");
-	mysqli_stmt_bind_param($query, 'sssii', $ime, $opis, $cena, $aktivnost, $id);
+	$query = mysqli_prepare($povezavaDoBaze, "UPDATE artikli SET ime = ?, opis = ?, cena = ?, activeOrNot = ? WHERE idArtikla = ?");
+	mysqli_stmt_bind_param($query, 'sssii', $ime, $opis, $cena, $activeOrNot, $id);
 	mysqli_stmt_execute($query);
 	$query = $query->get_result();
 

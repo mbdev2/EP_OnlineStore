@@ -10,12 +10,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - administrator - seznam prodajalcev</title>
+		<title>eSHOP MMA - administrator - seznam prodajalcev</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaAdmin;
+			echo $navBarAdmin;
 		?>
 
 		<div>

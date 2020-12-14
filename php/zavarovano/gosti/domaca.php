@@ -1,16 +1,16 @@
 <?php
 	include('../stranke/navigacija.php');
-	$vsiIzdelki = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli WHERE aktivnost = '1'");
+	$vsiIzdelki = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 ?>
 
 <html>
 	<head>
-		<title>Spletna prodajalna - gost - domača</title>
+		<title>eSHOP MMA - gost - domača</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaGost;
+			echo $navBarGost;
 		?>
 
 		<div>

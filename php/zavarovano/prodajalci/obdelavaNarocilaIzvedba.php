@@ -6,12 +6,12 @@
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
-	$potrjenost = $_POST['potrjenost'];
+	$orderStatus = $_POST['orderStatus'];
 	$datumPotrditve = date('Y-m-d H:i:s');
 	$idNarocila = $_POST['idNarocila'];
 
-	$posodobitevPotrjenostiQuery = mysqli_prepare($povezavaDoBaze, "UPDATE narocila SET potrjenost = ?, datumPotrditve = ? WHERE idNarocila = ?");
-	mysqli_stmt_bind_param($posodobitevPotrjenostiQuery, 'isi', $potrjenost, $datumPotrditve, $idNarocila);
+	$posodobitevPotrjenostiQuery = mysqli_prepare($povezavaDoBaze, "UPDATE narocila SET orderStatus = ?, datumPotrditve = ? WHERE idNarocila = ?");
+	mysqli_stmt_bind_param($posodobitevPotrjenostiQuery, 'isi', $orderStatus, $datumPotrditve, $idNarocila);
 	mysqli_stmt_execute($posodobitevPotrjenostiQuery);
 	$posodobitevPotrjenostiQuery = $posodobitevPotrjenostiQuery->get_result();
 

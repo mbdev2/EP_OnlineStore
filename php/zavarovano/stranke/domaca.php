@@ -1,6 +1,6 @@
 <?php
 	include('navigacija.php');
-	$vsiIzdelki = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli WHERE aktivnost = '1'");
+	$vsiIzdelki = mysqli_query($povezavaDoBaze, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 
 	include('preverjanjePrijave.php');
 	if(!isset($_SESSION['idStranka'])){
@@ -10,12 +10,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - stranka - domača</title>
+		<title>eSHOP MMA - stranka - domača</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaStranka;
+			echo $navBarStranke;
 		?>
 
 		<div>

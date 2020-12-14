@@ -13,12 +13,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - administrator - uredi prodajalca</title>
+		<title>eSHOP MMA - administrator - uredi prodajalca</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaAdmin;
+			echo $navBarAdmin;
 		?>
 
 		<div>
@@ -39,10 +39,10 @@
 					<input type="text" id="priimek" name="priimek" value="<?php echo $trenutniProdajalec['priimek'] ?>" required>
 				</div>
 				<div>
-					<label for="uporabniskoIme">
-						Uporabniško ime:
+					<label for="emailUp">
+						eMail naslov:
 					</label>
-					<input type="email" id="uporabniskoIme" name="uporabniskoIme" value="<?php echo  $trenutniProdajalec['elektronskiNaslov'] ?>" size=30 required>
+					<input type="email" id="emailUp" name="emailUp" value="<?php echo  $trenutniProdajalec['elektronskiNaslov'] ?>" size=30 required>
 				</div>
 				<div>
 					<label for="password">
@@ -57,10 +57,10 @@
 					<input type="password" id="passwordCheck" name="passwordCheck">
 				</div>
 				<div>
-					<label for="aktivnost">
+					<label for="activeOrNot">
 						Aktivnost:
 					</label>
-					<input type="checkbox" id="aktivnost" name="aktivnost" <?php if ($trenutniProdajalec['aktivnost'] == 1) { echo "checked"; } ?> >
+					<input type="checkbox" id="activeOrNot" name="activeOrNot" <?php if ($trenutniProdajalec['activeOrNot'] == 1) { echo "checked"; } ?> >
 				</div>
 				<br>
 				<input type="submit" name="shrani" value="Shrani spremembe">

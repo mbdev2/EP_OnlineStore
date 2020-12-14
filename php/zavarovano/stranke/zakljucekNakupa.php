@@ -13,12 +13,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - stranka - zaključek nakupa</title>
+		<title>eSHOP MMA - stranka - zaključek nakupa</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaStranka;
+			echo $navBarStranke;
 		?>
 
 		<div>

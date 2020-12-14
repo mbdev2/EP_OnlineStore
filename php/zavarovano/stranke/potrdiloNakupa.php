@@ -11,7 +11,7 @@
 	$znesek = $_POST['skupniZnesek'];
 	$naroceniIzdelki = $_SESSION['naroceniIzdelki'];
 	
-	$narociloQuery = mysqli_prepare($povezavaDoBaze, "INSERT narocila SET idStranke = ?, datumNarocila = ?, znesek = ?, potrjenost = 0");
+	$narociloQuery = mysqli_prepare($povezavaDoBaze, "INSERT narocila SET idStranke = ?, datumNarocila = ?, znesek = ?, orderStatus = 0");
 	mysqli_stmt_bind_param($narociloQuery, 'isd', $idStranke, $datumNarocila, $znesek);
 	mysqli_stmt_execute($narociloQuery);
 	$narociloQuery = $narociloQuery->get_result();

@@ -13,12 +13,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prodajalec - uredi izdelek</title>
+		<title>eSHOP MMA - prodajalec - uredi izdelek</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div>
@@ -45,10 +45,10 @@
 					<input type="text" id="cena" name="cena" size="10" value="<?php echo  $trenutniIzdelek['cena'] ?>" required>€
 				</div>
 				<div>
-					<label for="aktivnost">
+					<label for="activeOrNot">
 						Aktivnost:
 					</label>
-					<input type="checkbox" id="aktivnost" name="aktivnost" <?php if ($trenutniIzdelek['aktivnost'] == 1) { echo "checked"; } ?> >
+					<input type="checkbox" id="activeOrNot" name="activeOrNot" <?php if ($trenutniIzdelek['activeOrNot'] == 1) { echo "checked"; } ?> >
 				</div>
 				<br>
 				<input type="submit" name="shrani" value="Shrani spremembe">

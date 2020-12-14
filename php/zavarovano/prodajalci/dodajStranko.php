@@ -9,12 +9,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prodajalec - dodaj stranko</title>
+		<title>eSHOP MMA - prodajalec - dodaj stranko</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div class="container">
@@ -46,10 +46,10 @@
 					<input type="text" id="telefonskaStevilka" name="telefonskaStevilka" required>
 				</div>
 				<div>
-					<label for="uporabniskoIme">
-						Uporabniško ime:
+					<label for="emailUp">
+						eMail naslov:
 					</label>
-					<input type="email" id="uporabniskoIme" name="uporabniskoIme" size=30 required>
+					<input type="email" id="emailUp" name="emailUp" size=30 required>
 				</div>
 				<div>
 					<label for="password">

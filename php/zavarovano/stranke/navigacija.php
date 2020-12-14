@@ -1,18 +1,18 @@
-<?php 
+<?php
 	include('konfiguracija.php');
 	session_start();
 
-	$navigacijaAdmin =
+	$navBarAdmin =
 		'<div>
 			<a href="../admin/seznamProdajalcev.php">Prodajalci</a>
 			<a> | </a>
 			<a href="../admin/profil.php">Moj profil</a>
 			<a> | </a>
-			<a href="odjava.php">Odjava</a>		
+			<a href="odjava.php">Odjava</a>
 		</div>
 		<br>';
 
-	$navigacijaProdajalec =
+	$navBarProd =
 		'<div>
 			<a href="../prodajalci/seznamNarocil.php">Naročila</a>
 			<a> | </a>
@@ -22,11 +22,11 @@
 			<a> | </a>
 			<a href="../prodajalci/profil.php">Moj profil</a>
 			<a> | </a>
-			<a href="odjava.php">Odjava</a>		
+			<a href="odjava.php">Odjava</a>
 		</div>
 		<br>';
 
-	$navigacijaStranka =
+	$navBarStranke =
 		'<div>
 			<a href="../stranke/domaca.php">Domača</a>
 			<a> | </a>
@@ -36,11 +36,11 @@
 			<a> | </a>
 			<a href="../stranke/profil.php">Moj profil</a>
 			<a> | </a>
-			<a href="odjava.php">Odjava</a>		
+			<a href="odjava.php">Odjava</a>
 		</div>
 		<br>';
 
-	$navigacijaGost =
+	$navBarGost =
 		'<div>
 			<a href="../gosti/domaca.php">Domača</a>
 			<a> | </a>
@@ -48,7 +48,7 @@
 			<a> | </a>
 			<a href="../skupno/prijava.php">Prijava</a>
 			<a> | </a>
-			<a href="../skupno/prijavaOsebja.php">Prijava Osebja</a>	
+			<a href="../skupno/prijavaOsebja.php">Prijava Osebja</a>
 		</div>
 		<br>';
 ?>

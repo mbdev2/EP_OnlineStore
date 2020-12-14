@@ -9,12 +9,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prodajalec - dodaj izdelek</title>
+		<title>eSHOP MMA - prodajalec - dodaj izdelek</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div class="container">

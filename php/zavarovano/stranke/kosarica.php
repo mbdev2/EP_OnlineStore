@@ -11,12 +11,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - stranka - košarica</title>
+		<title>eSHOP MMA - stranka - košarica</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaStranka;
+			echo $navBarStranke;
 		?>
 
 		<div>

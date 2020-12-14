@@ -11,12 +11,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - stranka - naročila</title>
+		<title>eSHOP MMA - stranka - naročila</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaStranka;
+			echo $navBarStranke;
 		?>
 		<div>
 			<?php 
@@ -49,11 +49,11 @@
 						Stanje naročila:
 						<span style="font-weight: bold;">
 							<?php
-								if ($trenutnoNarociloStranke['potrjenost'] == 0) {
+								if ($trenutnoNarociloStranke['orderStatus'] == 0) {
 									echo "Oddano";
-								} elseif ($trenutnoNarociloStranke['potrjenost'] == 1) {
+								} elseif ($trenutnoNarociloStranke['orderStatus'] == 1) {
 									echo "Potrjeno - " . $trenutnoNarociloStranke['datumPotrditve'];
-								} elseif ($trenutnoNarociloStranke['potrjenost'] == 2) {
+								} elseif ($trenutnoNarociloStranke['orderStatus'] == 2) {
 									echo "Stornirano";
 								}
 							?>

@@ -2,7 +2,7 @@
 	include('konfiguracija.php');
 	session_start();
 
-	$navigacijaAdmin =
+	$navBarAdmin =
 		'<div>
 			<a href="../admin/seznamProdajalcev.php">Prodajalci</a>
 			<a> | </a>
@@ -12,7 +12,7 @@
 		</div>
 		<br>';
 
-	$navigacijaProdajalec =
+	$navBarProd =
 		'<div>
 			<a href="../prodajalci/seznamNarocil.php">Naročila</a>
 			<a> | </a>
@@ -26,7 +26,7 @@
 		</div>
 		<br>';
 
-	$navigacijaStranka =
+	$navBarStranke =
 		'<div>
 			<a href="../stranke/domaca.php">Domača</a>
 			<a> | </a>

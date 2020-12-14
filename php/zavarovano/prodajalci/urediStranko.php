@@ -13,12 +13,12 @@
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prodajalec - uredi stranko</title>
+		<title>eSHOP MMA - prodajalec - uredi stranko</title>
 	</head>
 
 	<body>
 		<?php
-			echo $navigacijaProdajalec;
+			echo $navBarProd;
 		?>
 
 		<div>
@@ -51,10 +51,10 @@
 					<input type="text" id="telefonskaStevilka" name="telefonskaStevilka" value="<?php echo $trenutnaStranka['telefonskaStevilka'] ?>" required>
 				</div>
 				<div>
-					<label for="uporabniskoIme">
-						Uporabniško ime:
+					<label for="emailUp">
+						eMail naslov:
 					</label>
-					<input type="email" id="uporabniskoIme" name="uporabniskoIme" value="<?php echo  $trenutnaStranka['elektronskiNaslov'] ?>" size=30 required>
+					<input type="email" id="emailUp" name="emailUp" value="<?php echo  $trenutnaStranka['elektronskiNaslov'] ?>" size=30 required>
 				</div>
 				<div>
 					<label for="password">
@@ -69,10 +69,10 @@
 					<input type="password" id="passwordCheck" name="passwordCheck">
 				</div>
 				<div>
-					<label for="aktivnost">
+					<label for="activeOrNot">
 						Aktivnost:
 					</label>
-					<input type="checkbox" id="aktivnost" name="aktivnost" <?php if ($trenutnaStranka['aktivnost'] == 1) { echo "checked"; } ?> >
+					<input type="checkbox" id="activeOrNot" name="activeOrNot" <?php if ($trenutnaStranka['activeOrNot'] == 1) { echo "checked"; } ?> >
 				</div>
 				<br>
 				<input type="submit" name="shrani" value="Shrani spremembe">

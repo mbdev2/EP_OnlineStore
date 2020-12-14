@@ -2,38 +2,38 @@
 -- UPORABNIŠKA IMENA IN GESLA --
 
 	ADMINISTRATOR
-		Uporabniško ime:			mbdev@spletna-prodajalna.si
+		eMail naslov:			mbdev@spletna-prodajalna.si
 		Geslo:						Nekaj123
 		Geslo za certifikat:		certadminpass
 		Prijazno ime certifikata:	mbdev
 
 	PRODAJALCI
-		Uporabniško ime:			klemen.pecnik@spletna-prodajalna.si
+		eMail naslov:			klemen.pecnik@spletna-prodajalna.si
 		Geslo:						Klemen123
 		Geslo za certifikat:		Klemen123cert
 		Prijazno ime certifikata:	prodKlemen
 
-		Uporabniško ime:			zana.juvan@spletna-prodajalna.si
+		eMail naslov:			zana.juvan@spletna-prodajalna.si
 		Geslo:						ZanaJ123
 		Geslo za certifikat:		ZanaJ123cert
 		Prijazno ime certifikata:	prodZana
 
-		Uporabniško ime:			eva.vidmar@spletna-prodajalna.si
+		eMail naslov:			eva.vidmar@spletna-prodajalna.si
 		Geslo:						EvaVid123
 		Geslo za certifikat:		EvaVid123cert
 		Prijazno ime certifikata:	prodEva
 
 	STRANKE
-		Uporabniško ime:			matjaz.bevc@gmail.com
+		eMail naslov:			matjaz.bevc@gmail.com
 		Geslo:						Bevcjecar123
 
-		Uporabniško ime:			blaz.pridgar@gmail.com
+		eMail naslov:			blaz.pridgar@gmail.com
 		Geslo:						N3k4jv4rn3g4
 
-		Uporabniško ime:			basej.jaka@gmail.com
+		eMail naslov:			basej.jaka@gmail.com
 		Geslo:						Cokolada1999
 
-		Uporabniško ime:			eva.vidnar@gmail.com
+		eMail naslov:			eva.vidnar@gmail.com
 		Geslo:						Ljubavi123
 
 
