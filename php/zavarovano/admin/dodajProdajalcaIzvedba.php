@@ -1,6 +1,6 @@
 <?php
 	include('navigacija.php');
-	
+
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdministrator'])){
 		header("Location: ../skupno/prijavaOsebja.php");
@@ -21,5 +21,5 @@
 	mysqli_stmt_execute($query);
 	$query = $query->get_result();
 
-	header("Location: seznamProdajalcev.php");
+	header("Location: ../admin/seznamProdajalcev.php");
 ?>

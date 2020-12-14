@@ -22,7 +22,7 @@
 			<?php
 				while($ediniAdministrator = mysqli_fetch_array($administrator, MYSQLI_ASSOC)){
 			?>
-			<form action="profilIzvedba.php" method="post">
+			<form action="../admin/profilIzvedba.php" method="post">
 				<h3>Moj profil</h3>
 				<div>
 					<label for="name">
@@ -59,7 +59,7 @@
 			</form>
 			<?php
 				}
-			?> 
+			?>
 		</div>
 	</body>
 </html>

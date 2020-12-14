@@ -39,7 +39,7 @@
 
 				if(md5($geslo) == $gesloUporabnika) {
 					$_SESSION['idAdministrator'] = $idUporabnika;
-					header("Location: seznamProdajalcev.php");
+					header("Location: ../admin/seznamProdajalcev.php");
 				}
 			}
 			else{
