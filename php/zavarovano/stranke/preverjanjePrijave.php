@@ -16,8 +16,8 @@
 		mysqli_stmt_bind_param($preverbaQuery, 's', $uporabniskoIme);
 		mysqli_stmt_execute($preverbaQuery);
 		$preverbaQuery = $preverbaQuery->get_result();
-		if(isset($preverbaQuery)){
-			$trenutnaStranka = mysqli_fetch_array($preverbaQuery);
+		$trenutnaStranka = mysqli_fetch_array($preverbaQuery);
+		if(isset($trenutnaStranka)){
 			$idStranke = $trenutnaStranka['idStranke'];
 			$gesloBaza = $trenutnaStranka['geslo'];
 
