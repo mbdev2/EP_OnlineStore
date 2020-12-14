@@ -1,6 +1,6 @@
 <?php
 	if(isset($_POST['prijava'])){
-		include("konfiguracija.php");
+		include("../admin/konfiguracija.php");
 		session_start();
 
 		$uporabniskoIme = strip_tags(($_POST['uporabniskoIme']));
