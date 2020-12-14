@@ -12,28 +12,30 @@
 		$uporabniskoIme = htmlspecialchars($uporabniskoIme);
 		$geslo = htmlspecialchars($geslo);
 
-		$preverbaQuery = mysqli_prepare($povezavaDoBaze, "SELECT * FROM prodajalci WHERE elektronskiNaslov = ? LIMIT 1");
-		mysqli_stmt_bind_param($preverbaQuery, 's', $uporabniskoIme);
-		mysqli_stmt_execute($preverbaQuery);
-		$preverbaQuery = $preverbaQuery->get_result();
+		$queryResult = mysqli_prepare($povezavaDoBaze, "SELECT * FROM prodajalci WHERE elektronskiNaslov = ? LIMIT 1");
+		mysqli_stmt_bind_param($queryResult, 's', $uporabniskoIme);
+		mysqli_stmt_execute($queryResult);
+		$queryResult = $queryResult->get_result();
 
-		$trenutniUporabnik = mysqli_fetch_array($preverbaQuery);
-		$idUporabnika = $trenutniUporabnik['idProdajalca'];
-		$gesloUporabnika = $trenutniUporabnik['geslo'];
+		$curUser = mysqli_fetch_array($queryResult);
+		if(isset($curUser)){
+			$idUporabnika = $curUser['idProdajalca'];
+			$gesloUporabnika = $curUser['geslo'];
+			if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
+				$_SESSION['idProdajalec'] = $idUporabnika;
+				header("Location: ../prodajalci/seznamNarocil.php");
+			}
+		}
+		else {
+			$queryResult = mysqli_prepare($povezavaDoBaze, "SELECT * FROM administrator WHERE elektronskiNaslov = ? LIMIT 1");
+			mysqli_stmt_bind_param($queryResult, 's', $uporabniskoIme);
+			mysqli_stmt_execute($queryResult);
 
-		if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
-			$_SESSION['idProdajalec'] = $idUporabnika;
-			header("Location: ../prodajalci/seznamNarocil.php");
-		} else {
-			$preverbaQuery = mysqli_prepare($povezavaDoBaze, "SELECT * FROM administrator WHERE elektronskiNaslov = ? LIMIT 1");
-			mysqli_stmt_bind_param($preverbaQuery, 's', $uporabniskoIme);
-			mysqli_stmt_execute($preverbaQuery);
-
-			$preverbaQuery = $preverbaQuery->get_result();
-			$trenutniUporabnik = mysqli_fetch_array($preverbaQuery);
-			if(isset($trenutniUporabnik)){
-				$idUporabnika = $trenutniUporabnik['idAdministrator'];
-				$gesloUporabnika = $trenutniUporabnik['geslo'];
+			$queryResult = $queryResult->get_result();
+			$curUser = mysqli_fetch_array($queryResult);
+			if(isset($curUser)){
+				$idUporabnika = $curUser['idAdministrator'];
+				$gesloUporabnika = $curUser['geslo'];
 
 				if(md5($geslo) == $gesloUporabnika) {
 					$_SESSION['idAdministrator'] = $idUporabnika;

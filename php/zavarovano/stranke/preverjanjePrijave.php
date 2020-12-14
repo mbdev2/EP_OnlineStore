@@ -12,11 +12,11 @@
 		$uporabniskoIme = htmlspecialchars($uporabniskoIme);
 		$geslo = htmlspecialchars($geslo);
 
-		$preverbaQuery = mysqli_prepare($povezavaDoBaze, "SELECT * FROM stranke WHERE elektronskiNaslov = ? LIMIT 1");
-		mysqli_stmt_bind_param($preverbaQuery, 's', $uporabniskoIme);
-		mysqli_stmt_execute($preverbaQuery);
-		$preverbaQuery = $preverbaQuery->get_result();
-		$trenutnaStranka = mysqli_fetch_array($preverbaQuery);
+		$queryResult = mysqli_prepare($povezavaDoBaze, "SELECT * FROM stranke WHERE elektronskiNaslov = ? LIMIT 1");
+		mysqli_stmt_bind_param($queryResult, 's', $uporabniskoIme);
+		mysqli_stmt_execute($queryResult);
+		$queryResult = $queryResult->get_result();
+		$trenutnaStranka = mysqli_fetch_array($queryResult);
 		if(isset($trenutnaStranka)){
 			$idStranke = $trenutnaStranka['idStranke'];
 			$gesloBaza = $trenutnaStranka['geslo'];
