@@ -27,7 +27,7 @@
 			}
 		}
 		else{
-			echo "Uporabnisko ime ali geslo ni pravilno";
+			echo '<script>alert("Uporabnisko ime ali geslo ni pravilno")</script>';
 		}
 	}
 ?>
