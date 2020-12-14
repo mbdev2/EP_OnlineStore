@@ -1,6 +1,6 @@
 # epProjekt
 -- Clani EKIPE --
-Matjaž Bevc, Mark Breznik, Amadej Pavšič
+	Matjaž Bevc, Mark Breznik, Amadej Pavšič
 -- CREDENTIALS --
 
 	STRANKE
