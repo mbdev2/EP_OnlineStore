@@ -57,16 +57,16 @@
 					<input type="email" id="uporabniskoIme" name="uporabniskoIme" value="<?php echo  $trenutnaStranka['elektronskiNaslov'] ?>" size=30 required>
 				</div>
 				<div>
-					<label for="geslo1">
+					<label for="password">
 						Geslo:
 					</label>
-					<input type="password" id="geslo1" name="geslo1">
+					<input type="password" id="password" name="password">
 				</div>
 				<div>
-					<label for="geslo2">
+					<label for="passwordCheck">
 						Ponovi geslo:
 					</label>
-					<input type="password" id="geslo2" name="geslo2">
+					<input type="password" id="passwordCheck" name="passwordCheck">
 				</div>
 				<div>
 					<label for="aktivnost">

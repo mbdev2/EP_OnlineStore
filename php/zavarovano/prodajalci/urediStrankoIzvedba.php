@@ -12,20 +12,20 @@
 	$naslov = $_POST['naslov'];
 	$telefonskaStevilka = $_POST['telefonskaStevilka'];
 	$uporabniskoIme = $_POST['uporabniskoIme'];
-	$geslo1 = md5($_POST['geslo1']);
-	$geslo2 = md5($_POST['geslo2']);
+	$password = md5($_POST['password']);
+	$passwordCheck = md5($_POST['passwordCheck']);
 	if(isset($_POST['aktivnost'])) {
 		$aktivnost = 1;
 	} else {
 		$aktivnost = 0;
 	}
 
-	if ($geslo1 != "" && $geslo1 == $geslo2) {
+	if ($password != "" && $password == $passwordCheck) {
 		$query = mysqli_prepare($povezavaDoBaze, "UPDATE stranke SET ime = ?, priimek = ?, elektronskiNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, aktivnost = ? WHERE idStranke = ?");
-		mysqli_stmt_bind_param($query, 'ssssssii', $ime, $priimek, $uporabniskoIme, $naslov, $telefonskaStevilka, $geslo1, $aktivnost, $id);
-	} else if ($geslo1 != "" && $geslo1 != $geslo2) {
+		mysqli_stmt_bind_param($query, 'ssssssii', $ime, $priimek, $uporabniskoIme, $naslov, $telefonskaStevilka, $password, $aktivnost, $id);
+	} else if ($password != "" && $password != $passwordCheck) {
 		echo "Gesli se ne ujemata!";
-	} else if ($geslo1 == "" && $geslo2 == "") {
+	} else if ($password == "" && $passwordCheck == "") {
 		$query = mysqli_prepare($povezavaDoBaze, "UPDATE stranke SET ime = ?, priimek = ?, elektronskiNaslov = ?, naslov = ?, telefonskaStevilka = ?, aktivnost = ? WHERE idStranke = ?");
 		mysqli_stmt_bind_param($query, 'sssssii', $ime, $priimek, $uporabniskoIme, $naslov, $telefonskaStevilka, $aktivnost, $id);
 	}

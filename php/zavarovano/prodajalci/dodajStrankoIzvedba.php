@@ -11,12 +11,12 @@
 	$naslov = $_POST['naslov'];
 	$telefonskaStevilka = $_POST['telefonskaStevilka'];
 	$uporabniskoIme = $_POST['uporabniskoIme'];
-	$geslo1 = md5($_POST['geslo1']);
-	$geslo2 = md5($_POST['geslo2']);
+	$password = md5($_POST['password']);
+	$passwordCheck = md5($_POST['passwordCheck']);
 
-	if ($geslo1 == $geslo2) {
+	if ($password == $passwordCheck) {
 		$query = mysqli_prepare($povezavaDoBaze, "INSERT stranke SET ime = ?, priimek = ?, elektronskiNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, aktivnost=0");
-		mysqli_stmt_bind_param($query, 'ssssss', $ime, $priimek, $uporabniskoIme, $naslov, $telefonskaStevilka, $geslo1);
+		mysqli_stmt_bind_param($query, 'ssssss', $ime, $priimek, $uporabniskoIme, $naslov, $telefonskaStevilka, $password);
 	} else if ($pass1 != $pass2) {
 		echo "Gesli se ne ujemata!";
 	}

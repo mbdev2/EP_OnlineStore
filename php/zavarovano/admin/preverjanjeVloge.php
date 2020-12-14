@@ -12,12 +12,12 @@
 		$uporabniskoIme = htmlspecialchars($uporabniskoIme);
 		$geslo = htmlspecialchars($geslo);
 
-		$queryResult = mysqli_prepare($povezavaDoBaze, "SELECT * FROM prodajalci WHERE elektronskiNaslov = ? LIMIT 1");
-		mysqli_stmt_bind_param($queryResult, 's', $uporabniskoIme);
-		mysqli_stmt_execute($queryResult);
-		$queryResult = $queryResult->get_result();
+		$queryAction = mysqli_prepare($povezavaDoBaze, "SELECT * FROM prodajalci WHERE elektronskiNaslov = ? LIMIT 1");
+		mysqli_stmt_bind_param($queryAction, 's', $uporabniskoIme);
+		mysqli_stmt_execute($queryAction);
+		$queryAction = $queryAction->get_result();
 
-		$curUser = mysqli_fetch_array($queryResult);
+		$curUser = mysqli_fetch_array($queryAction);
 		if(isset($curUser)){
 			$idUporabnika = $curUser['idProdajalca'];
 			$gesloUporabnika = $curUser['geslo'];
@@ -27,12 +27,12 @@
 			}
 		}
 		else {
-			$queryResult = mysqli_prepare($povezavaDoBaze, "SELECT * FROM administrator WHERE elektronskiNaslov = ? LIMIT 1");
-			mysqli_stmt_bind_param($queryResult, 's', $uporabniskoIme);
-			mysqli_stmt_execute($queryResult);
+			$queryAction = mysqli_prepare($povezavaDoBaze, "SELECT * FROM administrator WHERE elektronskiNaslov = ? LIMIT 1");
+			mysqli_stmt_bind_param($queryAction, 's', $uporabniskoIme);
+			mysqli_stmt_execute($queryAction);
 
-			$queryResult = $queryResult->get_result();
-			$curUser = mysqli_fetch_array($queryResult);
+			$queryAction = $queryAction->get_result();
+			$curUser = mysqli_fetch_array($queryAction);
 			if(isset($curUser)){
 				$idUporabnika = $curUser['idAdministrator'];
 				$gesloUporabnika = $curUser['geslo'];

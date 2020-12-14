@@ -40,16 +40,16 @@
 					<input type="email" id="uporabniskoIme" name="uporabniskoIme" size=30 required>
 				</div>
 				<div>
-					<label for="geslo1">
+					<label for="password">
 						Geslo:
 					</label>
-					<input type="password" id="geslo1" name="geslo1" required>
+					<input type="password" id="password" name="password" required>
 				</div>
 				<div>
-					<label for="geslo2">
+					<label for="passwordCheck">
 						Ponovi geslo:
 					</label>
-					<input type="password" id="geslo2" name="geslo2" required>
+					<input type="password" id="passwordCheck" name="passwordCheck" required>
 				</div>
 				<br>
 				<input type="submit" name="dodajProdajalca" value="Dodaj prodajalca">
