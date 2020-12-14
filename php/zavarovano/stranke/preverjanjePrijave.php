@@ -16,14 +16,18 @@
 		mysqli_stmt_bind_param($preverbaQuery, 's', $uporabniskoIme);
 		mysqli_stmt_execute($preverbaQuery);
 		$preverbaQuery = $preverbaQuery->get_result();
+		try{
+			$trenutnaStranka = mysqli_fetch_array($preverbaQuery);
+			$idStranke = $trenutnaStranka['idStranke'];
+			$gesloBaza = $trenutnaStranka['geslo'];
 
-		$trenutnaStranka = mysqli_fetch_array($preverbaQuery);
-		$idStranke = $trenutnaStranka['idStranke'];
-		$gesloBaza = $trenutnaStranka['geslo'];
-
-		if(md5($geslo) == $gesloBaza){
-			$_SESSION['idStranka'] = $idStranke;
-			header("Location: domaca.php");
+			if(md5($geslo) == $gesloBaza){
+				$_SESSION['idStranka'] = $idStranke;
+				header("Location: domaca.php");
+			}
+		}
+		catch(Exception $e){
+			echo "Uporabnisko ime ali geslo nista pravilna."
 		}
 	}
 ?>
