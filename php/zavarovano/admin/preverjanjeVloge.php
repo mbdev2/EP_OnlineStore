@@ -28,15 +28,20 @@
 			$preverbaQuery = mysqli_prepare($povezavaDoBaze, "SELECT * FROM administrator WHERE elektronskiNaslov = ? LIMIT 1");
 			mysqli_stmt_bind_param($preverbaQuery, 's', $uporabniskoIme);
 			mysqli_stmt_execute($preverbaQuery);
-			
+
 			$preverbaQuery = $preverbaQuery->get_result();
 			$trenutniUporabnik = mysqli_fetch_array($preverbaQuery);
-			$idUporabnika = $trenutniUporabnik['idAdministrator'];
-			$gesloUporabnika = $trenutniUporabnik['geslo'];
+			if(isset($trenutniUporabnik)){
+				$idUporabnika = $trenutniUporabnik['idAdministrator'];
+				$gesloUporabnika = $trenutniUporabnik['geslo'];
 
-			if(md5($geslo) == $gesloUporabnika) {
-				$_SESSION['idAdministrator'] = $idUporabnika;
-				header("Location: seznamProdajalcev.php");
+				if(md5($geslo) == $gesloUporabnika) {
+					$_SESSION['idAdministrator'] = $idUporabnika;
+					header("Location: seznamProdajalcev.php");
+				}
+			}
+			else{
+				echo '<script>alert("Uporabnisko ime ali geslo ni pravilno")</script>';
 			}
 		}
 	}

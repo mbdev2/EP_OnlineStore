@@ -14,6 +14,7 @@
 		mysqli_stmt_bind_param($registracijaQuery, 'ssssss', $ime, $priimek, $uporabniskoIme, $naslov, $telefonskaStevilka, $geslo1);
 		mysqli_stmt_execute($registracijaQuery);
 		$registracijaQuery = $registracijaQuery->get_result();
+		echo $registracijaQuery;
 	} else if ($geslo1 != "" && $geslo1 != $geslo2) {
 		echo "Gesli se ne ujemata!";
 	}
