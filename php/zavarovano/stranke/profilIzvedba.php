@@ -3,7 +3,7 @@
 	
 	include('preverjanjePrijave.php');
 	if(!isset($_SESSION['idStranka'])){
-		header("Location: prijava.php");
+		header("Location: ../skupno/prijava.php");
 	}
 
 	$_SESSION['kosarica'] = NULL;

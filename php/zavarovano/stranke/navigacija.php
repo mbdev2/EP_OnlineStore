@@ -46,9 +46,9 @@
 			<a> | </a>
 			<a href="../gosti/registracija.php">Registracija</a>
 			<a> | </a>
-			<a href="../stranke/prijava.php">Prijava</a>
+			<a href="../skupno/prijava.php">Prijava</a>
 			<a> | </a>
-			<a href="../admin/prijavaOsebja.php">Prijava Osebja</a>	
+			<a href="../skupno/prijavaOsebja.php">Prijava Osebja</a>	
 		</div>
 		<br>';
 ?>

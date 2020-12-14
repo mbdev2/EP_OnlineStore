@@ -4,7 +4,7 @@
 
 	include('../admin/preverjanjeVloge.php');
 	if(!isset($_SESSION['idProdajalec'])){
-		header("Location: ../admin/prijavaOsebja.php");
+		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 

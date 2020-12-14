@@ -29,5 +29,5 @@
 		echo '<script>alert("Ta email je že v uporabi")</script>';
 	}
 
-	header("Location: ../stranke/prijava.php");
+	header("Location: ../skupno/prijava.php");
 ?>

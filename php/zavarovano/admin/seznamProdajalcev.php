@@ -4,7 +4,7 @@
 
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdministrator'])){
-		header("Location: prijavaOsebja.php");
+		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 

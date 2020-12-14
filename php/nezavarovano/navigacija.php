@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include('konfiguracija.php');
 	session_start();
 
@@ -27,15 +27,15 @@
 	    	header('Location: ' . $redirectDomaca);
 	    }
 	    if ($link == 'prijava'){
-	        $uri = "/stranke/prijava.php";
+	        $uri = "/skupno/prijava.php";
 			$redirectDomaca = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
 	    	header('Location: ' . $redirectDomaca);
 	    }
 	    if ($link == 'prijavaOsebja'){
-	        $uri = "/admin/prijavaOsebja.php";
+	        $uri = "/skupno/prijavaOsebja.php";
 			$redirectDomaca = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
 	    	header('Location: ' . $redirectDomaca);
 	    }
 	}
-	
+
 ?>

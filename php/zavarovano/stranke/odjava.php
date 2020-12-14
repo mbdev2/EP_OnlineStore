@@ -3,10 +3,10 @@
 
 	if (isset($_SESSION['idAdministrator']) || isset($_SESSION['idProdajalec'])){
 		session_destroy();
-		header("Location: ../admin/prijavaOsebja.php");
+		header("Location: ../skupno/prijavaOsebja.php");
 	} else{
 		session_destroy();
-		header("Location: ../stranke/prijava.php");			
+		header("Location: ../skupno/prijava.php");			
 	}
 
 	exit();

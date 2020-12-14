@@ -1,10 +1,10 @@
 <?php
-	include("preverjanjePrijave.php");
+	include("../admin/preverjanjeVloge.php");
 ?>
 
 <html>
 	<head>
-		<title>Spletna prodajalna - prijava</title>
+		<title>Spletna prodajalna - prijava osebja</title>
 	</head>
 
 	<body>
@@ -12,9 +12,9 @@
 			Domača
 		</a>
 
-		<h3>Prijava za stranke</h3>
+		<h3>Prijava za osebje (administrator in prodajalci)</h3>
 
-		<form action="prijava.php" method="post">
+		<form action="../skupno/prijavaOsebja.php" method="post">
 			<div>
 				<label for="uporabniskoIme">
 					Uporabniško ime:
@@ -29,15 +29,6 @@
 			</div>
 			<br>
 			<input type="submit" name="prijava" value="Prijava">
-			<br>
-			<br>
-			<a href="../gosti/registracija.php">
-				Nov uporabnik?
-			</a>
-			<br>
-			<a href="../gosti/domaca.php">
-				Vstopi kot gost
-			</a>
 		</form>
 	</body>
 
