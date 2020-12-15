@@ -5,6 +5,15 @@
 <html>
 	<head>
 		<title>eSHOP MMA</title>
+		<script src="https://www.google.com/recaptcha/api.js?render=6LdtrgcaAAAAALIg8Em7TnQWhbhjB51ZYp1Gekj7"></script>
+		<script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LdtrgcaAAAAALIg8Em7TnQWhbhjB51ZYp1Gekj7', { action: 'contact' }).then(function (token) {
+                var recaptchaResponse = document.getElementById('recaptchaResponse');
+                recaptchaResponse.value = token;
+            });
+        });
+    </script>
 	</head>
 	<body>
 		<?php
@@ -56,6 +65,7 @@
 				</div>
 				<br>
 				<input type="submit" name="registracija" value="Pošlji registracijo">
+				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 			</form>
 		</div>
 	</body>
