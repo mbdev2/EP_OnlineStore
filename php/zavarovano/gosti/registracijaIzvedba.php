@@ -1,5 +1,6 @@
 <?php
-	include('../stranke/navigacija.php');
+define("RECAPTCHA_V3_SECRET_KEY", 'YOUR_SECRET_HERE');
+include('../stranke/navigacija.php');
 
 	$ime = $_POST['ime'];
 	$priimek = $_POST['priimek'];
@@ -8,49 +9,48 @@
 	$emailUp = $_POST['emailUp'];
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
+	$token = $_POST['token'];
+	$action = $_POST['action'];
 
-	if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
+	// call curl to POST request
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => 6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX, 'response' => $token)));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+	curl_close($ch);
+	$arrResponse = json_decode($response, true);
 
-    // Build POST request:
-    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = '6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX';
-    $recaptcha_response = $_POST['recaptcha_response'];
+	// verify the response
+	if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrResponse["score"] >= 0.5) {
+		$queryAction = mysqli_prepare($dbConnection, "SELECT * FROM stranke WHERE eNaslov = ? LIMIT 1");
+		mysqli_stmt_bind_param($queryAction, 's', $emailUp);
+		mysqli_stmt_execute($queryAction);
 
-    // Make and decode POST request:
-    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
-    $recaptcha = json_decode($recaptcha);
+		$queryAction = $queryAction->get_result();
+		$curUser = mysqli_fetch_array($queryAction);
 
-    // Take action based on the score returned:
-    if ($recaptcha->score >= 0.5) {
-			$queryAction = mysqli_prepare($dbConnection, "SELECT * FROM stranke WHERE eNaslov = ? LIMIT 1");
-			mysqli_stmt_bind_param($queryAction, 's', $emailUp);
-			mysqli_stmt_execute($queryAction);
-
-			$queryAction = $queryAction->get_result();
-			$curUser = mysqli_fetch_array($queryAction);
-
-			if(!isset($curUser)){
-				if ($password != "" && $password == $passwordCheck) {
-					$registerUserQuery = mysqli_prepare($dbConnection, "INSERT stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot = 1");
-					mysqli_stmt_bind_param($registerUserQuery, 'ssssss', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password);
-					mysqli_stmt_execute($registerUserQuery);
-					$registerUserQuery = $registerUserQuery->get_result();
-					echo $registerUserQuery;
-				}
-				else{
-					echo "Gesli mroata biti enaki";
-				}
+		if(!isset($curUser)){
+			if ($password != "" && $password == $passwordCheck) {
+				$registerUserQuery = mysqli_prepare($dbConnection, "INSERT stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot = 1");
+				mysqli_stmt_bind_param($registerUserQuery, 'ssssss', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password);
+				mysqli_stmt_execute($registerUserQuery);
+				$registerUserQuery = $registerUserQuery->get_result();
+				echo $registerUserQuery;
 			}
 			else{
-				echo '<script>alert("Ta email je že v uporabi")</script>';
+				echo "Gesli mroata biti enaki";
 			}
+		}
+		else{
+			echo '<script>alert("Ta email je že v uporabi")</script>';
+		}
 
-			header("Location: ../skupno/prijava.php");
-    }
-		else {
-        	echo '<script>alert("Roboti niso zazeleni")</script>';
-					header("Location: ../gosti/registracija.php");
-    }
-
+		header("Location: ../skupno/prijava.php");
+	}
+	else {
+	    echo '<script>alert("Ah ja, zakaj si robot?")</script>';
+	    header("Location: ../gosti/registracija.php");
 	}
 ?>

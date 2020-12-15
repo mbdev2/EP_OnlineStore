@@ -5,22 +5,19 @@
 <html>
 	<head>
 		<title>eSHOP MMA</title>
-		<script src="https://www.google.com/recaptcha/api.js?render=6LdtrgcaAAAAALIg8Em7TnQWhbhjB51ZYp1Gekj7"></script>
-		<script>
-        grecaptcha.ready(function () {
-            grecaptcha.execute('6LdtrgcaAAAAALIg8Em7TnQWhbhjB51ZYp1Gekj7', { action: 'contact' }).then(function (token) {
-                var recaptchaResponse = document.getElementById('recaptchaResponse');
-                recaptchaResponse.value = token;
-            });
-        });
-    </script>
+		<script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdtrgcaAAAAALIg8Em7TnQWhbhjB51ZYp1Gekj7"></script>
 	</head>
 	<body>
 		<?php
 			echo $navBarGost;
 		?>
 		<div>
-			<form action="registracijaIzvedba.php" method="post">
+			<form id="registracijaStranke" action="registracijaIzvedba.php" method="post">
 				<div>
 					<label for="ime">
 						Ime:
@@ -65,8 +62,27 @@
 				</div>
 				<br>
 				<input type="submit" name="registracija" value="Pošlji registracijo">
-				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 			</form>
 		</div>
+		<script>
+    $('#registracijaStranke').submit(function(event) {
+        event.preventDefault();
+        var ime = $('#ime').val();
+				var priimek = $('#priimek').val();
+				var naslov = $('#naslov').val();
+				var telefonskaStevilka = $('#telefonskaStevilka').val();
+				var emailUp = $('#emailUp').val();
+				var password = $('#password').val();
+				var passwordCheck = $('#passwordCheck').val();
+
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdtrgcaAAAAALIg8Em7TnQWhbhjB51ZYp1Gekj7', {action: 'izvedi_resgitracijo'}).then(function(token) {
+                $('#registracijaStranke').prepend('<input type="hidden" name="token" value="' + token + '">');
+                $('#registracijaStranke').prepend('<input type="hidden" name="action" value="izvedi_resgitracijo">');
+                $('#registracijaStranke').unbind('submit').submit();
+            });;
+        });
+  });
+  </script>
 	</body>
 </html>
