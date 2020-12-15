@@ -1,5 +1,5 @@
 <?php
-define("RECAPTCHA_V3_SECRET_KEY", 'YOUR_SECRET_HERE');
+define("RECAPTCHA_V3_SECRET_KEY", '6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX-Ip');
 include('../stranke/navigacija.php');
 
 	$ime = $_POST['ime'];
@@ -16,7 +16,7 @@ include('../stranke/navigacija.php');
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
 	curl_setopt($ch, CURLOPT_POST, 1);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => 6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX, 'response' => $token)));
+	curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array('secret' => RECAPTCHA_V3_SECRET_KEY, 'response' => $token)));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	$response = curl_exec($ch);
 	curl_close($ch);
