@@ -68,5 +68,7 @@
 	8. 	Z ukazom "sudo cp -R /home/ep/Desktop/epProjekt/php/nezavarovano /var/www/html/" skopiramo mapo "epProjekt/php/nezavarovano" v mapo "/var/www/html".
 
 	9.	V programu mySQL workbench poženemo datoteko "baza.sql", kar nam bo ustvarilo podatkovno bazo.
+	
+	10.	Z ukazom "sudo apt-get install php-curl" namestimo curl extension.
 
 	11.	Zaženemo apache server z ukazom "sudo service apache2 start".
