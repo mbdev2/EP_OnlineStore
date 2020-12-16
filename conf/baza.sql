@@ -45,16 +45,16 @@ CREATE TABLE `stranke` (
 	`naslov` varchar(90) DEFAULT NULL,
 	`telefonskaStevilka` int NOT NULL,
 	`geslo` char(128) NOT NULL,
-	`activeOrNot` tinyint NOT NULL,
+	`activeOrNot` tinyint DEFAULT '0',
   PRIMARY KEY (`idStranke`),
   UNIQUE KEY `idStranke_UNIQUE` (`idStranke`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `stranke` WRITE;
-INSERT INTO `stranke` VALUES 		(1,'Matjaz','Bevc','matjaz.bevc@gmail.com','Plac 19, 5000 Novo Mesto','040444222','51d7310052a9a62fedae78483be55e18',0),
-									(2,'Blaz','Pridgar','blaz.pridgar@gmail.com','Gornji Trg 7, 2000 Maribor','040340203','6f60cb7657da242fed3dc48b24646d11',0),
-									(3,'Jaka','Basej','basej.jaka@gmail.com','Clevelandksa 21, 1000 Ljubljana','040325203','b7fd5c09104ede0c829f880ddfbbd692',0),
-									(4,'Eva','Vidnar','eva.vidnar@gmail.com','Pot na hrib 1, 3000 Celje','051092043','32ed3a6859f2ea618802080eeac14ebd',0);
+INSERT INTO `stranke` VALUES 		(1,'Matjaz','Bevc','matjaz.bevc@gmail.com','Plac 19, 5000 Novo Mesto','040444222','51d7310052a9a62fedae78483be55e18',1),
+									(2,'Blaz','Pridgar','blaz.pridgar@gmail.com','Gornji Trg 7, 2000 Maribor','040340203','6f60cb7657da242fed3dc48b24646d11',1),
+									(3,'Jaka','Basej','basej.jaka@gmail.com','Clevelandksa 21, 1000 Ljubljana','040325203','b7fd5c09104ede0c829f880ddfbbd692',1),
+									(4,'Eva','Vidnar','eva.vidnar@gmail.com','Pot na hrib 1, 3000 Celje','051092043','32ed3a6859f2ea618802080eeac14ebd',1);
 UNLOCK TABLES;
 
 
@@ -64,7 +64,7 @@ CREATE TABLE `artikli` (
 	`ime` varchar(128) NOT NULL,
 	`opis` mediumtext,
 	`cena` double NOT NULL,
-	`activeOrNot` tinyint DEFAULT NULL,
+	`activeOrNot` tinyint DEFAULT '1',
 	PRIMARY KEY (`idArtikla`),
 	UNIQUE KEY `idArtikla_UNIQUE` (`idArtikla`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;

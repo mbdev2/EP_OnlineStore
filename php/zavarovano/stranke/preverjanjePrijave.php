@@ -17,14 +17,18 @@
 		mysqli_stmt_execute($queryAction);
 		$queryAction = $queryAction->get_result();
 		$trenutnaStranka = mysqli_fetch_array($queryAction);
-		
-		if(isset($trenutnaStranka)){
-			$idStranke = $trenutnaStranka['idStranke'];
-			$gesloBaza = $trenutnaStranka['geslo'];
 
-			if(md5($geslo) == $gesloBaza){
-				$_SESSION['idStranka'] = $idStranke;
-				header("Location: ../stranke/domaca.php");
+		if(isset($trenutnaStranka)){
+			if($trenutnaStranka['activeOrNot']==1){
+				$idStranke = $trenutnaStranka['idStranke'];
+				$gesloBaza = $trenutnaStranka['geslo'];
+				if(md5($geslo) == $gesloBaza){
+					$_SESSION['idStranka'] = $idStranke;
+					header("Location: ../stranke/domaca.php");
+				}
+			}
+			else{
+				echo '<script>alert("Uporabnisko ime ali geslo ni pravilno")</script>';
 			}
 		}
 		else{

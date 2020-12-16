@@ -14,7 +14,7 @@
 	$passwordCheck = md5($_POST['passwordCheck']);
 
 	if ($password == $passwordCheck) {
-		$query = mysqli_prepare($dbConnection, "INSERT stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot=0");
+		$query = mysqli_prepare($dbConnection, "INSERT stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot=1");
 		mysqli_stmt_bind_param($query, 'ssssss', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password);
 	}
 	else{

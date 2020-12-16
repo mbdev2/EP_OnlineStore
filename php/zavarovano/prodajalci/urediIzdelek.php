@@ -44,7 +44,7 @@
 					<label for="activeOrNot">
 						Aktivnost:
 					</label>
-					<input type="checkbox" id="activeOrNot" name="activeOrNot" <?php if ($currenItem['activeOrNot'] == 1) { echo "checked"; } ?> >
+					<input type="checkbox" id="activeOrNot" name="activeOrNot" <?php if ($currenItem['activeOrNot'] == 1) { echo "checked='checked'";  } ?> >
 				</div>
 				<br>
 				<input type="submit" name="shrani" value="Shrani spremembe">
