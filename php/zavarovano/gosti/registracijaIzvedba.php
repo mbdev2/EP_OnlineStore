@@ -1,7 +1,6 @@
 <?php
 define("RECAPTCHA_V3_SECRET_KEY", '6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX-Ip');
 include('../stranke/navigacija.php');
-require_once(__DIR__ . '/vendor/autoload.php');
 
 	$ime = $_POST['ime'];
 	$priimek = $_POST['priimek'];
@@ -52,7 +51,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 				  CURLOPT_TIMEOUT => 30,
 				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 				  CURLOPT_CUSTOMREQUEST => "POST",
-				  CURLOPT_POSTFIELDS => "{\"sender\":{\"name\":\"EPshopMMA\",\"email\":\"mbdev32@gmail.com\"},\"to\":[{\"email\":\"$emailUP\"}],\"replyTo\":{\"email\":\"mbdev32@gmail.com\"},\"textContent\":\"Hvala za registracijo! \\t\\t\\t\\tUporabniški račun je ustvarjen, po potrditvi preko spodnjega linka, se lahko prijaviš.  \\t\\t\\t\\tProsimo kliknite za aktivacijo: \\t\\t\\t\\thttps://localhost/zavarovano/stranke/verify.php?email='.$emailUp.'&hash='.$registerHash.\",\"subject\":\"Potrdilo registracije\"}",
+				  CURLOPT_POSTFIELDS => "{\"sender\":{\"name\":\"EPshopMMA\",\"email\":\"mbdev32@gmail.com\"},\"to\":[{\"email\":\"$emailUp\"}],\"replyTo\":{\"email\":\"mbdev32@gmail.com\"},\"textContent\":\"Hvala za registracijo! \\t\\t\\t\\tUporabniški račun je ustvarjen, po potrditvi preko spodnjega linka, se lahko prijaviš.  \\t\\t\\t\\tProsimo kliknite za aktivacijo: \\t\\t\\t\\thttps://localhost/zavarovano/stranke/verify.php?email='.$emailUp.'&hash='.$registerHash.\",\"subject\":\"Potrdilo registracije\"}",
 				  CURLOPT_HTTPHEADER => [
 				    "Accept: application/json",
 				    "Content-Type: application/json",
