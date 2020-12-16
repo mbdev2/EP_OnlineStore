@@ -52,10 +52,10 @@ CREATE TABLE `stranke` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `stranke` WRITE;
-INSERT INTO `stranke` VALUES 		(1,'Matjaz','Bevc','matjaz.bevc@gmail.com','Plac 19, 5000 Novo Mesto','040444222','51d7310052a9a62fedae78483be55e18',1),
-									(2,'Blaz','Pridgar','blaz.pridgar@gmail.com','Gornji Trg 7, 2000 Maribor','040340203','6f60cb7657da242fed3dc48b24646d11',1),
-									(3,'Jaka','Basej','basej.jaka@gmail.com','Clevelandksa 21, 1000 Ljubljana','040325203','b7fd5c09104ede0c829f880ddfbbd692',1),
-									(4,'Eva','Vidnar','eva.vidnar@gmail.com','Pot na hrib 1, 3000 Celje','051092043','32ed3a6859f2ea618802080eeac14ebd',1);
+INSERT INTO `stranke` VALUES 		(1,'Matjaz','Bevc','matjaz.bevc@gmail.com','Plac 19, 5000 Novo Mesto','040444222','51d7310052a9a62fedae78483be55e18','c4ca4238a0b923820dcc509a6f75849b',1),
+									(2,'Blaz','Pridgar','blaz.pridgar@gmail.com','Gornji Trg 7, 2000 Maribor','040340203','6f60cb7657da242fed3dc48b24646d11','c4ca4238a0b923820dcc509a6f75849b',1),
+									(3,'Jaka','Basej','basej.jaka@gmail.com','Clevelandksa 21, 1000 Ljubljana','040325203','b7fd5c09104ede0c829f880ddfbbd692','c4ca4238a0b923820dcc509a6f75849b',1),
+									(4,'Eva','Vidnar','eva.vidnar@gmail.com','Pot na hrib 1, 3000 Celje','051092043','32ed3a6859f2ea618802080eeac14ebd','c4ca4238a0b923820dcc509a6f75849b',1);
 UNLOCK TABLES;
 
 
