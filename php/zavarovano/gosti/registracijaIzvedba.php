@@ -1,6 +1,7 @@
 <?php
 define("RECAPTCHA_V3_SECRET_KEY", '6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX-Ip');
 include('../stranke/navigacija.php');
+require_once(__DIR__ . '/vendor/autoload.php');
 
 	$ime = $_POST['ime'];
 	$priimek = $_POST['priimek'];
@@ -33,11 +34,42 @@ include('../stranke/navigacija.php');
 
 		if(!isset($curUser)){
 			if ($password != "" && $password == $passwordCheck) {
-				$registerUserQuery = mysqli_prepare($dbConnection, "INSERT stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot = 1");
-				mysqli_stmt_bind_param($registerUserQuery, 'ssssss', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password);
+				$registerHash=md5(rand(0,1000)); //naredimo random hash za mail
+				$registerUserQuery = mysqli_prepare($dbConnection, "INSERT stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, registerHash = ?, activeOrNot = 0");
+				mysqli_stmt_bind_param($registerUserQuery, 'sssssss', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password, $registerHash);
 				mysqli_stmt_execute($registerUserQuery);
 				$registerUserQuery = $registerUserQuery->get_result();
 				echo $registerUserQuery;
+
+				// posljemo mail
+				$curl = curl_init();
+
+				curl_setopt_array($curl, [
+				  CURLOPT_URL => "https://api.sendinblue.com/v3/smtp/email",
+				  CURLOPT_RETURNTRANSFER => true,
+				  CURLOPT_ENCODING => "",
+				  CURLOPT_MAXREDIRS => 10,
+				  CURLOPT_TIMEOUT => 30,
+				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				  CURLOPT_CUSTOMREQUEST => "POST",
+				  CURLOPT_POSTFIELDS => "{\"sender\":{\"name\":\"EPshopMMA\",\"email\":\"mbdev32@gmail.com\"},\"to\":[{\"email\":\"$emailUP\"}],\"replyTo\":{\"email\":\"mbdev32@gmail.com\"},\"textContent\":\"Hvala za registracijo! \\t\\t\\t\\tUporabniški račun je ustvarjen, po potrditvi preko spodnjega linka, se lahko prijaviš.  \\t\\t\\t\\tProsimo kliknite za aktivacijo: \\t\\t\\t\\thttps://localhost/zavarovano/stranke/verify.php?email='.$emailUp.'&hash='.$registerHash.\",\"subject\":\"Potrdilo registracije\"}",
+				  CURLOPT_HTTPHEADER => [
+				    "Accept: application/json",
+				    "Content-Type: application/json",
+				    "api-key: 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"
+				  ],
+				]);
+
+				$response = curl_exec($curl);
+				$err = curl_error($curl);
+
+				curl_close($curl);
+
+				if ($err) {
+				  echo "cURL Error #:" . $err;
+				} else {
+				  echo $response;
+				}
 			}
 			else{
 				echo "Gesli mroata biti enaki";

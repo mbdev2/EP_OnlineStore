@@ -45,6 +45,7 @@ CREATE TABLE `stranke` (
 	`naslov` varchar(90) DEFAULT NULL,
 	`telefonskaStevilka` int NOT NULL,
 	`geslo` char(128) NOT NULL,
+	`registerHash` varchar(32) DEFAULT NULL,
 	`activeOrNot` tinyint DEFAULT '0',
   PRIMARY KEY (`idStranke`),
   UNIQUE KEY `idStranke_UNIQUE` (`idStranke`)
