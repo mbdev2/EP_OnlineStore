@@ -51,7 +51,7 @@ include('../stranke/navigacija.php');
 				  CURLOPT_TIMEOUT => 30,
 				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 				  CURLOPT_CUSTOMREQUEST => "POST",
-				  CURLOPT_POSTFIELDS => "{\"sender\":{\"name\":\"EPshopMMA\",\"email\":\"mbdev32@gmail.com\"},\"to\":[{\"email\":\"$emailUp\"}],\"replyTo\":{\"email\":\"mbdev32@gmail.com\"},\"textContent\":\"Hvala za registracijo! \\t\\t\\t\\tUporabniški račun je ustvarjen, po potrditvi preko spodnjega linka, se lahko prijaviš.  \\t\\t\\t\\tProsimo kliknite za aktivacijo: \\t\\t\\t\\thttps://localhost/zavarovano/stranke/verify.php?email='.$emailUp.'&hash='.$registerHash.\",\"subject\":\"Potrdilo registracije\"}",
+				  CURLOPT_POSTFIELDS => "{\"sender\":{\"name\":\"EPshopMMA\",\"email\":\"mbdev32@gmail.com\"},\"to\":[{\"email\":\"$emailUp\"}],\"replyTo\":{\"email\":\"mbdev32@gmail.com\"},\"textContent\":\"Hvala za registracijo! \\t\\t\\t\\tUporabniški račun je ustvarjen, po potrditvi preko spodnjega linka, se lahko prijaviš.  \\t\\t\\t\\tProsimo kliknite za aktivacijo: \\t\\t\\t\\thttps://localhost/stranke/verify.php?email='.$emailUp.'&hash='.$registerHash.\",\"subject\":\"Potrdilo registracije\"}",
 				  CURLOPT_HTTPHEADER => [
 				    "Accept: application/json",
 				    "Content-Type: application/json",
@@ -78,7 +78,7 @@ include('../stranke/navigacija.php');
 			echo '<script>alert("Ta email je že v uporabi")</script>';
 		}
 
-		header("Location: ../skupno/prijava.php");
+		header("Location: ../stranke/domaca.php");
 	}
 	else {
 	    echo '<script>alert("Ah ja, zakaj si robot?")</script>';
