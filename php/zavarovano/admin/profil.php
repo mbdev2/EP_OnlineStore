@@ -3,7 +3,7 @@
 	$administrator = mysqli_query($dbConnection, "SELECT * FROM administrator");
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdmin'])){
-		header("Location: ../stranke/prijavaOsebja.php");
+		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 

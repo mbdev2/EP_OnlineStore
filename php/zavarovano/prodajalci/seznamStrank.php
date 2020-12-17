@@ -3,7 +3,7 @@
 	$vseStranke = mysqli_query($dbConnection, "SELECT * FROM stranke");
 	include('../admin/preverjanjeVloge.php');
 	if(!isset($_SESSION['idProd'])){
-		header("Location: ../stranke/prijavaOsebja.php");
+		header("Location: ../skupno/prijavaOsebja.php");
 	}
 ?>
 

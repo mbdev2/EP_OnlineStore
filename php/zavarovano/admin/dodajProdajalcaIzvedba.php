@@ -2,7 +2,7 @@
 	include('navigacija.php');
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdmin'])){
-		header("Location: ../stranke/prijavaOsebja.php");
+		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
 	$ime = $_POST['ime'];

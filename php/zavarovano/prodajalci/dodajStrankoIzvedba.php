@@ -2,7 +2,7 @@
 	include('../admin/navigacija.php');
 	include('../admin/preverjanjeVloge.php');
 	if(!isset($_SESSION['idProd'])){
-		header("Location: ../stranke/prijavaOsebja.php");
+		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
 	$ime = $_POST['ime'];

@@ -48,7 +48,7 @@
 			<a> | </a>
 			<a href="../stranke/prijava.php">Prijava</a>
 			<a> | </a>
-			<a href="../stranke/prijavaOsebja.php">Prijava Osebja</a>
+			<a href="../skupno/prijavaOsebja.php">Prijava Osebja</a>
 		</div>
 		<br>';
 ?>

@@ -13,7 +13,7 @@
 		</a>
 		<h3>Welcome back to work! (administrator in prodajalci)</h3>
 
-		<form action="../stranke/prijavaOsebja.php" method="post">
+		<form action="../skupno/prijavaOsebja.php" method="post">
 			<div>
 				<label for="emailUp">
 					eMail naslov:

@@ -32,7 +32,7 @@
 	    	header('Location: ' . $redirectURL);
 	    }
 	    if ($link == 'prijavaOsebja'){
-	        $uri = "/stranke/prijavaOsebja.php";
+	        $uri = "/skupno/prijavaOsebja.php";
 			$redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
 	    	header('Location: ' . $redirectURL);
 	    }
