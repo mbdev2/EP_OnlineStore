@@ -26,12 +26,6 @@
 			$cert_data = openssl_x509_parse($client_cert);
 			$cert_email = $cert_data['subject']['emailAddress'];
 
-			while($cert_email==NULL){
-				$client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_CERT");
-				$cert_data = openssl_x509_parse($client_cert);
-				$cert_email = $cert_data['subject']['emailAddress'];
-			}
-
 			if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
 				if($cert_email==$cert_data){
 					session_start();
@@ -63,12 +57,6 @@
 				$cert_data = openssl_x509_parse($client_cert);
 				$cert_email = $cert_data['subject']['emailAddress'];
 
-				while($cert_email==NULL){
-					$client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_CERT");
-					$cert_data = openssl_x509_parse($client_cert);
-					$cert_email = $cert_data['subject']['emailAddress'];
-				}
-				
 				if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
 					if($cert_email==$cert_data){
 						session_start();

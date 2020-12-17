@@ -3,7 +3,7 @@
 	$vsiIzdelki = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 	include('preverjanjePrijave.php');
 	if(!isset($_SESSION['idStranka'])){
-		header("Location: ../skupno/prijava.php");
+		header("Location: ../stranke/prijava.php");
 	}
 ?>
 

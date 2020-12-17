@@ -3,7 +3,7 @@
 	$vsiProdajalci = mysqli_query($dbConnection, "SELECT * FROM prodajalci");
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdmin'])){
-		header("Location: ../skupno/prijavaOsebja.php");
+		header("Location: ../stranke/prijavaOsebja.php");
 	}
 ?>
 

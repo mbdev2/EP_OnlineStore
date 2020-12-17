@@ -14,7 +14,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
     if(isset($curUser)){
 			if($curUser['activeOrNot']==1){
         echo '<script>alert("Racun je ze registriran")</script>';
-        header("Location: ../skupno/prijava.php");
+        header("Location: ../stranke/prijava.php");
 			}
       else{
         $query = mysqli_prepare($dbConnection, "UPDATE stranke SET activeOrNot = 1 WHERE eNaslov = ? AND registerHash = ?");
@@ -23,7 +23,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
         $query = $query -> get_result();
 
         echo '<script>alert("Registracija je uspesna, sedaj se lahko prijavite")</script>';
-        header("Location: ../skupno/prijava.php");
+        header("Location: ../stranke/prijava.php");
       }
     }
 

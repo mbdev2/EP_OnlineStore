@@ -27,12 +27,12 @@
 	    	header('Location: ' . $redirectURL);
 	    }
 	    if ($link == 'prijava'){
-	        $uri = "/skupno/prijava.php";
+	        $uri = "/stranke/prijava.php";
 			$redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
 	    	header('Location: ' . $redirectURL);
 	    }
 	    if ($link == 'prijavaOsebja'){
-	        $uri = "/skupno/prijavaOsebja.php";
+	        $uri = "/stranke/prijavaOsebja.php";
 			$redirectURL = 'https://' . $_SERVER['HTTP_HOST'] . $uri;
 	    	header('Location: ' . $redirectURL);
 	    }

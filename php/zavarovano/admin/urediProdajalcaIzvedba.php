@@ -2,7 +2,7 @@
 	include('navigacija.php');
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdmin'])){
-		header("Location: ../skupno/prijavaOsebja.php");
+		header("Location: ../stranke/prijavaOsebja.php");
 	}
 
 	$id = $_POST['idProdajalca'];

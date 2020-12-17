@@ -12,7 +12,7 @@
 			Domača
 		</a>
 		<h3>Prijava za stranke</h3>
-		<form action="../skupno/prijava.php" method="post">
+		<form action="../stranke/prijava.php" method="post">
 			<div>
 				<label for="emailUp">
 					eMail naslov:
