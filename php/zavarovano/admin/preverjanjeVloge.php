@@ -1,6 +1,7 @@
 <?php
 	if(isset($_POST['prijava'])){
 		include("../admin/konfiguracija.php");
+		session_start();
 
 		$emailUp = strip_tags(($_POST['emailUp']));
 		$emailUp = stripslashes(($_POST['emailUp']));
@@ -25,10 +26,9 @@
 			$client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_CERT");
 			$cert_data = openssl_x509_parse($client_cert);
 			$cert_email = $cert_data['subject']['emailAddress'];
-
+			
 			if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
 				if($cert_email==$cert_data){
-					session_start();
 					$_SESSION['idProd'] = $idUporabnika;
 					header("Location: ../prodajalci/seznamNarocil.php");
 				}
@@ -59,7 +59,6 @@
 
 				if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
 					if($cert_email==$cert_data){
-						session_start();
 						$_SESSION['idAdmin'] = $idUporabnika;
 						header("Location: ../admin/seznamProdajalcev.php");
 					}

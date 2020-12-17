@@ -12,7 +12,12 @@
 			Domača
 		</a>
 		<h3>Welcome back to work! (administrator in prodajalci)</h3>
-
+		<?php
+		$client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_CERT");
+		$cert_data = openssl_x509_parse($client_cert);
+		$cert_email = $cert_data['subject']['emailAddress'];
+		echo $cert_email;
+		 ?>
 		<form action="../skupno/prijavaOsebja.php" method="post">
 			<div>
 				<label for="emailUp">
