@@ -21,9 +21,19 @@
 		if(isset($curUser)){
 			$idUporabnika = $curUser['idProdajalca'];
 			$gesloUporabnika = $curUser['geslo'];
+			$mailUp = $curUser['eNaslov'];
+			$client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_CERT");
+			$cert_data = openssl_x509_parse($client_cert);
+			$cert_email = $cert_data['subject']['Email'];
+
 			if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
-				$_SESSION['idProd'] = $idUporabnika;
-				header("Location: ../prodajalci/seznamNarocil.php");
+				if($cert_email==$cert_data){
+					$_SESSION['idProd'] = $idUporabnika;
+					header("Location: ../prodajalci/seznamNarocil.php");
+				}
+				else{
+					echo '<script>alert("Certifikat se ne ujema z uporabnikim emailom")</script>';
+				}
 			}
 		}
 		else{
@@ -40,9 +50,20 @@
 			else{
 				$idUporabnika = $curUser['idAdmin'];
 				$gesloUporabnika = $curUser['geslo'];
-				if(md5($geslo) == $gesloUporabnika) {
-					$_SESSION['idAdmin'] = $idUporabnika;
-					header("Location: ../admin/seznamProdajalcev.php");
+				$mailUp = $curUser['eNaslov'];
+
+				$client_cert = filter_input(INPUT_SERVER, "SSL_CLIENT_CERT");
+				$cert_data = openssl_x509_parse($client_cert);
+				$cert_email = $cert_data['subject']['Email'];
+
+				if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
+					if($cert_email==$cert_data){
+						$_SESSION['idAdmin'] = $idUporabnika;
+						header("Location: ../admin/seznamProdajalcev.php");
+					}
+					else{
+						echo '<script>alert("Certifikat se ne ujema z uporabnikim emailom")</script>';
+					}
 				}
 			}
 		}
