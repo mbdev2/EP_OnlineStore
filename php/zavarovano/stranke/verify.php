@@ -20,7 +20,7 @@ if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !
         $query = mysqli_prepare($dbConnection, "UPDATE stranke SET activeOrNot = 1 WHERE eNaslov = ? AND registerHash = ?");
         mysqli_stmt_bind_param($query, 'ss', $emailUp, $registerHash);
         mysqli_stmt_execute($query);
-        $query = $query -> get_result()
+        $query = $query -> get_result();
 
         echo '<script>alert("Registracija je uspesna, sedaj se lahko prijavite")</script>';
         header("Location: ../skupno/prijava.php");
