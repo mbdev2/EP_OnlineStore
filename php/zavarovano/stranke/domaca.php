@@ -37,13 +37,19 @@
 					<?php	if($curItem['stOcen']==0){
 							echo 'Izdelek se ni ocenjen';
 						}
-						else{				
+						else{
 							$ocena=round($curItem['sestevekOcen']/$curItem['stOcen'],1);
 							echo 'Povprecna ocena: ';
 							echo $ocena;
 						}
 					?>
 				</div>
+				<form method="post" action="posodobi_oceno.php">
+					<input type="hidden" name="idIzdelka" value="<?php echo $curItem['idArtikla']; ?>">
+					<label>Ocenite izdelek z vrednostjo med 1 in 5. </label>
+					<input type="number" id="ocena" name="ocena" min="1" max="5">
+					<input type='submit' value='Oddaj oceno'>
+				</form>
 				<div>
 					<p style="font-weight: bold;">
 						Cena za kos:
