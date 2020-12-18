@@ -47,7 +47,7 @@
 				<form method="post" action="posodobi_oceno.php">
 					<input type="hidden" name="idIzdelka" value="<?php echo $curItem['idArtikla']; ?>">
 					<label>Ocenite izdelek z vrednostjo med 1 in 5. </label>
-					<input type="number" id="ocena" name="ocena" min="1" max="5">
+					<input type="number" id="ocena" name="ocena" min="1" max="5" value="3">
 					<input type='submit' value='Oddaj oceno'>
 				</form>
 				<div>

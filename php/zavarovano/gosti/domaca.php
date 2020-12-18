@@ -29,6 +29,18 @@
 					?>
 				</div>
 				<div>
+					</br>
+					<?php	if($curItem['stOcen']==0){
+							echo 'Izdelek se ni ocenjen';
+						}
+						else{
+							$ocena=round($curItem['sestevekOcen']/$curItem['stOcen'],1);
+							echo 'Povprecna ocena: ';
+							echo $ocena;
+						}
+					?>
+				</div>
+				<div>
 					<p style="font-weight: bold;">
 						Cena za kos:
 						<?php

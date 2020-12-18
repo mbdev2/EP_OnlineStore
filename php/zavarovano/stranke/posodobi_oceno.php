@@ -12,7 +12,7 @@
 	mysqli_stmt_bind_param($query, 'i', $idIzdelka);
 	mysqli_stmt_execute($query);
 	$query = $query->get_result();
-  $izdelek = mysqli_fetch_array($queryAction);
+  $izdelek = mysqli_fetch_array($query);
 
   $novoStOcen = $izdelek['stOcen'] + 1;
   $novSestevekOcen = $izdelek['sestevekOcen'] + $ocena;
