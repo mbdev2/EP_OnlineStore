@@ -33,6 +33,11 @@
 					?>
 				</div>
 				<div>
+					<?php
+						echo round($curItem['sestevekOcen']/$curItem['stOcen'],1);
+					?>
+				</div>
+				<div>
 					<p style="font-weight: bold;">
 						Cena za kos:
 						<?php
