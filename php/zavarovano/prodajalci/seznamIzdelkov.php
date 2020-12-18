@@ -18,8 +18,18 @@
 		<div>
 			<?php
 				while($curItem = mysqli_fetch_array($vsiIzdelki, MYSQLI_ASSOC)){
+					$nasID=$curItem['idArtikla'];
+					$query = mysqli_prepare($dbConnection, "SELECT * FROM images WHERE idArtikla = ? LIMIT 1");
+					mysqli_stmt_bind_param($query, 'i', $nasID);
+					mysqli_stmt_execute($query);
+					$query = $query->get_result();
+					$curSlika = mysqli_fetch_array($query);
 			?>
 			<div>
+				<?php if(isset($curSlika)){ ?>
+		    <div class="gallery">
+		    	<img src="data:image/jpg;charset=utf8mb4;base64,<?php echo base64_encode($curSlika['image']); ?>" />
+		    </div>
 				<div>
 					<h3>
 						<?php

@@ -35,6 +35,10 @@
 					</label>
 					<input type="text" id="cena" name="cena" size="10" required>€
 				</div>
+				<div>
+				<label>Izberite sliko:</label>
+    		<input type="file" id="slika1" name="slika1" required>
+				</div>
 				<br>
 				<input type="submit" name="dodaj" value="Dodaj izdelek">
 			</form>
