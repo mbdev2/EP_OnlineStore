@@ -1,7 +1,6 @@
 CREATE SCHEMA `eSHOPmma` ;
 USE `eSHOPmma` ;
 
--- Tabela administratorjev
 DROP TABLE IF EXISTS `administrator`;
 CREATE TABLE `administrator` (
 	`idAdmin` int NOT NULL AUTO_INCREMENT,
@@ -17,7 +16,7 @@ LOCK TABLES `administrator` WRITE;
 INSERT INTO `administrator` VALUES (1,'Mark','Breznik','mbdev@spletna-prodajalna.si','b5981b732dfdacd417e103ab82c931d8');
 UNLOCK TABLES;
 
--- Tabela prodjalcev
+
 DROP TABLE IF EXISTS `prodajalci`;
 CREATE TABLE `prodajalci` (
 	`idProdajalca` int NOT NULL AUTO_INCREMENT,
@@ -36,7 +35,7 @@ INSERT INTO `prodajalci` VALUES		(1,'Klemen','Pecnik','klemen.pecnik@spletna-pro
 									(3,'Eva','Vidmar','eva.vidmar@spletna-prodajalna.si','685c8a8b30e7ba9b1c07af8bdfa9dc26',1);
 UNLOCK TABLES;
 
--- Tabela strank
+
 DROP TABLE IF EXISTS `stranke`;
 CREATE TABLE `stranke` (
 	`idStranke` int NOT NULL AUTO_INCREMENT,
@@ -59,7 +58,7 @@ INSERT INTO `stranke` VALUES 		(1,'Matjaz','Bevc','matjaz.bevc@gmail.com','Plac 
 									(4,'Eva','Vidnar','eva.vidnar@gmail.com','Pot na hrib 1, 3000 Celje','051092043','32ed3a6859f2ea618802080eeac14ebd','c4ca4238a0b923820dcc509a6f75849b',1);
 UNLOCK TABLES;
 
--- Tabela artiklov
+
 DROP TABLE IF EXISTS `artikli`;
 CREATE TABLE `artikli` (
 	`idArtikla` int NOT NULL AUTO_INCREMENT,
@@ -67,45 +66,29 @@ CREATE TABLE `artikli` (
 	`opis` mediumtext,
 	`cena` double NOT NULL,
 	`activeOrNot` tinyint DEFAULT '1',
-	`sestevek` int DEFAULT '0',
-	`stOcen` int DEFAULT '0',
 	PRIMARY KEY (`idArtikla`),
 	UNIQUE KEY `idArtikla_UNIQUE` (`idArtikla`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `artikli` WRITE;
-INSERT INTO `artikli` VALUES 	(1,'Polar senzor srčnega utripa H10 BLK','Najnatančnejši senzor srčnega utripa znamke Polar, sedaj z izboljšanimi elektrodami H10. Združljiv je z vodilnimi aplikacijami za telesno pripravljenost in napravami Bluetooth. Frekvenca prenosa je 5 kHz, zaradi česar se srčni utrip lahko spremlja tudi pod vodo. Vgrajen ima pomnilnik za shranjevanje podatkov o srčnem utripu. Zelo je udoben, saj je narejen iz mehkega blaga, drsenje pa preprečujejo silikonski čepki in zaponke.',79.99,1,28,6),
-(2,'CD PROJEKT Cyberpunk 2077 igra (PC)','Izpod rok razvijalca ene najuspešnejših iger kdajkoli The Witcher 3: Wild Hunt tokrat prihaja nova RPG mojstrovina Cyberpunk 2077. Vstopite v metropolo Night City in se pridružite vrhunskim avanturam v izjemnem odprtem svetu polnem blišča, ki je hkrati obsedeno z močjo. V vlogi izobčenega plačanca odkrijte ključ do nesmrtnosti.',59.99,1,17,5),
-(3,'Sony brezžične slušalke WH-1000XM3B, črne','Kakovostne brezžične slušalke proizvajalca Sony so primerna izbira za vse, ki si želite odlične glasbe, kjerkoli se nahajate. S funkcijo digitalnega odpravljanja šumov popolnoma zadušijo vse zvoke iz okolice in obenem zaznajo, kaj počnete ter temu prilagodijo prepuščanje okoljskega zvoka.',239.0,0,11,4),
-(4,'Xiaomi Redmi Note 8 Pro mobilni telefon, 6 GB/64 GB, moder','Mobilni telefon XIAOMI Redmi Note 8 PRO se ponaša s 16,6 cm (6,53") IPS zaslonom, kapljično zarezo, steklenim ohišjem in z zaščito Corning Gorilla Glass 5. Z izjemno zmogljivo baterijo 5000 mAh poskrbi za odlično uporabniško izkušnjo in dvodnevno uporabo z enim samim polnjenjem',259.90,1,0,0),
-(5,'Nintendo Animal Crossing: New Horizons igra (Switch)','Pobegnite na zapuščeni otok in ustvarite svoj raj, medtem ko raziskujete in ustvarjate v igri Animal Crossing: New Horizons. Zgradite svojo skupnost iz nič na zapuščenem otoku. Možno je ustvarjanje in urejenje lastnega lika, doma, okraskov in pokrajine. Zberite materiale, s katerimi lahko sestavite vse od pohištva pa do orodja! Nato uporabite to, kar ustvarite, da dodate otoku še dodaten lastni pridih.',34.99,0,43,10),
-(6,'LEGO 75318 Star Wars™ Mladi Yoda','Postavite si lasten luksuzen model mladega Yode iz serije Star Wars: The Mandalorian! Ustvarite avtentične detajle tega popularnega lika znanega kot Baby Yoda. Gibljiva glava, ušesa in usta omogočajo, da na obrazu dosežete veliko različnih izrazov. In otroku podarite njegovo najljubšo igračo – mladega Yodo.',69.42,1,437,90),
-(7,'Mattel Enchantimals Lutka s hišnim ljubljenčkom Hedda Hippo','Dajte svoji domišljiji prosto pot in se podajte v čarobni svet s to lutko in živalskimi Enchantimals™! Punčke Enchantimals so ljubki liki, ki jih s prijatelji hišnimi ljubljenčki deli izjemen odnos. Izbirajte med več punčkami Enchantimals in njihovimi živalskimi prijatelji, na primer Heddu Hippo in Lake',9.69,1,27,12),
-(8,'Play-Doh Paket lizik','Če 1 lizika Play-Doh ni dovolj, vzemite škatlico s 4 lizikami! Z dvema barvama Play-Doh se spiralno navita znotraj vsakega kalupa.',3.79,1,0,0),
-(9,'Sony digitalni fotoaparat DSC-RX100','Digitalni fotoaparat Sony Cyber-Shot DSC-RX100 se med drugim ponaša s CMOS senzorjem Exmor tipa 1.0 z 20,2 milijona učinkovitih slikovnih pik, objektivom Carl Zeiss Vario-Sonnar T in 7,6-cm zaslonom s tehnologijo WhiteMagic.',299.99,1,13,4),
-(10,'Transcend pomnilniška kartica TS8GCF133','Pomnilniška kartica Transcend TS8GCF133 ima 8GB prostora za shranjevanje podatkov. Namenjena je uporabi v DSLR kamerah in ponuja vzdržljivost in zanesljivost NAND flash čipovja.',27.31,1,79,21),
-(11,'Xiaomi Roborock S6 Pure robotski sesalnik + darilo','Xiaomi Roborock S6 Pure robotski sesalnik se ponaša z natančnim laserskim navigacijskim sistemom, modernim dizajnom bele barve, izjemno sesalno močjo, samodejnim polnjenjem in tihim delovanjem.',399.99,1,4,1),
-(12,'Rulyt Calter Fiesta viseča mreža, rdeča','Kakovostna viseča mreža je izdelana iz trpežnih materialov in je odlična izbira za počitek in sprostitev po napornem dnevu. Postavite jo lahko na vrtu, terasi ali v naravi, primerna pa je tako za odrasle, kot za otroke.',26.60,1,0,0),
-(13,'Sony zvočnik GTKXB60B, črn','Sony zvočnik z vgrajenimi lučmi, akumulatorsko baterijo ter Aux in USB vhodom zagotavlja do 14 ur predvajanja glasbe. Ponaša se s funkcijo Extra Bass, ki izboljša nizke frekvence v skladbi in ustvari ritem, zaradi katerega se vsi odpravijo na plesišče.',199.99,1,52,14),
-(14,'Asus VA27EHE monitor, IPS, 68,6cm, FHD (90LM0550-B01170)','Monitor Asus VA27EHE odlikuje Full HD (1920×1080) ločljivost, diagonala s 68,6 cm (27"), frekvenca osveževanja 75 Hz in tehnologija Adaptive-Sync/FreeSync. ',149.85,1,237,53),
-(15,'Western Digital My Cloud Home 14TB NAS (WDBVXC0040HWT-EESN)','Naprava za shranjevanje v oblaku My Cloud Home se neposredno priključi na vaš domači usmerjevalnik Wi-Fi, tako da lahko enostavno shranite, organizirate in nadzorujete vse vaše digitalne vsebine na enem mestu in dostopate do njih brezžično od koder koli.',176.49,1,0,0);
+INSERT INTO `artikli` VALUES 	(1,'Polar senzor srčnega utripa H10 BLK','Najnatančnejši senzor srčnega utripa znamke Polar, sedaj z izboljšanimi elektrodami H10. Združljiv je z vodilnimi aplikacijami za telesno pripravljenost in napravami Bluetooth. Frekvenca prenosa je 5 kHz, zaradi česar se srčni utrip lahko spremlja tudi pod vodo. Vgrajen ima pomnilnik za shranjevanje podatkov o srčnem utripu. Zelo je udoben, saj je narejen iz mehkega blaga, drsenje pa preprečujejo silikonski čepki in zaponke.',79.99,1),
+(2,'CD PROJEKT Cyberpunk 2077 igra (PC)','Izpod rok razvijalca ene najuspešnejših iger kdajkoli The Witcher 3: Wild Hunt tokrat prihaja nova RPG mojstrovina Cyberpunk 2077. Vstopite v metropolo Night City in se pridružite vrhunskim avanturam v izjemnem odprtem svetu polnem blišča, ki je hkrati obsedeno z močjo. V vlogi izobčenega plačanca odkrijte ključ do nesmrtnosti.',59.99,1),
+(3,'Sony brezžične slušalke WH-1000XM3B, črne','Kakovostne brezžične slušalke proizvajalca Sony so primerna izbira za vse, ki si želite odlične glasbe, kjerkoli se nahajate. S funkcijo digitalnega odpravljanja šumov popolnoma zadušijo vse zvoke iz okolice in obenem zaznajo, kaj počnete ter temu prilagodijo prepuščanje okoljskega zvoka.',239.0,0),
+(4,'Xiaomi Redmi Note 8 Pro mobilni telefon, 6 GB/64 GB, moder','Mobilni telefon XIAOMI Redmi Note 8 PRO se ponaša s 16,6 cm (6,53") IPS zaslonom, kapljično zarezo, steklenim ohišjem in z zaščito Corning Gorilla Glass 5. Z izjemno zmogljivo baterijo 5000 mAh poskrbi za odlično uporabniško izkušnjo in dvodnevno uporabo z enim samim polnjenjem',259.90,1),
+(5,'Nintendo Animal Crossing: New Horizons igra (Switch)','Pobegnite na zapuščeni otok in ustvarite svoj raj, medtem ko raziskujete in ustvarjate v igri Animal Crossing: New Horizons. Zgradite svojo skupnost iz nič na zapuščenem otoku. Možno je ustvarjanje in urejenje lastnega lika, doma, okraskov in pokrajine. Zberite materiale, s katerimi lahko sestavite vse od pohištva pa do orodja! Nato uporabite to, kar ustvarite, da dodate otoku še dodaten lastni pridih.',34.99,0),
+(6,'LEGO 75318 Star Wars™ Mladi Yoda','Postavite si lasten luksuzen model mladega Yode iz serije Star Wars: The Mandalorian! Ustvarite avtentične detajle tega popularnega lika znanega kot Baby Yoda. Gibljiva glava, ušesa in usta omogočajo, da na obrazu dosežete veliko različnih izrazov. In otroku podarite njegovo najljubšo igračo – mladega Yodo.',69.42,1),
+(7,'Mattel Enchantimals Lutka s hišnim ljubljenčkom Hedda Hippo','Dajte svoji domišljiji prosto pot in se podajte v čarobni svet s to lutko in živalskimi Enchantimals™! Punčke Enchantimals so ljubki liki, ki jih s prijatelji hišnimi ljubljenčki deli izjemen odnos. Izbirajte med več punčkami Enchantimals in njihovimi živalskimi prijatelji, na primer Heddu Hippo in Lake',9.69,1),
+(8,'Play-Doh Paket lizik','Če 1 lizika Play-Doh ni dovolj, vzemite škatlico s 4 lizikami! Z dvema barvama Play-Doh se spiralno navita znotraj vsakega kalupa.',3.79,1),
+(9,'Sony digitalni fotoaparat DSC-RX100','Digitalni fotoaparat Sony Cyber-Shot DSC-RX100 se med drugim ponaša s CMOS senzorjem Exmor tipa 1.0 z 20,2 milijona učinkovitih slikovnih pik, objektivom Carl Zeiss Vario-Sonnar T in 7,6-cm zaslonom s tehnologijo WhiteMagic.',299.99,1),
+(10,'Transcend pomnilniška kartica TS8GCF133','Pomnilniška kartica Transcend TS8GCF133 ima 8GB prostora za shranjevanje podatkov. Namenjena je uporabi v DSLR kamerah in ponuja vzdržljivost in zanesljivost NAND flash čipovja.',27.31,1),
+(11,'Xiaomi Roborock S6 Pure robotski sesalnik + darilo','Xiaomi Roborock S6 Pure robotski sesalnik se ponaša z natančnim laserskim navigacijskim sistemom, modernim dizajnom bele barve, izjemno sesalno močjo, samodejnim polnjenjem in tihim delovanjem.',399.99,1),
+(12,'Rulyt Calter Fiesta viseča mreža, rdeča','Kakovostna viseča mreža je izdelana iz trpežnih materialov in je odlična izbira za počitek in sprostitev po napornem dnevu. Postavite jo lahko na vrtu, terasi ali v naravi, primerna pa je tako za odrasle, kot za otroke.',26.60,1),
+(13,'Sony zvočnik GTKXB60B, črn','Sony zvočnik z vgrajenimi lučmi, akumulatorsko baterijo ter Aux in USB vhodom zagotavlja do 14 ur predvajanja glasbe. Ponaša se s funkcijo Extra Bass, ki izboljša nizke frekvence v skladbi in ustvari ritem, zaradi katerega se vsi odpravijo na plesišče.',199.99,1),
+(14,'Asus VA27EHE monitor, IPS, 68,6cm, FHD (90LM0550-B01170)','Monitor Asus VA27EHE odlikuje Full HD (1920×1080) ločljivost, diagonala s 68,6 cm (27"), frekvenca osveževanja 75 Hz in tehnologija Adaptive-Sync/FreeSync. ',149.85,1),
+(15,'Western Digital My Cloud Home 14TB NAS (WDBVXC0040HWT-EESN)','Naprava za shranjevanje v oblaku My Cloud Home se neposredno priključi na vaš domači usmerjevalnik Wi-Fi, tako da lahko enostavno shranite, organizirate in nadzorujete vse vaše digitalne vsebine na enem mestu in dostopate do njih brezžično od koder koli.',176.49,1);
 UNLOCK TABLES;
 
--- Slike artiklov
-DROP TABLE IF EXISTS `images`;
-CREATE TABLE `images` (
- `idSlike` int NOT NULL AUTO_INCREMENT,
- `idArtikla` int NOT NULL,
- `image` longblob NOT NULL,
- PRIMARY KEY (`idSlike`),
- UNIQUE KEY `idSlike_UNIQUE` (`idSlike`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4; COLLATE=utf8_unicode_ci;
 
-LOCK TABLES `images` WRITE;
-INSERT INTO `images` VALUES
-UNLOCK TABLES;
-
--- Tabela narocil
 DROP TABLE IF EXISTS `narocila`;
 CREATE TABLE `narocila` (
 	`idNarocila` int NOT NULL AUTO_INCREMENT,
@@ -142,7 +125,7 @@ INSERT INTO `narocila` VALUES 	(1,4,'2020-11-27 12:32:42',1,269.59,'2020-12-01 0
 								(19,2,'2020-12-12 14:26:01',0,530.25,NULL);
 UNLOCK TABLES;
 
--- Povezava med narocili in izdelki
+
 DROP TABLE IF EXISTS `naroceniIzdelki`;
 CREATE TABLE `naroceniIzdelki` (
 	`idNaroceniIzdelki` int NOT NULL AUTO_INCREMENT,
