@@ -45,9 +45,6 @@
 				<br>
 				<?php
 				if(isset($_POST['but_upload'])){
-					if ($_FILES['file']['name']=''){
-						echo '<script>alert("Izbira 1. slike je obvezna")</script>';
-					}
 					$name = $_FILES['file']['name'];
 					$target_dir = "upload/";
 					$target_file = $target_dir . basename($_FILES["file"]["name"]);

@@ -4,7 +4,7 @@
 	if(!isset($_SESSION['idProd'])){
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
-
+	
 	$idIzdelka = $_POST['idIzdelka'];
 	$currenItemQuery = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE idArtikla = '$idIzdelka'");
 	$currenItem = mysqli_fetch_array($currenItemQuery, MYSQLI_ASSOC);
@@ -25,6 +25,7 @@
 				<input type='file' name='file' />
 				<input type='file' name='file2' />
 				<input type='file' name='file3' />
+				<input type='hidden' name='idIzdelka' value='<?php echo "$idIzdelka";?>'/> 
 				<input type='submit' value="Dodaj slike" name='but_upload'>
 			</form>
 			<form action="urediIzdelekIzvedba.php" method="post">
@@ -56,9 +57,6 @@
 				<br>
 				<?php
 				if(isset($_POST['but_upload'])){
-					if ($_FILES['file']['name']=''){
-						echo '<script>alert("Izbira 1. slike je obvezna")</script>';
-					}
 					$name = $_FILES['file']['name'];
 					$target_dir = "upload/";
 					$target_file = $target_dir . basename($_FILES["file"]["name"]);
