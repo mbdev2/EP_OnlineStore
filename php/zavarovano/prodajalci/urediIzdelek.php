@@ -66,6 +66,7 @@
 						?>
 						<input type="hidden" id="base64slika" name="base64slika" maxlength="5242880" value="<?php echo $image; ?>" required>
 						<?php
+					}
 					$name = $_FILES['file2']['name'];
 					$target_dir = "upload/";
 					$target_file = $target_dir . basename($_FILES["file2"]["name"]);
@@ -76,6 +77,7 @@
 						?>
 						<input type="hidden" id="base64slika2" name="base64slika2" maxlength="5242880" value="<?php echo $image2; ?>">
 						<?php
+					}
 					$name = $_FILES['file3']['name'];
 					$target_file = $target_dir . basename($_FILES["file3"]["name"]);
 				  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
