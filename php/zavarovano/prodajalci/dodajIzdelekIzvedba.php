@@ -8,10 +8,12 @@
 	$ime = $_POST['ime'];
 	$opis = $_POST['opis'];
 	$cena = $_POST['cena'];
-
-	$query = mysqli_prepare($dbConnection, "INSERT artikli SET ime = ?, opis = ?, cena = ?, activeOrNot=1");
-	mysqli_stmt_bind_param($query, 'ssi', $ime, $opis, $cena);
+	$base64slika = $_POST['base64slika'];
+	
+	$query = mysqli_prepare($dbConnection, "INSERT artikli SET ime = ?, opis = ?, cena = ?, slika1 = ?, activeOrNot=1");
+	mysqli_stmt_bind_param($query, 'ssis', $ime, $opis, $cena, $base64slika);
 	mysqli_stmt_execute($query);
 	$query = $query->get_result();
-	header("Location: seznamIzdelkov.php");
+	//header("Location: seznamIzdelkov.php");
 ?>
+
