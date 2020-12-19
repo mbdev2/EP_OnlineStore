@@ -34,13 +34,13 @@
 					<label for="naslov">
 						Domači naslov:
 					</label>
-					<input type="text" id="naslov" name="naslov" size=30 required>
+					<input type="text" id="naslov" name="naslov" size=50 required>
 				</div>
 				<div>
 					<label for="telefonskaStevilka">
 						Telefonska številka:
 					</label>
-					<input type="text" id="telefonskaStevilka" name="telefonskaStevilka" required>
+					<input type="number" id="telefonskaStevilka" name="telefonskaStevilka" required>
 				</div>
 				<div>
 					<label for="emailUp">
