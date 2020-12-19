@@ -1,3 +1,16 @@
+.domaca {
+    width: 85%;
+    margin-top: 30px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.card-deck {
+    justify-content: center;
+    display: flex;
+}
+
 .card-img-top {
     width: 100%;
     height: 15vw;
@@ -6,7 +19,7 @@
 }
 
 .artikel-card {
-    width: 20rem; 
+    width: 22rem; 
     margin-right: 20px;
     margin-bottom: 30px;
     padding: 0px;
@@ -27,7 +40,7 @@
 .carddesc {
     padding-top: 20px;
     max-height: 75%;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .card-body {
@@ -48,4 +61,13 @@
 
 .fas {
     margin-right: 5px;
+}
+
+#ocena {
+    width: 60px;
+}
+
+#kolicina {
+    width: 60px;
+    margin-left:25px;
 }

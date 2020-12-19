@@ -7,14 +7,14 @@ $allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot
 
 <head>
 	<title>eSHOP MMA</title>
-
+	
 </head>
 
 <body>
 	<?php
 	echo $navBarGost;
 	?>
-	<div class="container-fluid" style="width: 75%; margin-top: 30px;">
+	<div class="container-fluid domaca">
 		<div class="card-deck row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 row-cols-xl-4">
 			<?php
 			while ($curItem = mysqli_fetch_array($allItems, MYSQLI_ASSOC)) {

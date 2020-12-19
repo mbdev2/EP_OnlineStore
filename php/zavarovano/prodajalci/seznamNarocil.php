@@ -10,6 +10,7 @@
 <html>
 	<head>
 		<title>eSHOP MMA</title>
+		
 	</head>
 	<body>
 		<?php
