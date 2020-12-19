@@ -16,6 +16,7 @@
 				while($currenItem = mysqli_fetch_array($allItems, MYSQLI_ASSOC)){
 			?>
 			<div>
+				<img src='<?php echo $currenItem['slika1']; ?>' >
 				<div>
 					<h3>
 						<?php

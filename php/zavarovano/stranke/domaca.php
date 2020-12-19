@@ -20,6 +20,7 @@
 				while($curItem = mysqli_fetch_array($vsiIzdelki, MYSQLI_ASSOC)){
 			?>
 			<div>
+				<img src='<?php echo $curItem['slika1']; ?>' >
 				<div>
 					<h3>
 						<?php
