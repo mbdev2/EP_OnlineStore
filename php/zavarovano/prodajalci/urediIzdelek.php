@@ -57,6 +57,7 @@
 				<?php
 				if(isset($_POST['but_upload'])){
 					$name = $_FILES['file']['name'];
+					$target_dir = "upload/";
 					$target_file = $target_dir . basename($_FILES["file"]["name"]);
 				  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 				  $extensions_arr = array("jpg","jpeg","png","gif");
@@ -68,7 +69,6 @@
 						<?php
 					}
 					$name = $_FILES['file2']['name'];
-					$target_dir = "upload/";
 					$target_file = $target_dir . basename($_FILES["file2"]["name"]);
 				  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 				  if( in_array($imageFileType,$extensions_arr) ){

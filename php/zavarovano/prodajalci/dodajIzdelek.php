@@ -21,7 +21,7 @@
 				<input type='file' name='file' />
 				<input type='file' name='file2' />
 				<input type='file' name='file3' />
-				<input type='submit' value='Dodaj slike' name='but_upload'>
+				<input type='submit' value="Dodaj slike" name='but_upload'>
 			</form>
 			<form action="dodajIzdelekIzvedba.php" method="post">
 				<div>
@@ -45,7 +45,11 @@
 				<br>
 				<?php
 				if(isset($_POST['but_upload'])){
+					if ($_FILES['file']['name']=''){
+						echo '<script>alert("Izbira 1. slike je obvezna")</script>';
+					}
 					$name = $_FILES['file']['name'];
+					$target_dir = "upload/";
 					$target_file = $target_dir . basename($_FILES["file"]["name"]);
 				  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 				  $extensions_arr = array("jpg","jpeg","png","gif");
@@ -56,23 +60,22 @@
 						<input type="hidden" id="base64slika" name="base64slika" maxlength="5242880" value="<?php echo $image; ?>" required>
 						<?php
 					}
-					$name = $_FILES['file2']['name'];
-					$target_dir = "upload/";
-					$target_file = $target_dir . basename($_FILES["file2"]["name"]);
-				  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-				  if( in_array($imageFileType,$extensions_arr) ){
-						$image_base64 = base64_encode(file_get_contents($_FILES['file2']['tmp_name']) );
-    				$image2 = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+					$name2 = $_FILES['file2']['name'];
+					$target_file2 = $target_dir . basename($_FILES["file2"]["name"]);
+				  $imageFileType2 = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+				  if( in_array($imageFileType2,$extensions_arr) ){
+						$image_base642 = base64_encode(file_get_contents($_FILES['file2']['tmp_name']) );
+    				$image2 = 'data:image/'.$imageFileType2.';base64,'.$image_base642;
 						?>
 						<input type="hidden" id="base64slika2" name="base64slika2" maxlength="5242880" value="<?php echo $image2; ?>">
 						<?php
 					}
-					$name = $_FILES['file3']['name'];
-					$target_file = $target_dir . basename($_FILES["file3"]["name"]);
-				  $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-				  if( in_array($imageFileType,$extensions_arr) ){
-						$image_base64 = base64_encode(file_get_contents($_FILES['file3']['tmp_name']) );
-    				$image3 = 'data:image/'.$imageFileType.';base64,'.$image_base64;
+					$name3 = $_FILES['file3']['name'];
+					$target_file3 = $target_dir . basename($_FILES["file3"]["name"]);
+				  $imageFileType3 = strtolower(pathinfo($target_file3,PATHINFO_EXTENSION));
+				  if( in_array($imageFileType3,$extensions_arr) ){
+						$image_base643 = base64_encode(file_get_contents($_FILES['file3']['tmp_name']) );
+    				$image3 = 'data:image/'.$imageFileType3.';base64,'.$image_base643;
 						?>
 						<input type="hidden" id="base64slika3" name="base64slika3" maxlength="5242880" value="<?php echo $image3; ?>">
 						<?php
