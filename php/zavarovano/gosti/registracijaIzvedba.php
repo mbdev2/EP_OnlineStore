@@ -23,8 +23,8 @@ include('../skupno/konfiguracija.php');
 	$emailUp = stripslashes(($_POST['emailUp']));
 	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
 	$emailUp = htmlspecialchars($emailUp);
-	$password = md5($password);
-	$passwordCheck = md5($passwordCheck);
+	$password = md5($_POST['password']);
+	$passwordCheck = md5($_POST['passwordCheck']);
 	$token = $_POST['token'];
 	$action = $_POST['action'];
 
