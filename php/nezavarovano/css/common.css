@@ -1,0 +1,95 @@
+div.container-fluid .center-top {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 60%;
+    margin-top: 50px;
+}
+
+.zakljucek-nakupa {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 60%;
+    margin-top: 30px;
+}
+
+.artikli-zakljucek {
+    max-height: 750%;
+    overflow: auto;
+    border-radius: 25px;
+    padding:20px;
+    border: solid;
+    border-color: #0475f7;
+    border-width: 1px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.artikel-zakljucek {
+    border-bottom: solid;
+    border-color: black;
+    border-width: 1px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+.artikli-row {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.zakljucek-skupaj {
+    margin-top: 20px;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.narocila {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 30%;
+    margin-top: 30px;
+}
+
+.narocila-detail {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border: solid;
+    border-radius: 25px;
+    border-color: #0475f7;
+    border-width: 1px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.podrobnosti-narocila{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 60%;
+    margin-top: 30px;
+}
+
+.stanje-narocila {
+    border-bottom: solid;
+    border-color: black;
+    border-width: 3px;
+    padding-bottom: 0;
+    margin-bottom: 25px;
+}
+
+.narocilo-single {
+    border-bottom: solid;
+    border-color: black;
+    border-width: 1px;
+    padding-bottom: 0;
+    margin-bottom: 15px;
+}

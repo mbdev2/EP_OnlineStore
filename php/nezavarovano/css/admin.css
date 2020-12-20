@@ -1,0 +1,24 @@
+.urejanje-izdelka {
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 30px;
+    border: solid;
+    border-radius: 25px;
+    border-color: black;
+    padding: 20px;
+}
+
+.top-center {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.border-line {
+    border-top: solid;
+    border-color: black;
+    border-width: 1px;
+    margin-bottom: 20px;
+}
