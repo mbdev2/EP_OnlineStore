@@ -14,11 +14,8 @@
 	$znesek = stripslashes(($_POST['znesek']));
 	$znesek = mysqli_real_escape_string($dbConnection, ($_POST['znesek']));
 	$znesek = htmlspecialchars($znesek);
-	$naroceniIzdelki = strip_tags(($_POST['naroceniIzdelki']));
-	$naroceniIzdelki = stripslashes(($_POST['naroceniIzdelki']));
-	$naroceniIzdelki = mysqli_real_escape_string($dbConnection, ($_POST['naroceniIzdelki']));
-	$naroceniIzdelki = htmlspecialchars($naroceniIzdelki);
-	
+	$naroceniIzdelki = $_SESSION['naroceniIzdelki'];
+
 	$narociloQuery = mysqli_prepare($dbConnection, "INSERT narocila SET idStranke = ?, datumNarocila = ?, znesek = ?, orderStatus = 0");
 	mysqli_stmt_bind_param($narociloQuery, 'isd', $idStranke, $datumNarocila, $znesek);
 	mysqli_stmt_execute($narociloQuery);
