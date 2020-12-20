@@ -1,7 +1,6 @@
 <?php
 	if(isset($_POST['prijava'])){
 		include("../skupno/konfiguracija.php");
-		session_start();
 
 		$emailUp = strip_tags(($_POST['emailUp']));
 		$geslo = strip_tags(($_POST['geslo']));
@@ -23,6 +22,7 @@
 				$idStranke = $trenutnaStranka['idStranke'];
 				$gesloBaza = $trenutnaStranka['geslo'];
 				if(md5($geslo) == $gesloBaza){
+					session_start();
 					$_SESSION['idStranka'] = $idStranke;
 					header("Location: ../stranke/domaca.php");
 				}

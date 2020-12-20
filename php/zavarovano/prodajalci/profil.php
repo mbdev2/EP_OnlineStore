@@ -1,8 +1,9 @@
 <?php
 include('../skupno/navigacija.php');
+include('../admin/preverjanjeVloge.php');
 $id = $_SESSION['idProd'];
 $prodajalec = mysqli_query($dbConnection, "SELECT * FROM prodajalci WHERE idProdajalca = '$id'");
-include('../admin/preverjanjeVloge.php');
+
 if (!isset($_SESSION['idProd'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }

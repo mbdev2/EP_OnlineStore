@@ -1,4 +1,5 @@
 <?php
+include('../skupno/konfiguracija.php');
 	session_start();
 	if (isset($_SESSION['idAdmin']) || isset($_SESSION['idProd'])){
 		session_destroy();

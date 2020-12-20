@@ -1,6 +1,7 @@
 <?php
 define("RECAPTCHA_V3_SECRET_KEY", '6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX-Ip');
 include('../skupno/navigacija.php');
+include('../skupno/konfiguracija.php');
 
 	$ime = $_POST['ime'];
 	$priimek = $_POST['priimek'];

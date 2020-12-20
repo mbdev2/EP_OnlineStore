@@ -1,5 +1,6 @@
 <?php
 include('../skupno/navigacija.php');
+include('../skupno/konfiguracija.php');
 ?>
 
 <html>

@@ -1,5 +1,6 @@
 <?php
 include('../skupno/navigacija.php');
+include('../skupno/konfiguracija.php');
 $allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 ?>
 
@@ -7,7 +8,7 @@ $allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot
 
 <head>
 	<title>eSHOP MMA</title>
-	
+
 </head>
 
 <body>

@@ -1,5 +1,4 @@
 <?php
-include('konfiguracija.php');
 session_start();
 
 $navBarAdmin =

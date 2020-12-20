@@ -1,7 +1,7 @@
 <?php
 include('../skupno/navigacija.php');
-$administrator = mysqli_query($dbConnection, "SELECT * FROM administrator");
 include('preverjanjeVloge.php');
+$administrator = mysqli_query($dbConnection, "SELECT * FROM administrator");
 if (!isset($_SESSION['idAdmin'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }

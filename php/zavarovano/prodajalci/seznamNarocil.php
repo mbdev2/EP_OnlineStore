@@ -1,7 +1,7 @@
 <?php
 include('../skupno/navigacija.php');
-$allOrders = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE orderStatus = 0 ORDER BY idNarocila DESC");
 include('../admin/preverjanjeVloge.php');
+$allOrders = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE orderStatus = 0 ORDER BY idNarocila DESC");
 if (!isset($_SESSION['idProd'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }

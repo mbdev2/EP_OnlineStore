@@ -1,7 +1,7 @@
 <?php
 include('../skupno/navigacija.php');
-$vsiIzdelki = mysqli_query($dbConnection, "SELECT * FROM artikli");
 include('../admin/preverjanjeVloge.php');
+$vsiIzdelki = mysqli_query($dbConnection, "SELECT * FROM artikli");
 if (!isset($_SESSION['idProd'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }

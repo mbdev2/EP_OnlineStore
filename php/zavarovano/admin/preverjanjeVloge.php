@@ -1,7 +1,7 @@
 <?php
-	if(isset($_POST['prijava'])){
-		include("../admin/konfiguracija.php");
+include('../skupno/konfiguracija.php');
 
+	if(isset($_POST['prijava'])){
 		$emailUp = strip_tags(($_POST['emailUp']));
 		$emailUp = stripslashes(($_POST['emailUp']));
 		$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));

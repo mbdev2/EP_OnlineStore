@@ -1,8 +1,8 @@
 <?php
 include('../skupno/navigacija.php');
+include('preverjanjePrijave.php');
 $idStranke = $_SESSION['idStranka'];
 $allOrders = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE idStranke = '$idStranke' ORDER BY idNarocila DESC");
-include('preverjanjePrijave.php');
 if (!isset($_SESSION['idStranka'])) {
 	header("Location: ../stranke/prijava.php");
 }

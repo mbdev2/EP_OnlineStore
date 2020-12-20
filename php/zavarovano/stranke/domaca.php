@@ -1,7 +1,7 @@
 <?php
 include('../skupno/navigacija.php');
-$allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 include('preverjanjePrijave.php');
+$allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 if (!isset($_SESSION['idStranka'])) {
 	header("Location: ../stranke/prijava.php");
 }
