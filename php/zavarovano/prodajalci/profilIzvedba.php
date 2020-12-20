@@ -21,7 +21,10 @@
 		mysqli_stmt_bind_param($query, 'sssi', $ime, $priimek, $emailUp, $idProd);
 	}
 	else if ($password != "" && $password != $passwordCheck) {
-		echo "Geslo se mora ujemati";
+		echo "<script>
+			alert('Gesli se morata ujemati!');
+			window.location.href='../prodajalci/profil.php';
+		</script>";
 	}
 
 	mysqli_stmt_execute($query);

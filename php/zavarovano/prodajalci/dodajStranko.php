@@ -1,67 +1,102 @@
 <?php
-	include('../skupno/navigacija.php');
-	include('../admin/preverjanjeVloge.php');
-	if(!isset($_SESSION['idProd'])){
-		header("Location: ../skupno/prijavaOsebja.php");
-	}
+include('../skupno/navigacija.php');
+include('../admin/preverjanjeVloge.php');
+if (!isset($_SESSION['idProd'])) {
+	header("Location: ../skupno/prijavaOsebja.php");
+}
 ?>
 
 <html>
-	<head>
-		<title>eSHOP MMA</title>
-	</head>
-	<body>
-		<?php
-			echo $navBarProd;
-		?>
-		<div class="container">
-			<h3>Nova stranke</h3>
-			<form action="dodajStrankoIzvedba.php" method="post">
-				<div>
-					<label for="ime">
-						Ime:
-					</label>
-					<input type="text" id="ime" name="ime" pattern="[A-Za-zČčŠšŽžĆć]+" required>
-				</div>
-				<div>
-					<label for="priimek">
-						Priimek:
-					</label>
-					<input type="text" id="priimek" name="priimek" pattern="[A-Za-zČčŠšŽžĆć]+" required>
-				</div>
-				<div>
-					<label for="naslov">
-						Domači naslov:
-					</label>
-					<input type="text" id="naslov" name="naslov" size=30 required>
-				</div>
-				<div>
-					<label for="telefonskaStevilka">
-						Telefonska številka:
-					</label>
-					<input type="text" id="telefonskaStevilka" name="telefonskaStevilka" required>
-				</div>
-				<div>
-					<label for="emailUp">
-						eMail naslov:
-					</label>
-					<input type="email" id="emailUp" name="emailUp" size=30 required>
-				</div>
-				<div>
-					<label for="password">
-						Geslo:
-					</label>
-					<input type="password" id="password" name="password" placeholder="Geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mora biti dolgo vsaj 8 znakov, vsebovati vsaj eno malo in eno veliko črko ter vsaj eno številko" required>
-				</div>
-				<div>
-					<label for="passwordCheck">
-						Ponovi geslo:
-					</label>
-					<input type="password" id="passwordCheck" name="passwordCheck" placeholder="Geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mora biti dolgo vsaj 8 znakov, vsebovati vsaj eno malo in eno veliko črko ter vsaj eno številko" required>
-				</div>
-				<br>
-				<input type="submit" name="dodajStranko" value="Dodaj stranko">
-			</form>
+
+<head>
+	<title>eSHOP MMA - dodaj stranko</title>
+</head>
+
+<body>
+	<?php
+	echo $navBarProd;
+	?>
+
+	<div class="container-fluid center-top">
+		<div class="row">
+			<div class="artikli-row" style="margin-top: 20px;">
+				<h3>Nova stranka</h3>
+			</div>
+			<div class="artikli-row" style="margin-top: 20px;">
+
+				<form action="dodajStrankoIzvedba.php" method="post">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-5">
+								Ime:
+							</div>
+							<div class="col-3">
+								<input type="text" id="ime" name="ime" pattern="[A-Za-zČčŠšŽžĆć]+" required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-5">
+								Priimek:
+							</div>
+							<div class="col-3">
+								<input type="text" id="priimek" name="priimek" pattern="[A-Za-zČčŠšŽžĆć]+" required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-5">
+								Domači naslov:
+							</div>
+							<div class="col-3">
+								<input type="text" id="naslov" name="naslov" size=30 required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-5">
+								Telefonska številka:
+							</div>
+							<div class="col-3">
+								<input type="text" id="telefonskaStevilka" name="telefonskaStevilka" required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-5">
+								eMail naslov:
+							</div>
+							<div class="col-3">
+								<input type="email" id="emailUp" name="emailUp" size=30 required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-5">
+								Geslo:
+							</div>
+							<div class="col-3">
+								<input type="password" id="password" name="password" placeholder="Geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mora biti dolgo vsaj 8 znakov, vsebovati vsaj eno malo in eno veliko črko ter vsaj eno številko" required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-5">
+								Ponovi geslo:
+							</div>
+							<div class="col-3">
+								<input type="password" id="passwordCheck" name="passwordCheck" placeholder="Geslo" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mora biti dolgo vsaj 8 znakov, vsebovati vsaj eno malo in eno veliko črko ter vsaj eno številko" required>
+							</div>
+						</div>
+						<br>
+						<div class="artikli-row" style="margin-bottom: 10px;">
+						<input type="submit" name="dodajStranko" value="Dodaj stranko">
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>

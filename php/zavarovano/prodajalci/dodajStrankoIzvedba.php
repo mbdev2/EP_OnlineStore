@@ -15,10 +15,13 @@
 
 	if ($password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "INSERT stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot=1");
-		mysqli_stmt_bind_param($query, 'ssssss', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password);
+		mysqli_stmt_bind_param($query, 'ssssis', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password);
 	}
 	else{
-		echo "Gesli morata biti enaki!";
+		echo "<script>
+			alert('Gesli se morata ujemati!');
+			window.location.href='../prodajalci/profil.php';
+		</script>";
 	}
 
 	mysqli_stmt_execute($query);

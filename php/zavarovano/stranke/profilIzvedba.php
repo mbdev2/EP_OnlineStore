@@ -24,10 +24,12 @@
 		mysqli_stmt_bind_param($query, 'sssssi', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $idStranke);
 	}
 	else if ($password != "" && $password != $passwordCheck) {
-		echo "Geslo mroa biti enako!";
+		echo "<script>
+			alert('Gesli se morata ujemati!');
+			window.location.href='../stranke/profil.php';
+		</script>";
 	}
 
 	mysqli_stmt_execute($query);
 	$query = $query->get_result();
 	header("Location: profil.php");
-?>

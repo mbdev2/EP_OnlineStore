@@ -35,7 +35,7 @@ $navBarProd =
 		<div class="collapse navbar-collapse" id="navbarNav">
 		<ul class="navbar-nav">
 				<li class="nav-item">
-					<a href="../prodajalci/seznamNarocil.php">Naročila</a>
+					<a class="nav-link" href="../prodajalci/seznamNarocil.php">Naročila</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="../prodajalci/seznamIzdelkov.php" >Izdelki</a>
@@ -47,7 +47,7 @@ $navBarProd =
 					<a class="nav-link" href="../prodajalci/profil.php">Moj profil</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="odjava.php">Odjava</a>
+					<a class="nav-link" href="../admin/odjava.php">Odjava</a>
 				</li>
 		  		</ul>
 			</div>
@@ -130,6 +130,8 @@ $navBarPrijava =
 	<link href="../css/domaca.css" rel="stylesheet">
 	<link href="../css/navbar-style.css" rel="stylesheet">
 	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/kosarica.css" rel="stylesheet">
+	<link href="../css/admin.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 </head>
 

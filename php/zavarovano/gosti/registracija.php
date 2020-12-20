@@ -59,7 +59,7 @@ include('../skupno/navigacija.php');
 								Telefonska številka:
 							</div>
 							<div class="col-3">
-								<input type="number" id="telefonskaStevilka" name="telefonskaStevilka" required>
+								<input type="text" id="telefonskaStevilka" name="telefonskaStevilka" required>
 							</div>
 
 						</div>

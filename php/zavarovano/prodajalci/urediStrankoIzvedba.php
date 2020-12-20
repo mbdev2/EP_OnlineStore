@@ -28,7 +28,10 @@
 		mysqli_stmt_bind_param($query, 'sssssii', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $activeOrNot, $id);
 	}
 	else if ($password != "" && $password != $passwordCheck) {
-		echo "Gesli se ne ujemata!";
+		echo "<script>
+			alert('Gesli se ne ujemata!');
+			window.location.href='../prodajalci/seznamStrank.php';
+		</script>";
 	}
 
 	mysqli_stmt_execute($query);

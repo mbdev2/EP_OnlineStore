@@ -71,7 +71,10 @@ include('../skupno/navigacija.php');
 				}
 			}
 			else{
-				echo "Gesli mroata biti enaki";
+				echo "<script>
+						alert('Gesli se morata ujemati!');
+						window.location.href='../gosti/registracija.php';
+					</script>";
 			}
 		}
 		else{

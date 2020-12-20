@@ -46,9 +46,9 @@ include('../skupno/navigacija.php');
 							<input type="submit" class="btn btn-primary" name="prijava" value="Prijava">
 						</div>
 						<div class="artikli-row" style="margin-bottom: 10px;">
-							<button class="btn btn-outline-primary" href="../gosti/registracija.php">
+							<a class="btn btn-outline-primary" href="../gosti/registracija.php">
 								Nov uporabnik?
-							</button>
+							</a>
 						</div>
 
 					</div>
