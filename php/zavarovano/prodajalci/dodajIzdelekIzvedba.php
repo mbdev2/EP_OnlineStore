@@ -5,9 +5,18 @@
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
-	$ime = $_POST['ime'];
-	$opis = $_POST['opis'];
-	$cena = $_POST['cena'];
+	$ime = strip_tags(($_POST['ime']));
+	$ime = stripslashes(($_POST['ime']));
+	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
+	$ime = htmlspecialchars($ime);
+	$opis = strip_tags(($_POST['opis']));
+	$opis = stripslashes(($_POST['opis']));
+	$opis = mysqli_real_escape_string($dbConnection, ($_POST['opis']));
+	$opis = htmlspecialchars($opis);
+	$cena = strip_tags(($_POST['cena']));
+	$cena = stripslashes(($_POST['cena']));
+	$cena = mysqli_real_escape_string($dbConnection, ($_POST['cena']));
+	$cena = htmlspecialchars($cena);
 	$base64slika = $_POST['base64slika'];
 
 	$query = mysqli_prepare($dbConnection, "INSERT artikli SET ime = ?, opis = ?, cena = ?, slika1 = ?, activeOrNot=1");

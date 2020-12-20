@@ -5,8 +5,14 @@
 		header("Location: ../stranke/prijava.php");
 	}
 
-	$idIzdelka = $_POST['idIzdelka'];
-	$kolicina = $_POST['kolicina'];
+	$idIzdelka = strip_tags(($_POST['idIzdelka']));
+	$idIzdelka = stripslashes(($_POST['idIzdelka']));
+	$idIzdelka = mysqli_real_escape_string($dbConnection, ($_POST['idIzdelka']));
+	$idIzdelka = htmlspecialchars($idIzdelka);
+	$kolicina = strip_tags(($_POST['kolicina']));
+	$kolicina = stripslashes(($_POST['kolicina']));
+	$kolicina = mysqli_real_escape_string($dbConnection, ($_POST['kolicina']));
+	$kolicina = htmlspecialchars($kolicina);
 
 	if (isset($_SESSION['kosarica'][$idIzdelka]) && $kolicina != 0) {
 		$_SESSION['kosarica'][$idIzdelka]['kolicina'] = $kolicina;

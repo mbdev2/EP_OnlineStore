@@ -5,9 +5,15 @@
 		header("Location: ../stranke/prijava.php");
 	}
 
-	$idStranke = $_POST['idStranke'];
+	$idStranke = strip_tags(($_POST['idStranke']));
+	$idStranke = stripslashes(($_POST['idStranke']));
+	$idStranke = mysqli_real_escape_string($dbConnection, ($_POST['idStranke']));
+	$idStranke = htmlspecialchars($idStranke);
 	$datumNarocila = date('Y-m-d H:i:s');
-	$znesek = $_POST['skupniZnesek'];
+	$znesek = strip_tags(($_POST['znesek']));
+	$znesek = stripslashes(($_POST['znesek']));
+	$znesek = mysqli_real_escape_string($dbConnection, ($_POST['znesek']));
+	$znesek = htmlspecialchars($znesek);
 	$naroceniIzdelki = $_SESSION['naroceniIzdelki'];
 
 	$narociloQuery = mysqli_prepare($dbConnection, "INSERT narocila SET idStranke = ?, datumNarocila = ?, znesek = ?, orderStatus = 0");

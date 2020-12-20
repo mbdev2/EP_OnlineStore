@@ -44,14 +44,6 @@ if (!isset($_SESSION['idProd'])) {
 						</label>
 						<input type="text" id="cena" name="cena" size="10" required>€
 					</div>
-					<div>
-						<label for="activeOrNot">
-							Aktivnost:
-						</label>
-						<input type="checkbox" id="activeOrNot" name="activeOrNot" <?php if ($currenItem['activeOrNot'] == 1) {
-																						echo "checked='checked'";
-																					} ?>>
-					</div>
 					<br>
 					<?php
 					if (isset($_POST['but_upload'])) {

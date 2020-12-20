@@ -5,9 +5,12 @@ if (!isset($_SESSION['idAdmin'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }
 
-$idProdajalca = $_POST['idProdajalca'];
-$trenutniProdajalecQuery = mysqli_query($dbConnection, "SELECT * FROM prodajalci WHERE idProdajalca = '$idProdajalca'");
-$trenutniProdajalec = mysqli_fetch_array($trenutniProdajalecQuery, MYSQLI_ASSOC);
+	$idProdajalca = strip_tags(($_POST['idProdajalca']));
+	$idProdajalca = stripslashes(($_POST['idProdajalca']));
+	$idProdajalca = mysqli_real_escape_string($dbConnection, ($_POST['idProdajalca']));
+	$idProdajalca = htmlspecialchars($idProdajalca);
+	$trenutniProdajalecQuery = mysqli_query($dbConnection, "SELECT * FROM prodajalci WHERE idProdajalca = '$idProdajalca'");
+	$trenutniProdajalec = mysqli_fetch_array($trenutniProdajalecQuery, MYSQLI_ASSOC);
 ?>
 
 <html>

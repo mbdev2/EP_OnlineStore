@@ -5,7 +5,10 @@ if (!isset($_SESSION['idProd'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }
 
-$idIzdelka = $_POST['idIzdelka'];
+$idIzdelka = strip_tags(($_POST['idIzdelka']));
+$idIzdelka = stripslashes(($_POST['idIzdelka']));
+$idIzdelka = mysqli_real_escape_string($dbConnection, ($_POST['idIzdelka']));
+$idIzdelka = htmlspecialchars($idIzdelka);
 $currenItemQuery = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE idArtikla = '$idIzdelka'");
 $currenItem = mysqli_fetch_array($currenItemQuery, MYSQLI_ASSOC);
 ?>
@@ -38,7 +41,7 @@ $currenItem = mysqli_fetch_array($currenItemQuery, MYSQLI_ASSOC);
 					<div style="margin-bottom:20px;">
 					<p> Ime izdelka</p>
 						<input type="text" id="idIzdelka" name="idIzdelka" value="<?php echo $currenItem['idArtikla'] ?>" hidden>
-						
+
 						<input type="text" id="ime" name="ime" size="50" value="<?php echo $currenItem['ime'] ?>" required>
 					</div>
 					<div style="margin-bottom:20px;">
