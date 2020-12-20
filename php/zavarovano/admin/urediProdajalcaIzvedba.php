@@ -29,15 +29,15 @@
 		$activeOrNot = 0;
 	}
 
-	if (isset($_POST['password']) && $password == $passwordCheck) {
+	if (!($_POST['password']) && $password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "UPDATE prodajalci SET ime = ?, priimek = ?, eNaslov = ?, geslo = ?, activeOrNot = ? WHERE idProdajalca = ?");
 		mysqli_stmt_bind_param($query, 'ssssii', $ime, $priimek, $emailUp, $password, $activeOrNot, $id);
 	}
-	else if (!isset($_POST['password'])&& !isset($_POST['passwordCheck'])) {
+	else if (empty($_POST['password'])&& empty($_POST['passwordCheck'])) {
 		$query = mysqli_prepare($dbConnection, "UPDATE prodajalci SET ime = ?, priimek = ?, eNaslov = ?, activeOrNot = ? WHERE idProdajalca = ?");
 		mysqli_stmt_bind_param($query, 'sssii', $ime, $priimek, $emailUp, $activeOrNot, $id);
 	}
-	else if (isset($_POST['password'])) {
+	else if (!empty($_POST['password'])) {
 		echo "<script>
 			alert('Gesli se morata ujemati!');
 			window.location.href='../admin/seznamProdajalcev.php';

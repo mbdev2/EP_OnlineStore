@@ -21,15 +21,15 @@
 	$password = md5($password);
 	$passwordCheck = md5($passwordCheck);
 
-	if (isset($_POST['password']) && $password == $passwordCheck) {
+	if (!empty($_POST['password']) && $password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "UPDATE administrator SET ime = ?, priimek = ?, eNaslov = ?, geslo = ? WHERE idAdmin = ?");
 		mysqli_stmt_bind_param($query, 'ssssi', $ime, $priimek, $emailUp, $password, $idAdmin);
 	}
-	else if (!isset($_POST['password'])&& !isset($_POST['passwordCheck'])) {
+	else if (empty($_POST['password'])&& empty($_POST['passwordCheck'])) {
 		$query = mysqli_prepare($dbConnection, "UPDATE administrator SET ime = ?, priimek = ?, eNaslov = ? WHERE idAdmin = ?");
 		mysqli_stmt_bind_param($query, 'sssi', $ime, $priimek, $emailUp, $idAdmin);
 	}
-	else if (isset($_POST['password'])) {
+	else if (!empty($_POST['password'])) {
 		echo "<script>
 			alert('Gesli se morata ujemati!');
 			window.location.href='../admin/profil.php';

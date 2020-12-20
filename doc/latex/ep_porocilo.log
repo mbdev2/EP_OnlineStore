@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.16)  20 DEC 2020 14:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.16)  20 DEC 2020 21:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -675,7 +675,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 246.
 Here is how much of TeX's memory you used:
  12421 strings out of 480608
  177987 string characters out of 5903629
- 434955 words of memory out of 5000000
+ 435007 words of memory out of 5000000
  28075 multiletter control sequences out of 15000+600000
  566561 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -686,7 +686,7 @@ al/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texli
 ve/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on ep_porocilo.pdf (9 pages, 138052 bytes).
+Output written on ep_porocilo.pdf (9 pages, 138053 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  112 compressed objects within 2 object streams
