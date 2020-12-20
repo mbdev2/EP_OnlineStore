@@ -1,5 +1,5 @@
 <?php
-	include('navigacija.php');
+	include('../skupno/navigacija.php');
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdmin'])){
 		header("Location: ../skupno/prijavaOsebja.php");

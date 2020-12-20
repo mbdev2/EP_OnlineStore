@@ -1,24 +1,26 @@
 <?php
-	include('navigacija.php');
-	$administrator = mysqli_query($dbConnection, "SELECT * FROM administrator");
-	include('preverjanjeVloge.php');
-	if(!isset($_SESSION['idAdmin'])){
-		header("Location: ../skupno/prijavaOsebja.php");
-	}
+include('../skupno/navigacija.php');
+$administrator = mysqli_query($dbConnection, "SELECT * FROM administrator");
+include('preverjanjeVloge.php');
+if (!isset($_SESSION['idAdmin'])) {
+	header("Location: ../skupno/prijavaOsebja.php");
+}
 ?>
 
 <html>
-	<head>
-		<title>eSHOP MMA</title>
-	</head>
-	<body>
+
+<head>
+	<title>eSHOP MMA</title>
+</head>
+
+<body>
+	<?php
+	echo $navBarAdmin;
+	?>
+	<div>
 		<?php
-			echo $navBarAdmin;
+		while ($adminE = mysqli_fetch_array($administrator, MYSQLI_ASSOC)) {
 		?>
-		<div>
-			<?php
-				while($adminE = mysqli_fetch_array($administrator, MYSQLI_ASSOC)){
-			?>
 			<form action="../admin/profilIzvedba.php" method="post">
 				<h3>Moj profil</h3>
 				<div>
@@ -54,9 +56,10 @@
 				<br>
 				<input type="submit" name="shrani" value="Shrani spremembe">
 			</form>
-			<?php
-				}
-			?>
-		</div>
-	</body>
+		<?php
+		}
+		?>
+	</div>
+</body>
+
 </html>

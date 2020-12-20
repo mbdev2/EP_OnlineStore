@@ -1,5 +1,5 @@
 <?php
-	include('navigacija.php');
+	include('../skupno/navigacija.php');
 	include('preverjanjePrijave.php');
 	if(!isset($_SESSION['idStranka'])){
 		header("Location: ../stranke/prijava.php");

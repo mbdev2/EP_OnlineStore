@@ -1,5 +1,5 @@
 <?php
-include('navigacija.php');
+include('../skupno/navigacija.php');
 $idStranke = $_SESSION['idStranka'];
 $allOrders = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE idStranke = '$idStranke' ORDER BY idNarocila DESC");
 include('preverjanjePrijave.php');

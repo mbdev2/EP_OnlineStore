@@ -1,6 +1,6 @@
 <?php
 	if(isset($_POST['prijava'])){
-		include("../stranke/konfiguracija.php");
+		include("../skupno/konfiguracija.php");
 		session_start();
 
 		$emailUp = strip_tags(($_POST['emailUp']));

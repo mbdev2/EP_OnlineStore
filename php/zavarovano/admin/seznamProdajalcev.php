@@ -1,5 +1,5 @@
 <?php
-	include('navigacija.php');
+	include('../skupno/navigacija.php');
 	$vsiProdajalci = mysqli_query($dbConnection, "SELECT * FROM prodajalci");
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdmin'])){

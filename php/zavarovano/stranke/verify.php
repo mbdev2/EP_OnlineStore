@@ -1,5 +1,5 @@
 <?php
-include('../stranke/navigacija.php');
+include('../skupno/navigacija.php');
 
 if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])){
     $emailUp = $_GET['email'];

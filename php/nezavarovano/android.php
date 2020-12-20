@@ -1,6 +1,6 @@
 
 <?php
-	include('navigacija.php');
+	include('../skupno/navigacija.php');
 
 	$allItems = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE activeOrNot = '1'");
 

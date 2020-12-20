@@ -1,5 +1,5 @@
 <?php
-	include('../admin/navigacija.php');
+	include('../skupno/navigacija.php');
 	$vsaObdelanaNarocila = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE orderStatus != 0 ORDER BY idNarocila DESC");
 	include('../admin/preverjanjeVloge.php');
 	if(!isset($_SESSION['idProd'])){

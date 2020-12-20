@@ -1,6 +1,6 @@
 <?php
 include("../stranke/preverjanjePrijave.php");
-include('../stranke/navigacija.php');
+include('../skupno/navigacija.php');
 ?>
 
 <html>
@@ -13,29 +13,50 @@ include('../stranke/navigacija.php');
 	<?php
 	echo $navBarGost;
 	?>
-	<h3>Prijava za stranke</h3>
-	<form action="../stranke/prijava.php" method="post">
-		<div>
-			<label for="emailUp">
-				eMail naslov:
-			</label>
-			<input type="text" id="emailUp" name="emailUp" size=40 required>
+	<div class="container-fluid narocila">
+		<div class="row">
+			<div class="artikli-row" style="margin-bottom: 10px;">
+				<h3>Prijava za stranke</h3>
+			</div>
+			<div class="artikli-row" style="margin-bottom: 10px;">
+				<form action="../stranke/prijava.php" method="post">
+
+					<div class="form-group">
+						<div class="row">
+							<div class="col-3">
+								eMail naslov:
+							</div>
+							<div class="col-3">
+								<input type="text" id="emailUp" style="width: 350px" name="emailUp" size=40 required>
+							</div>
+
+						</div>
+						<div class="row">
+							<div class="col-3">
+								Geslo:
+							</div>
+							<div class="col-3">
+								<input type="password" id="geslo" style="width: 350px" name="geslo" required>
+							</div>
+
+						</div>
+
+						<br>
+						<div class="artikli-row" style="margin-bottom: 10px;">
+							<input type="submit" class="btn btn-primary" name="prijava" value="Prijava">
+						</div>
+						<div class="artikli-row" style="margin-bottom: 10px;">
+							<button class="btn btn-outline-primary" href="../gosti/registracija.php">
+								Nov uporabnik?
+							</button>
+						</div>
+
+					</div>
+
+				</form>
+			</div>
 		</div>
-		<div>
-			<label for="geslo">
-				Geslo:
-			</label>
-			<input type="password" id="geslo" name="geslo" required>
-		</div>
-		<br>
-		<input type="submit" name="prijava" value="Prijava">
-		<br>
-		<br>
-		<a href="../gosti/registracija.php">
-			Nov uporabnik?
-		</a>
-		<br>
-	</form>
+	</div>
 </body>
 
 </html>

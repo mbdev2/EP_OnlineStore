@@ -1,5 +1,5 @@
 <?php
-	include('../admin/navigacija.php');
+	include('../skupno/navigacija.php');
 	$id = $_SESSION['idProd'];
 	$prodajalec = mysqli_query($dbConnection, "SELECT * FROM prodajalci WHERE idProdajalca = '$id'");
 	include('../admin/preverjanjeVloge.php');

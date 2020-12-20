@@ -1,5 +1,5 @@
 <?php
-	include('navigacija.php');
+	include('../skupno/navigacija.php');
 	$id = $_SESSION['idStranka'];
 	$stranka = mysqli_query($dbConnection, "SELECT * FROM stranke WHERE idStranke = '$id'");
 	include('preverjanjePrijave.php');

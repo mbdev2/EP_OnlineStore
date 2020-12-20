@@ -1,20 +1,23 @@
 <?php
-	include('navigacija.php');
-	include('preverjanjeVloge.php');
-	if(!isset($_SESSION['idAdmin'])){
-		header("Location: ../skupno/prijavaOsebja.php");
-	}
+include('../skupno/navigacija.php');
+include('preverjanjeVloge.php');
+if (!isset($_SESSION['idAdmin'])) {
+	header("Location: ../skupno/prijavaOsebja.php");
+}
 ?>
 
 <html>
-	<head>
-		<title>eSHOP MMA</title>
-	</head>
-	<body>
-		<?php
-			echo $navBarAdmin;
-		?>
-		<div class="container">
+
+<head>
+	<title>eSHOP MMA</title>
+</head>
+
+<body>
+	<?php
+	echo $navBarAdmin;
+	?>
+	<div class="container center-top">
+		<div class="row center-top">
 			<h3>Dodajanje novega prodajalca</h3>
 			<form action="dodajProdajalcaIzvedba.php" method="post">
 				<div>
@@ -51,5 +54,7 @@
 				<input type="submit" name="dodajProdajalca" value="Dodaj prodajalca">
 			</form>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>

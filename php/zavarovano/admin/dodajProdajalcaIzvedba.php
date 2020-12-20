@@ -1,5 +1,5 @@
 <?php
-	include('navigacija.php');
+	include('../skupno/navigacija.php');
 	include('preverjanjeVloge.php');
 	if(!isset($_SESSION['idAdmin'])){
 		header("Location: ../skupno/prijavaOsebja.php");
@@ -22,4 +22,3 @@
 	$query = $query->get_result();
 
 	header("Location: ../admin/seznamProdajalcev.php");
-?>

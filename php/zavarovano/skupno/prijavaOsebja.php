@@ -1,6 +1,6 @@
 <?php
 include("../admin/preverjanjeVloge.php");
-include('../stranke/navigacija.php');
+include('navigacija.php');
 ?>
 
 <html>
@@ -13,24 +13,44 @@ include('../stranke/navigacija.php');
 	<?php
 	echo $navBarPrijava;
 	?>
-	<h3>Welcome back to work! (administrator in prodajalci)</h3>
+	<div class="container-fluid narocila" style="width: 75%;">
+		<div class="row">
+			<div class="artikli-row" style="margin-bottom: 10px;">
+				<h3>Welcome back to work! (administrator in prodajalci)</h3>
+			</div>
+			<div class="artikli-row" style="margin-bottom: 10px;">
+				<form action="../skupno/prijavaOsebja.php" method="post">
+					<div class="form-group">
+						<div class="row">
+							<div class="col-4">
+								eMail naslov:
+							</div>
+							<div class="col-4">
+								<input type="text" id="emailUp" name="emailUp" size=30 required>
+							</div>
 
-	<form action="../skupno/prijavaOsebja.php" method="post">
-		<div>
-			<label for="emailUp">
-				eMail naslov:
-			</label>
-			<input type="text" id="emailUp" name="emailUp" size=30 required>
+						</div>
+						<div class="row">
+							<div class="col-4">
+								Geslo:
+							</div>
+							<div class="col-4">
+								<input type="password" id="geslo" name="geslo" size=30 required>
+							</div>
+
+						</div>
+
+						<br>
+						<div class="artikli-row" style="margin-bottom: 10px;">
+							<input type="submit" class="btn btn-primary" name="prijava" value="Prijava">
+						</div>
+
+					</div>
+
+				</form>
+			</div>
 		</div>
-		<div>
-			<label for="geslo">
-				Geslo:
-			</label>
-			<input type="password" id="geslo" name="geslo" required>
-		</div>
-		<br>
-		<input type="submit" name="prijava" value="Prijava">
-	</form>
+	</div>
 </body>
 
 </html>
