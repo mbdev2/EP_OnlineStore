@@ -34,5 +34,5 @@
 		mysqli_stmt_execute($query);
 		$query = $query->get_result();
 	}
-	//header("Location: seznamIzdelkov.php");
+	header("Location: seznamIzdelkov.php");
 ?>
