@@ -30,15 +30,15 @@
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
 
-	if ($password != "" && $password == $passwordCheck) {
+	if (!empty($_POST['password']) && $password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "UPDATE stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ? WHERE idStranke = ?");
 		mysqli_stmt_bind_param($query, 'ssssssi', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password, $idStranke);
 	}
-	else if ($password == "" && $passwordCheck == "") {
+	else if (empty($_POST['password']) && empty($_POST['password'])) {
 		$query = mysqli_prepare($dbConnection, "UPDATE stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ? WHERE idStranke = ?");
 		mysqli_stmt_bind_param($query, 'sssssi', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $idStranke);
 	}
-	else if ($password != "" && $password != $passwordCheck) {
+	else if (!empty($_POST['password']) && $password != $passwordCheck) {
 		echo "<script>
 			alert('Gesli se morata ujemati!');
 			window.location.href='../stranke/profil.php';

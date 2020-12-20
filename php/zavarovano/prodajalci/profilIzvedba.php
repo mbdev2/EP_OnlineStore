@@ -21,15 +21,15 @@
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
 
-	if ($password != "" && $password == $passwordCheck) {
+	if (!empty($_POST['password']) && $password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "UPDATE prodajalci SET ime = ?, priimek = ?, eNaslov = ?, geslo = ? WHERE idProdajalca = ?");
 		mysqli_stmt_bind_param($query, 'ssssi', $ime, $priimek, $emailUp, $password, $idProd);
 	}
-	else if ($password == "" && $passwordCheck == "") {
+	else if (empty($_POST['password']) && empty($_POST['password'])) {
 		$query = mysqli_prepare($dbConnection, "UPDATE prodajalci SET ime = ?, priimek = ?, eNaslov = ? WHERE idProdajalca = ?");
 		mysqli_stmt_bind_param($query, 'sssi', $ime, $priimek, $emailUp, $idProd);
 	}
-	else if ($password != "" && $password != $passwordCheck) {
+	else if (!empty($_POST['password']) && $password != $passwordCheck) {
 		echo "<script>
 			alert('Gesli se morata ujemati!');
 			window.location.href='../prodajalci/profil.php';
