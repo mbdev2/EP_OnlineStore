@@ -99,7 +99,7 @@ $skupniZnesek = 0;
 					<form action="obdelavaNarocilaIzvedba.php" method="post">
 						<select name="orderStatus">
 							<option value="1">Potrdi</option>
-							<option value="2">Storniraj</option>
+							<option value="3">Prekliči</option>
 						</select>
 						<input type="hidden" name="idNarocila" value="
 								<?php

@@ -49,6 +49,8 @@ if (!isset($_SESSION['idProd'])) {
 										echo "Potrjeno - " . $curOrder['datumPotrditve'];
 									} elseif ($curOrder['orderStatus'] == 2) {
 										echo "Stornirano";
+									} elseif ($curOrder['orderStatus'] == 3) {
+										echo "Preklicano";
 									}
 									?>
 								</span>
