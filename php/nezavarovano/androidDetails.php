@@ -1,7 +1,8 @@
 
 <?php
-	
-	include('navigacija.php');
+
+include('konfiguracija.php');
+
 	if (isset($_GET["idArtikla"])) {
     	$id = $_GET["idArtikla"];
 }
