@@ -13,6 +13,28 @@ include('../skupno/konfiguracija.php');
 	$token = $_POST['token'];
 	$action = $_POST['action'];
 
+	$ime = strip_tags(($_POST['ime']));
+	$ime = stripslashes(($_POST['ime']));
+	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
+	$ime = htmlspecialchars($ime);
+	$priimek = strip_tags(($_POST['priimek']));
+	$priimek = stripslashes(($_POST['priimek']));
+	$priimek = mysqli_real_escape_string($dbConnection, ($_POST['priimek']));
+	$priimek = htmlspecialchars($priimek);
+	$emailUp = strip_tags(($_POST['emailUp']));
+	$emailUp = stripslashes(($_POST['emailUp']));
+	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
+	$emailUp = htmlspecialchars($emailUp);
+	$telefonskaStevilka = strip_tags(($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = stripslashes(($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = mysqli_real_escape_string($dbConnection, ($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = htmlspecialchars($telefonskaStevilka);
+	$naslov = strip_tags(($_POST['naslov']));
+	$naslov = stripslashes(($_POST['naslov']));
+	$naslov = mysqli_real_escape_string($dbConnection, ($_POST['naslov']));
+	$naslov = htmlspecialchars($naslov);
+
+
 	// call curl to POST request
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
