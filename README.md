@@ -63,9 +63,9 @@
 
 	6. 	Z ukazom "sudo cp /home/ep/Desktop/epProjekt/conf/000-default.conf /etc/apache2/sites-available/" skopiramo "000-default.conf" v "/etc/apache2/sites-available"
 
-	7. 	Z ukazom "sudo cp -R /home/ep/Desktop/epProjekt/php/zavarovano /var/www/html/zavarovano/" skopiramo mapo "epProjekt/php/zavarovano" v mapo "/var/www/html".
+	7. 	Z ukazom "sudo cp -R /home/ep/Desktop/epProjekt/php/zavarovano /var/www/html/" skopiramo mapo "epProjekt/php/zavarovano" v mapo "/var/www/html".
 
-	8. 	Z ukazom "sudo cp -R /home/ep/Desktop/epProjekt/php/nezavarovano /var/www/html/nezavarovano/" skopiramo mapo "epProjekt/php/nezavarovano" v mapo "/var/www/html".
+	8. 	Z ukazom "sudo cp -R /home/ep/Desktop/epProjekt/php/nezavarovano /var/www/html/" skopiramo mapo "epProjekt/php/nezavarovano" v mapo "/var/www/html".
 
 	9.	V programu mySQL workbench poženemo datoteko "baza.sql", kar nam bo ustvarilo podatkovno bazo.
 	
