@@ -5,7 +5,10 @@ if (!isset($_SESSION['idProd'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }
 
-$idNarocila = $_POST['idNarocila'];
+$idNarocila = strip_tags(($_POST['idNarocila']));
+$idNarocila = stripslashes(($_POST['idNarocila']));
+$idNarocila = mysqli_real_escape_string($dbConnection, ($_POST['idNarocila']));
+$idNarocila = htmlspecialchars($idNarocila);
 $idNarocilaQuery = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE idNarocila = '$idNarocila'");
 
 while ($edinoIzbrano = mysqli_fetch_array($idNarocilaQuery, MYSQLI_ASSOC)) {

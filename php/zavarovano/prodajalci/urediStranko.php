@@ -5,7 +5,10 @@ if (!isset($_SESSION['idProd'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }
 
-$idStranke = $_POST['idStranke'];
+$idStranke = strip_tags(($_POST['idStranke']));
+$idStranke = stripslashes(($_POST['idStranke']));
+$idStranke = mysqli_real_escape_string($dbConnection, ($_POST['idStranke']));
+$idStranke = htmlspecialchars($idStranke);
 $trenutnaStrankaQuery = mysqli_query($dbConnection, "SELECT * FROM stranke WHERE idStranke = '$idStranke'");
 $trenutnaStranka = mysqli_fetch_array($trenutnaStrankaQuery, MYSQLI_ASSOC);
 ?>

@@ -6,21 +6,38 @@
 	}
 
 	$idAdmin = 1;
-	$ime = $_POST['ime'];
-	$priimek = $_POST['priimek'];
-	$emailUp = $_POST['emailUp'];
-	$password = md5($_POST['password']);
-	$passwordCheck = md5($_POST['passwordCheck']);
+	$ime = strip_tags(($_POST['ime']));
+	$ime = stripslashes(($_POST['ime']));
+	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
+	$ime = htmlspecialchars($ime);
+	$priimek = strip_tags(($_POST['priimek']));
+	$priimek = stripslashes(($_POST['priimek']));
+	$priimek = mysqli_real_escape_string($dbConnection, ($_POST['priimek']));
+	$priimek = htmlspecialchars($priimek);
+	$emailUp = strip_tags(($_POST['emailUp']));
+	$emailUp = stripslashes(($_POST['emailUp']));
+	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
+	$emailUp = htmlspecialchars($emailUp);
+	$password = strip_tags(($_POST['password']));
+	$password = stripslashes(($_POST['password']));
+	$password = mysqli_real_escape_string($dbConnection, ($_POST['password']));
+	$password = htmlspecialchars($password);
+	$password = md5($password);
+	$passwordCheck = strip_tags(($_POST['passwordCheck']));
+	$passwordCheck = stripslashes(($_POST['passwordCheck']));
+	$passwordCheck = mysqli_real_escape_string($dbConnection, ($_POST['passwordCheck']));
+	$passwordCheck = htmlspecialchars($passwordCheck);
+	$passwordCheck = md5($passwordCheck);
 
-	if ($password != "" && $password == $passwordCheck) {
+	if (isset($_POST['password']) && $password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "UPDATE administrator SET ime = ?, priimek = ?, eNaslov = ?, geslo = ? WHERE idAdmin = ?");
 		mysqli_stmt_bind_param($query, 'ssssi', $ime, $priimek, $emailUp, $password, $idAdmin);
 	}
-	else if ($password == "" && $passwordCheck == "") {
+	else if (!isset($_POST['password'])&& !isset($_POST['passwordCheck'])) {
 		$query = mysqli_prepare($dbConnection, "UPDATE administrator SET ime = ?, priimek = ?, eNaslov = ? WHERE idAdmin = ?");
 		mysqli_stmt_bind_param($query, 'sssi', $ime, $priimek, $emailUp, $idAdmin);
 	}
-	else if ($password != "" && $password != $passwordCheck) {
+	else if (isset($_POST['password'])) {
 		echo "Gesli morata biti enaki";
 	}
 

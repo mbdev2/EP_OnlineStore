@@ -5,10 +5,23 @@
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
-	$id = $_POST['idIzdelka'];
-	$ime = $_POST['ime'];
-	$opis = $_POST['opis'];
-	$cena = $_POST['cena'];
+	$id = strip_tags(($_POST['idIzdelka']));
+	$id = stripslashes(($_POST['idIzdelka']));
+	$id = mysqli_real_escape_string($dbConnection, ($_POST['idIzdelka']));
+	$id = htmlspecialchars($id);
+	$ime = strip_tags(($_POST['ime']));
+	$ime = stripslashes(($_POST['ime']));
+	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
+	$ime = htmlspecialchars($ime);
+	$opis = strip_tags(($_POST['opis']));
+	$opis = stripslashes(($_POST['opis']));
+	$opis = mysqli_real_escape_string($dbConnection, ($_POST['opis']));
+	$opis = htmlspecialchars($opis);
+	$cena = strip_tags(($_POST['cena']));
+	$cena = stripslashes(($_POST['cena']));
+	$cena = mysqli_real_escape_string($dbConnection, ($_POST['cena']));
+	$cena = htmlspecialchars($cena);
+
 	if(isset($_POST['activeOrNot'])) {
 		$activeOrNot = 1;
 	}

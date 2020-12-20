@@ -5,10 +5,22 @@
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
-	$idProd = $_SESSION['idProd'];
-	$ime = $_POST['ime'];
-	$priimek = $_POST['priimek'];
-	$emailUp = $_POST['emailUp'];
+	$idProd = strip_tags(($_POST['idProd']));
+	$idProd = stripslashes(($_POST['idProd']));
+	$idProd = mysqli_real_escape_string($dbConnection, ($_POST['idProd']));
+	$idProd = htmlspecialchars($idProd);
+	$ime = strip_tags(($_POST['ime']));
+	$ime = stripslashes(($_POST['ime']));
+	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
+	$ime = htmlspecialchars($ime);
+	$priimek = strip_tags(($_POST['priimek']));
+	$priimek = stripslashes(($_POST['priimek']));
+	$priimek = mysqli_real_escape_string($dbConnection, ($_POST['priimek']));
+	$priimek = htmlspecialchars($priimek);
+	$emailUp = strip_tags(($_POST['emailUp']));
+	$emailUp = stripslashes(($_POST['emailUp']));
+	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
+	$emailUp = htmlspecialchars($emailUp);
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
 

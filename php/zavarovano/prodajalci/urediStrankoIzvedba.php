@@ -5,14 +5,33 @@
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
-	$id = $_POST['idStranke'];
-	$ime = $_POST['ime'];
-	$priimek = $_POST['priimek'];
-	$naslov = $_POST['naslov'];
-	$telefonskaStevilka = $_POST['telefonskaStevilka'];
-	$emailUp = $_POST['emailUp'];
+	$id = strip_tags(($_POST['idStranke']));
+	$id = stripslashes(($_POST['idStranke']));
+	$id = mysqli_real_escape_string($dbConnection, ($_POST['idStranke']));
+	$id = htmlspecialchars($id);
+	$ime = strip_tags(($_POST['ime']));
+	$ime = stripslashes(($_POST['ime']));
+	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
+	$ime = htmlspecialchars($ime);
+	$priimek = strip_tags(($_POST['priimek']));
+	$priimek = stripslashes(($_POST['priimek']));
+	$priimek = mysqli_real_escape_string($dbConnection, ($_POST['priimek']));
+	$priimek = htmlspecialchars($priimek);
+	$naslov = strip_tags(($_POST['naslov']));
+	$naslov = stripslashes(($_POST['naslov']));
+	$naslov = mysqli_real_escape_string($dbConnection, ($_POST['naslov']));
+	$naslov = htmlspecialchars($naslov);
+	$telefonskaStevilka = strip_tags(($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = stripslashes(($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = mysqli_real_escape_string($dbConnection, ($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = htmlspecialchars($telefonskaStevilka);
+	$emailUp = strip_tags(($_POST['emailUp']));
+	$emailUp = stripslashes(($_POST['emailUp']));
+	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
+	$emailUp = htmlspecialchars($emailUp);
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
+
 	if(isset($_POST['activeOrNot'])) {
 		$activeOrNot = 1;
 	} else {

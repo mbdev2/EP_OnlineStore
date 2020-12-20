@@ -1,7 +1,10 @@
 <?php
 include('../skupno/navigacija.php');
 include('../admin/preverjanjeVloge.php');
-$id = $_SESSION['idProd'];
+$id = strip_tags(($_POST['idProd']));
+$id = stripslashes(($_POST['idProd']));
+$id = mysqli_real_escape_string($dbConnection, ($_POST['idProd']));
+$id = htmlspecialchars($id);
 $prodajalec = mysqli_query($dbConnection, "SELECT * FROM prodajalci WHERE idProdajalca = '$id'");
 
 if (!isset($_SESSION['idProd'])) {

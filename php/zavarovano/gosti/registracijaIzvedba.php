@@ -3,16 +3,6 @@ define("RECAPTCHA_V3_SECRET_KEY", '6LdtrgcaAAAAAIeL8R8DLbo8lVULvckFBIqBX-Ip');
 include('../skupno/navigacija.php');
 include('../skupno/konfiguracija.php');
 
-	$ime = $_POST['ime'];
-	$priimek = $_POST['priimek'];
-	$naslov = $_POST['naslov'];
-	$telefonskaStevilka = $_POST['telefonskaStevilka'];
-	$emailUp = $_POST['emailUp'];
-	$password = md5($_POST['password']);
-	$passwordCheck = md5($_POST['passwordCheck']);
-	$token = $_POST['token'];
-	$action = $_POST['action'];
-
 	$ime = strip_tags(($_POST['ime']));
 	$ime = stripslashes(($_POST['ime']));
 	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
@@ -21,18 +11,28 @@ include('../skupno/konfiguracija.php');
 	$priimek = stripslashes(($_POST['priimek']));
 	$priimek = mysqli_real_escape_string($dbConnection, ($_POST['priimek']));
 	$priimek = htmlspecialchars($priimek);
-	$emailUp = strip_tags(($_POST['emailUp']));
-	$emailUp = stripslashes(($_POST['emailUp']));
-	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
-	$emailUp = htmlspecialchars($emailUp);
-	$telefonskaStevilka = strip_tags(($_POST['telefonskaStevilka']));
-	$telefonskaStevilka = stripslashes(($_POST['telefonskaStevilka']));
-	$telefonskaStevilka = mysqli_real_escape_string($dbConnection, ($_POST['telefonskaStevilka']));
-	$telefonskaStevilka = htmlspecialchars($telefonskaStevilka);
 	$naslov = strip_tags(($_POST['naslov']));
 	$naslov = stripslashes(($_POST['naslov']));
 	$naslov = mysqli_real_escape_string($dbConnection, ($_POST['naslov']));
 	$naslov = htmlspecialchars($naslov);
+	$telefonskaStevilka = strip_tags(($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = stripslashes(($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = mysqli_real_escape_string($dbConnection, ($_POST['telefonskaStevilka']));
+	$telefonskaStevilka = htmlspecialchars($telefonskaStevilka);
+	$emailUp = strip_tags(($_POST['emailUp']));
+	$emailUp = stripslashes(($_POST['emailUp']));
+	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
+	$emailUp = htmlspecialchars($emailUp);
+	$password = md5($password);
+	$passwordCheck = md5($passwordCheck);
+	$token = strip_tags(($_POST['token']));
+	$token = stripslashes(($_POST['token']));
+	$token = mysqli_real_escape_string($dbConnection, ($_POST['token']));
+	$token = htmlspecialchars($token);
+	$action = strip_tags(($_POST['action']));
+	$action = stripslashes(($_POST['action']));
+	$action = mysqli_real_escape_string($dbConnection, ($_POST['action']));
+	$action = htmlspecialchars($action);
 
 
 	// call curl to POST request

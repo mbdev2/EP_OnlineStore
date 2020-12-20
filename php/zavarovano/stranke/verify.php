@@ -3,8 +3,15 @@ include('../skupno/navigacija.php');
 include('../skupno/konfiguracija.php');
 
 if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])){
-    $emailUp = $_GET['email'];
-    $registerHash = $_GET['hash'];
+    $emailUp = strip_tags(($_POST['email']));
+    $emailUp = stripslashes(($_POST['email']));
+    $emailUp = mysqli_real_escape_string($dbConnection, ($_POST['email']));
+    $emailUp = htmlspecialchars($emailUp);
+    $registerHash = strip_tags(($_POST['hash']));
+    $registerHash = stripslashes(($_POST['hash']));
+    $registerHash = mysqli_real_escape_string($dbConnection, ($_POST['hash']));
+    $registerHash = htmlspecialchars($registerHash);
+
 
     $queryAction = mysqli_prepare($dbConnection, "SELECT * FROM stranke WHERE eNaslov = ? AND registerHash = ? LIMIT 1");
 		mysqli_stmt_bind_param($queryAction, 'ss', $emailUp, $registerHash);

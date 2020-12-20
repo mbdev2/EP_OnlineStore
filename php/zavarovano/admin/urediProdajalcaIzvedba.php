@@ -5,13 +5,14 @@
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
-	$id = $_POST['idProdajalca'];
-	$ime = $_POST['ime'];
-	$priimek = $_POST['priimek'];
-	$emailUp = $_POST['emailUp'];
+
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
 
+	$id = strip_tags(($_POST['id']));
+	$id = stripslashes(($_POST['id']));
+	$id = mysqli_real_escape_string($dbConnection, ($_POST['id']));
+	$id = htmlspecialchars($id);
 	$ime = strip_tags(($_POST['ime']));
 	$ime = stripslashes(($_POST['ime']));
 	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));
@@ -39,7 +40,7 @@
 		$query = mysqli_prepare($dbConnection, "UPDATE prodajalci SET ime = ?, priimek = ?, eNaslov = ?, activeOrNot = ? WHERE idProdajalca = ?");
 		mysqli_stmt_bind_param($query, 'sssii', $ime, $priimek, $emailUp, $activeOrNot, $id);
 	}
-	else if ($password != "") {
+	else if (isset($_POST['password'])) {
 		echo "Dude, dej enaki gesli no!";
 	}
 
