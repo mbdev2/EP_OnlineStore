@@ -35,15 +35,15 @@
 		$activeOrNot = 0;
 	}
 
-	if ($password != "" && $password == $passwordCheck) {
+	if (isset($_POST['password']) && $password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "UPDATE stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, geslo = ?, activeOrNot = ? WHERE idStranke = ?");
 		mysqli_stmt_bind_param($query, 'ssssssii', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $password, $activeOrNot, $id);
 	}
-	else if ($password == "" && $passwordCheck == "") {
+	else if (!isset($_POST['password']) && !isset($_POST['password'])) {
 		$query = mysqli_prepare($dbConnection, "UPDATE stranke SET ime = ?, priimek = ?, eNaslov = ?, naslov = ?, telefonskaStevilka = ?, activeOrNot = ? WHERE idStranke = ?");
 		mysqli_stmt_bind_param($query, 'sssssii', $ime, $priimek, $emailUp, $naslov, $telefonskaStevilka, $activeOrNot, $id);
 	}
-	else if ($password != "" && $password != $passwordCheck) {
+	else if (isset($_POST['password']) && $password != $passwordCheck) {
 		echo "<script>
 			alert('Gesli se ne ujemata!');
 			window.location.href='../prodajalci/seznamStrank.php';
