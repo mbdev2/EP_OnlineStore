@@ -50,6 +50,10 @@
 					echo json_encode($curUser3, JSON_UNESCAPED_UNICODE);
 				}
 			}
+			else{
+				header('Content-Type: application/json');
+				echo json_encode("404", JSON_UNESCAPED_UNICODE);
+			}
 	}
 	else{
 		header('Content-Type: application/json');
