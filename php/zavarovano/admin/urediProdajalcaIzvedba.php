@@ -40,7 +40,10 @@
 		mysqli_stmt_bind_param($query, 'sssii', $ime, $priimek, $emailUp, $activeOrNot, $id);
 	}
 	else if ($password != "") {
-		echo "Dude, dej enaki gesli no!";
+		echo "<script>
+			alert('Gesli se morata ujemati!');
+			window.location.href='../admin/seznamProdajalcev.php';
+		</script>";
 	}
 
 

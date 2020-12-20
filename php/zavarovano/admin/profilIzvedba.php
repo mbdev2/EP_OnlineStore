@@ -21,7 +21,10 @@
 		mysqli_stmt_bind_param($query, 'sssi', $ime, $priimek, $emailUp, $idAdmin);
 	}
 	else if ($password != "" && $password != $passwordCheck) {
-		echo "Gesli morata biti enaki";
+		echo "<script>
+			alert('Gesli se morata ujemati!');
+			window.location.href='../admin/profil.php';
+		</script>";
 	}
 
 	mysqli_stmt_execute($query);

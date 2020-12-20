@@ -16,7 +16,10 @@
 		mysqli_stmt_bind_param($query, 'ssss', $ime, $priimek, $emailUp, $password);
 	}
 	else{
-		echo "Gesli morata biti enaki!";
+		echo "<script>
+			alert('Gesli se morata ujemati!');
+			window.location.href='../admin/dodajProdajalca.php';
+		</script>";
 	}
 	mysqli_stmt_execute($query);
 	$query = $query->get_result();
