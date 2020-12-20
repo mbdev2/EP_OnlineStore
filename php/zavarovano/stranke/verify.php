@@ -3,13 +3,13 @@ include('../skupno/navigacija.php');
 include('../skupno/konfiguracija.php');
 
 if(isset($_GET['email']) && !empty($_GET['email']) AND isset($_GET['hash']) && !empty($_GET['hash'])){
-    $emailUp = strip_tags(($_POST['email']));
-    $emailUp = stripslashes(($_POST['email']));
-    $emailUp = mysqli_real_escape_string($dbConnection, ($_POST['email']));
+    $emailUp = strip_tags(($_GET['email']));
+    $emailUp = stripslashes(($_GET['email']));
+    $emailUp = mysqli_real_escape_string($dbConnection, ($_GET['email']));
     $emailUp = htmlspecialchars($emailUp);
-    $registerHash = strip_tags(($_POST['hash']));
-    $registerHash = stripslashes(($_POST['hash']));
-    $registerHash = mysqli_real_escape_string($dbConnection, ($_POST['hash']));
+    $registerHash = strip_tags(($_GET['hash']));
+    $registerHash = stripslashes(($_GET['hash']));
+    $registerHash = mysqli_real_escape_string($dbConnection, ($_GET['hash']));
     $registerHash = htmlspecialchars($registerHash);
 
 

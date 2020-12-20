@@ -30,7 +30,6 @@ if (!isset($_SESSION['idAdmin'])) {
 					<form action="../admin/profilIzvedba.php" method="post">
 						<div class="form-group">
 							<div class="row">
-								<input type="text" id="idProdajalca" name="idProdajalca" value="<?php echo $trenutniProdajalec['idProdajalca'] ?>" hidden>
 								<div class="col-5">
 									Ime:
 								</div>
