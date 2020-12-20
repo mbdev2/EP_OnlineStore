@@ -22,6 +22,10 @@
 			$query3 = $query3->get_result();
 			$curUser3 = mysqli_fetch_array($query3);
 
+			if(!isset($curUser1) && !isset($curUser2) && !isset($curUser3)){
+				header('Content-Type: application/json');
+				echo json_encode("404", JSON_UNESCAPED_UNICODE);
+			}
 			if(isset($curUser1)){
 				$idUporabnika = $curUser1['idStranke'];
 				$gesloUporabnika = $curUser1['geslo'];
@@ -30,7 +34,7 @@
 					echo json_encode($curUser1, JSON_UNESCAPED_UNICODE);
 				}
 			}
-			else if(isset($curUser2)){
+			elseif(isset($curUser2)){
 				$idUporabnika = $curUser2['idProdajalca'];
 				$gesloUporabnika = $curUser2['geslo'];
 				if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
@@ -38,8 +42,7 @@
 					echo json_encode($curUser2, JSON_UNESCAPED_UNICODE);
 				}
 			}
-
-			else if(isset($curUser3)){
+			elseif(isset($curUser3)){
 				$idUporabnika = $curUser3['idAdmin'];
 				$gesloUporabnika = $curUser3['geslo'];
 				if($gesloUporabnika != NULL && md5($geslo) == $gesloUporabnika) {
@@ -47,15 +50,10 @@
 					echo json_encode($curUser3, JSON_UNESCAPED_UNICODE);
 				}
 			}
-			else{
-				header('Content-Type: application/json');
-				echo json_encode("Error 404", JSON_UNESCAPED_UNICODE);
-			}
-
 	}
 	else{
 		header('Content-Type: application/json');
-		echo json_encode("Error 404", JSON_UNESCAPED_UNICODE);
+		echo json_encode("404", JSON_UNESCAPED_UNICODE);
 	}
 
 ?>
