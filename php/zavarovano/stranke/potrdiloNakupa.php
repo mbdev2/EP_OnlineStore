@@ -10,9 +10,9 @@
 	$idStranke = mysqli_real_escape_string($dbConnection, ($_POST['idStranke']));
 	$idStranke = htmlspecialchars($idStranke);
 	$datumNarocila = date('Y-m-d H:i:s');
-	$znesek = strip_tags(($_POST['znesek']));
-	$znesek = stripslashes(($_POST['znesek']));
-	$znesek = mysqli_real_escape_string($dbConnection, ($_POST['znesek']));
+	$znesek = strip_tags(($_POST['skupniZnesek']));
+	$znesek = stripslashes(($_POST['skupniZnesek']));
+	$znesek = mysqli_real_escape_string($dbConnection, ($_POST['skupniZnesek']));
 	$znesek = htmlspecialchars($znesek);
 	$naroceniIzdelki = $_SESSION['naroceniIzdelki'];
 
