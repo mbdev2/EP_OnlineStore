@@ -1,7 +1,6 @@
 <?php
+include("../skupno/konfiguracija.php");
 	if(isset($_POST['prijava'])){
-		include("../skupno/konfiguracija.php");
-
 		$emailUp = strip_tags(($_POST['emailUp']));
 		$geslo = strip_tags(($_POST['geslo']));
 		$emailUp = stripslashes(($_POST['emailUp']));

@@ -18,11 +18,11 @@
 		$activeOrNot = 0;
 	}
 
-	if ($password != "" && $password == $passwordCheck) {
+	if (isset($_POST['password']) && $password == $passwordCheck) {
 		$query = mysqli_prepare($dbConnection, "UPDATE prodajalci SET ime = ?, priimek = ?, eNaslov = ?, geslo = ?, activeOrNot = ? WHERE idProdajalca = ?");
 		mysqli_stmt_bind_param($query, 'ssssii', $ime, $priimek, $emailUp, $password, $activeOrNot, $id);
 	}
-	else if ($password == "" && $passwordCheck == "") {
+	else if (!isset($_POST['password'])&& !isset($_POST['passwordCheck'])) {
 		$query = mysqli_prepare($dbConnection, "UPDATE prodajalci SET ime = ?, priimek = ?, eNaslov = ?, activeOrNot = ? WHERE idProdajalca = ?");
 		mysqli_stmt_bind_param($query, 'sssii', $ime, $priimek, $emailUp, $activeOrNot, $id);
 	}
