@@ -5,10 +5,7 @@
 		header("Location: ../stranke/prijava.php");
 	}
 
-	$idIzdelka = strip_tags(($_POST['idIzdelka']));
-	$idIzdelka = stripslashes(($_POST['idIzdelka']));
-	$idIzdelka = mysqli_real_escape_string($dbConnection, ($_POST['idIzdelka']));
-	$idIzdelka = htmlspecialchars($idIzdelka);
+	$idIzdelka = $_POST['idIzdelka'];
 	$kolicina = strip_tags(($_POST['kolicina']));
 	$kolicina = stripslashes(($_POST['kolicina']));
 	$kolicina = mysqli_real_escape_string($dbConnection, ($_POST['kolicina']));

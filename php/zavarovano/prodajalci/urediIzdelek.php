@@ -5,10 +5,7 @@ if (!isset($_SESSION['idProd'])) {
 	header("Location: ../skupno/prijavaOsebja.php");
 }
 
-$idIzdelka = strip_tags(($_POST['idIzdelka']));
-$idIzdelka = stripslashes(($_POST['idIzdelka']));
-$idIzdelka = mysqli_real_escape_string($dbConnection, ($_POST['idIzdelka']));
-$idIzdelka = htmlspecialchars($idIzdelka);
+$idIzdelka = $_POST['idIzdelka'];
 $currenItemQuery = mysqli_query($dbConnection, "SELECT * FROM artikli WHERE idArtikla = '$idIzdelka'");
 $currenItem = mysqli_fetch_array($currenItemQuery, MYSQLI_ASSOC);
 ?>

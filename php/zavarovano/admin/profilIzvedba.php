@@ -18,15 +18,7 @@
 	$emailUp = stripslashes(($_POST['emailUp']));
 	$emailUp = mysqli_real_escape_string($dbConnection, ($_POST['emailUp']));
 	$emailUp = htmlspecialchars($emailUp);
-	$password = strip_tags(($_POST['password']));
-	$password = stripslashes(($_POST['password']));
-	$password = mysqli_real_escape_string($dbConnection, ($_POST['password']));
-	$password = htmlspecialchars($password);
 	$password = md5($password);
-	$passwordCheck = strip_tags(($_POST['passwordCheck']));
-	$passwordCheck = stripslashes(($_POST['passwordCheck']));
-	$passwordCheck = mysqli_real_escape_string($dbConnection, ($_POST['passwordCheck']));
-	$passwordCheck = htmlspecialchars($passwordCheck);
 	$passwordCheck = md5($passwordCheck);
 
 	if (isset($_POST['password']) && $password == $passwordCheck) {

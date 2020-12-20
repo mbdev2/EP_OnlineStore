@@ -6,15 +6,9 @@
 	}
 
 
-	$idIzdelka = strip_tags(($_POST['idIzdelka']));
-	$idIzdelka = stripslashes(($_POST['idIzdelka']));
-	$idIzdelka = mysqli_real_escape_string($dbConnection, ($_POST['idIzdelka']));
-	$idIzdelka = htmlspecialchars($idIzdelka);
-	$ocena = strip_tags(($_POST['ocena']));
-	$ocena = stripslashes(($_POST['ocena']));
-	$ocena = mysqli_real_escape_string($dbConnection, ($_POST['ocena']));
-	$ocena = htmlspecialchars($ocena);
-	
+	$idIzdelka = $_POST['idIzdelka'];
+	$ocena = $_POST['ocena'];
+
   $query = mysqli_prepare($dbConnection, "SELECT * FROM artikli WHERE idArtikla = ? LIMIT 1");
 	mysqli_stmt_bind_param($query, 'i', $idIzdelka);
 	mysqli_stmt_execute($query);

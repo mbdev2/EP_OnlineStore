@@ -5,10 +5,7 @@
 		header("Location: ../skupno/prijavaOsebja.php");
 	}
 
-	$id = strip_tags(($_POST['idIzdelka']));
-	$id = stripslashes(($_POST['idIzdelka']));
-	$id = mysqli_real_escape_string($dbConnection, ($_POST['idIzdelka']));
-	$id = htmlspecialchars($id);
+	$id = $_POST['idIzdelka'];
 	$ime = strip_tags(($_POST['ime']));
 	$ime = stripslashes(($_POST['ime']));
 	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));

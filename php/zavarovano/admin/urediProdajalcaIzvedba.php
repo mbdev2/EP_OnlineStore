@@ -9,10 +9,7 @@
 	$password = md5($_POST['password']);
 	$passwordCheck = md5($_POST['passwordCheck']);
 
-	$id = strip_tags(($_POST['id']));
-	$id = stripslashes(($_POST['id']));
-	$id = mysqli_real_escape_string($dbConnection, ($_POST['id']));
-	$id = htmlspecialchars($id);
+	$id = $_POST['idProdajalca'];
 	$ime = strip_tags(($_POST['ime']));
 	$ime = stripslashes(($_POST['ime']));
 	$ime = mysqli_real_escape_string($dbConnection, ($_POST['ime']));

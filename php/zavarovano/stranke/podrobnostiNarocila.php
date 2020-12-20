@@ -5,10 +5,7 @@ if (!isset($_SESSION['idStranka'])) {
 	header("Location: ../stranke/prijava.php");
 }
 
-$idNarocila = strip_tags(($_POST['idNarocila']));
-$idNarocila = stripslashes(($_POST['idNarocila']));
-$idNarocila = mysqli_real_escape_string($dbConnection, ($_POST['idNarocila']));
-$idNarocila = htmlspecialchars($idNarocila);
+$idNarocila = $_POST['idNarocila'];
 
 $idNarocilaQuery = mysqli_query($dbConnection, "SELECT * FROM narocila WHERE idNarocila = '$idNarocila'");
 while ($chosen = mysqli_fetch_array($idNarocilaQuery, MYSQLI_ASSOC)) {
