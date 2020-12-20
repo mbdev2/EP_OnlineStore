@@ -1,7 +1,8 @@
 
 <?php
 
-	include('navigacija.php');
+include('konfiguracija.php');
+
 	if (isset($_GET["email"]) && isset($_GET["geslo"])) {
     	$email = $_GET["email"];
 			$geslo = $_GET["geslo"];
