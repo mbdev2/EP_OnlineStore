@@ -99,7 +99,12 @@ $skupniZnesek = 0;
 					<form action="obdelavaNarocilaIzvedba.php" method="post">
 						<select name="orderStatus">
 							<option value="1">Potrdi</option>
-							<option value="3">Prekliči</option>
+							<?php if ($trenutnoPodrobnoNarocilo['orderStatus'] == 0) {
+								echo '<option value="3">Prekliči</option>';
+							} elseif ($trenutnoPodrobnoNarocilo['orderStatus'] == 1) {
+								echo '<option value="2">Storniraj</option>';
+							} ?>
+
 						</select>
 						<input type="hidden" name="idNarocila" value="
 								<?php
