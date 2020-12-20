@@ -25,14 +25,8 @@ include('../skupno/konfiguracija.php');
 	$emailUp = htmlspecialchars($emailUp);
 	$password = md5($password);
 	$passwordCheck = md5($passwordCheck);
-	$token = strip_tags(($_POST['token']));
-	$token = stripslashes(($_POST['token']));
-	$token = mysqli_real_escape_string($dbConnection, ($_POST['token']));
-	$token = htmlspecialchars($token);
-	$action = strip_tags(($_POST['action']));
-	$action = stripslashes(($_POST['action']));
-	$action = mysqli_real_escape_string($dbConnection, ($_POST['action']));
-	$action = htmlspecialchars($action);
+	$token = $_POST['token'];
+	$action = $_POST['action'];
 
 
 	// call curl to POST request
