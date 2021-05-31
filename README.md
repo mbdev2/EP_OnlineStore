@@ -1,8 +1,17 @@
-# epProjekt
--- Clani EKIPE --
-		
-	Matjaž Bevc, Mark Breznik, Amadej Pavšič
--- CREDENTIALS --
+# Online Store with Android App
+## _Just a fun way to get into PHP and Android developement!_
+
+Developed by Matjaž Bevc, Mark Breznik and Amadej Pavšič for a course in our undergraduate study program Multimedia at the Faculty of Computer and Information Science, University of Lubljana
+
+## Features
+
+- Multiple login authentication and authorizations levels - guest, buyer, sales-person and manager.
+- Browse a suite of items, shop around and execute orders!
+- Manage items inventory, account settings and more.
+- Some other hidden treats.
+
+## How to use?
+### CREDENTIALS
 
 	STRANKE
 		email:			matjaz.bevc@gmail.com
@@ -36,7 +45,7 @@
 		pass - cert:		certadminpass
 
 
--- CERTS --
+### CERTIFICATES
 
 	CERT AGENCY
 		Ime:			Elektronsko poslovanje CA
@@ -49,7 +58,8 @@
 		pass:			certserver
 
 
--- HOW TO USE - GUIDE --
+### HOW TO USE
+(In Slovenian language)
 
 	1. 	Direktorij "epProjekt" skopirajte na namizje.
 
@@ -72,3 +82,13 @@
 	10.	Z ukazom "sudo apt-get install php-curl" namestimo curl extension.
 
 	11.	Zaženemo apache server z ukazom "sudo service apache2 start".
+
+## Development
+
+For now developement of our online store based on PHP has been finished - it was never meant to become something great, we just had to do a project and got to learn PHP on the side.
+From our experience, Node.js or Python Flask provide a better developement environement.
+
+## License
+
+MIT
+**Free Software, Hell Yeah!**
