@@ -1,13 +1,13 @@
 # Online Store with Android App
-## _Just a fun way to get into PHP and Android developement!_
+## _Just a fun way to get into PHP and Android development!_
 
-Developed by Matjaž Bevc, Mark Breznik and Amadej Pavšič for a course in our undergraduate study program Multimedia at the Faculty of Computer and Information Science, University of Lubljana
+Developed by Matjaž Bevc, Mark Breznik, and Amadej Pavšič for a course in our undergraduate study program Multimedia at the Faculty of Computer and Information Science, University of Ljubljana
 
 ## Features
 
-- Multiple login authentication and authorizations levels - guest, buyer, sales-person and manager.
+- Multiple login authentication and authorization levels - guest, buyer, sales-person, and manager.
 - Browse a suite of items, shop around and execute orders!
-- Manage items inventory, account settings and more.
+- Manage items inventory, account settings, and more.
 - Some other hidden treats.
 
 ## How to use?
@@ -85,8 +85,8 @@ Developed by Matjaž Bevc, Mark Breznik and Amadej Pavšič for a course in our 
 
 ## Development
 
-For now developement of our online store based on PHP has been finished - it was never meant to become something great, we just had to do a project and got to learn PHP on the side.
-From our experience, Node.js or Python Flask provide a better developement environement.
+For now, the development of our online store based on PHP has been finished - it was never meant to become something great, we just had to do a project and got to learn PHP on the side.
+From our experience, Node.js or Python Flask provide a better development environment.
 
 ## License
 
